@@ -1,7 +1,14 @@
 <template>
-  <div class="zap-slideout xs-border xs-text-6 md-text-5" :class="{ isOpen: $store.state.menuIsActive  }">
+  <div
+    class="zap-slideout xs-border xs-text-6 md-text-5"
+    :class="{ isOpen: $store.state.menuIsActive  }"
+  >
     <div class="zap-slideout-opener">
-      <div @click="toggle" class="hamburger hamburger--spin js-hamburger" :class="{'is-active': $store.state.menuIsActive }">
+      <div
+        @click="toggle"
+        class="hamburger hamburger--spin js-hamburger"
+        :class="{'is-active': $store.state.menuIsActive }"
+      >
         <div class="hamburger-box">
           <div class="hamburger-inner"></div>
         </div>
@@ -10,23 +17,35 @@
     <ul class="zap-slideout-menu list-unstyled black-font">
       <li class="zap-slideout-menu-item">
         <nuxt-link style="color:#000" class="text-black black-font" to="/" exact>
-        <img style="width:64px;" class="xs-block xs-fit xs-mb2" v-if="this.$store.state.siteInfo.siteicon  && this.$store.state.siteInfo.showmenu" :src="this.$store.state.siteInfo.siteicon" :alt="menuSiteName">
-        {{menuSiteName}}
+          <img
+            style="width:64px;"
+            class="xs-block xs-fit xs-mb2"
+            v-if="this.$store.state.siteInfo.siteicon  && this.$store.state.siteInfo.showmenu"
+            :src="this.$store.state.siteInfo.siteicon"
+            :alt="menuSiteName"
+          />
+          {{menuSiteName}}
         </nuxt-link>
       </li>
       <li class="zap-slideout-menu-item--small">
-        <nuxt-link to="/" exact>Home</nuxt-link>
+        <nuxt-link to="/" exact>Order</nuxt-link>
       </li>
-         <li v-if="this.$store.state.allCats" class="zap-slideout-menu-item--small">
-        <nuxt-link to="/categories" exact>Categories</nuxt-link>
+      <li class="zap-slideout-menu-item--small">
+        <nuxt-link to="/about" exact>Our Story</nuxt-link>
       </li>
-      <li v-if="myPages" v-for="(pg,i) in myPages" :key="`pg-${i}`" class="zap-slideout-menu-item--small">
-        <nuxt-link :to="pg._path">{{pg.title}}</nuxt-link>
+      <li class="zap-slideout-menu-item--small">
+        <nuxt-link to="/community" exact>Community</nuxt-link>
       </li>
-      <li v-if="menuLinks" class="xs-mt5 zap-slideout-menu-item black-font">
-        Links
+      <li class="zap-slideout-menu-item--small">
+        <nuxt-link to="/contact" exact>Contact</nuxt-link>
       </li>
-      <li v-if="menuLinks" v-for="m in menuLinks" :key="m.position" class="zap-slideout-menu-item--small">
+      <li v-if="menuLinks" class="xs-mt5 zap-slideout-menu-item black-font">Social Media</li>
+      <li
+        v-if="menuLinks"
+        v-for="m in menuLinks"
+        :key="m.position"
+        class="zap-slideout-menu-item--small"
+      >
         <a :href="m.link">{{m.name}}</a>
       </li>
     </ul>
@@ -169,9 +188,9 @@ export default {
   position: fixed;
   right: 0;
   top: 0;
-  width: 34vw;
+  width: 25vw;
   height: 100vh;
-  z-index:1000;
+  z-index: 1000;
   padding: 16px;
   background-color: #fff;
   transform: translate3D(100%, 0, 0);
@@ -180,6 +199,12 @@ export default {
   &.isOpen {
     transform: translate3D(0, 0, 0);
     transition: transform 0.6s;
+  }
+}
+
+@media only screen and (max-width: 40rem) {
+  .zap-slideout {
+    width: 50vw;
   }
 }
 
@@ -205,7 +230,6 @@ export default {
   transition: transform 1.6s ease(out-cubic);
 }
 
-.zap-slideout-menu-item,
 .zap-slideout-menu-item--small {
   cursor: pointer;
   text-transform: uppercase;

@@ -1,21 +1,25 @@
 <template>
-
-    <component :is="getLayout" :allitems="allBlogPosts"></component>
+  <main>
+    <div class="full-height single xs-border-left xs-border-right">
+      <div class="xs-mt2 xs-p2 bcg-item">
+        <div class="item xs-block xs-full-height">
+          <h1 class="xs-py3 main-title">Something</h1>
+          <p>Else</p>
+        </div>
+      </div>
+    </div>
+  </main>
 </template>
 
 <script>
-import BaelGrid from "~/components/BaelGrid";
-import FullGrid from "~/components/FullGrid";
 export default {
-    watchQuery: ['page'],
-
-   transition (to, from) {
-     
-    if (!from) return 'fade'
-    return +to.query.page > +from.query.page ? 'slide-right' : 'slide-left'
+  watchQuery: ["page"],
+  transition(to, from) {
+    if (!from) return "fade";
+    return +to.query.page > +from.query.page ? "slide-right" : "slide-left";
   },
   name: "Index",
-  components: { BaelGrid,FullGrid },
+  components: {},
   data() {
     return {};
   },
@@ -24,35 +28,29 @@ export default {
   computed: {
     allBlogPosts() {
       return this.$store.state.blogPosts;
-    },
-    getLayout() {
-if (this.$store.state.siteInfo.altlayout == false ) {
-  return 'BaelGrid'
-} else if (this.$store.state.siteInfo.altlayout == true ) {
-  return 'FullGrid'
-}
-
     }
   }
 };
 </script>
 
 <style>
-
 .browse a {
   width: 100%;
 }
 .search:focus {
   outline: none;
 }
-.footer__heading {
-  text-transform: uppercase;
-}
 nav .r {
   grid-gap: 0;
 }
 .r.full-height {
   grid-gap: 0;
+}
+section {
+  width: 100%;
+  grid-column: span 12;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 @media only screen and (max-width: 40rem) {
   .xs-collapse {

@@ -1,60 +1,93 @@
-importScripts('/_nuxt/workbox.dev.c21f51f2.js')
+importScripts('/_nuxt/workbox.4c4f5ca6.js')
 
-const workboxSW = new self.WorkboxSW({
+workbox.precaching.precacheAndRoute([
+  {
+    "url": "/_nuxt/app.0b52683.js",
+    "revision": "d5267dac793b4e87077d2bc304c14962"
+  },
+  {
+    "url": "/_nuxt/app.c642393.css",
+    "revision": "eea2c65e642802e58f023965c78ad5ea"
+  },
+  {
+    "url": "/_nuxt/commons.app.1662953.js",
+    "revision": "8f08ff9755669f17e4ef588931906028"
+  },
+  {
+    "url": "/_nuxt/pages/about.f88662b.js",
+    "revision": "b029adbd726a2ac220a3a1843f0dd9ee"
+  },
+  {
+    "url": "/_nuxt/pages/blog/[_]slug.a8e9bb1.js",
+    "revision": "bf77256e9f6d415132b144db20f31b3b"
+  },
+  {
+    "url": "/_nuxt/pages/categories.2e33d7c.js",
+    "revision": "aee1ec9a17a423761be78765a32456eb"
+  },
+  {
+    "url": "/_nuxt/pages/categories.464d25b.css",
+    "revision": "49a73f71935b878ccb7f81c876cee4fb"
+  },
+  {
+    "url": "/_nuxt/pages/category/[_]slug.464d25b.css",
+    "revision": "49a73f71935b878ccb7f81c876cee4fb"
+  },
+  {
+    "url": "/_nuxt/pages/category/[_]slug.b841961.js",
+    "revision": "63d2d8260ce64cb3963b3b6bf02e55aa"
+  },
+  {
+    "url": "/_nuxt/pages/community.9f59160.css",
+    "revision": "cdf5b72ae07252b828c76c17b4b44ae2"
+  },
+  {
+    "url": "/_nuxt/pages/community.e68fd2c.js",
+    "revision": "448b64ba658054fce1077bbd5cd9be36"
+  },
+  {
+    "url": "/_nuxt/pages/Contact.1c9e696.js",
+    "revision": "f20fb8614dc493dae1baf1fd368f1523"
+  },
+  {
+    "url": "/_nuxt/pages/Contact.719ac64.css",
+    "revision": "dac6e40178e81d93f638a5a9f9551aae"
+  },
+  {
+    "url": "/_nuxt/pages/index.37af49c.js",
+    "revision": "bd250e4ff17934d8cbe827d3bee2b048"
+  },
+  {
+    "url": "/_nuxt/pages/index.464d25b.css",
+    "revision": "49a73f71935b878ccb7f81c876cee4fb"
+  },
+  {
+    "url": "/_nuxt/pages/page/[_]slug.9ee457c.js",
+    "revision": "dd8c50d2de34ed9eed4aeda1143b51fa"
+  },
+  {
+    "url": "/_nuxt/runtime.42b4000.js",
+    "revision": "d6ea43a2eee0a5ae412da247f7757b18"
+  },
+  {
+    "url": "/_nuxt/vendors.app.446e707.js",
+    "revision": "7875b53f86754e23ad06094163a42e0e"
+  },
+  {
+    "url": "/_nuxt/vendors.app.673206f.css",
+    "revision": "3e3569ee1fdeca689c8b42a2f26636bd"
+  }
+], {
   "cacheId": "bael-cms-template",
-  "clientsClaim": true,
-  "directoryIndex": "/"
+  "directoryIndex": "/",
+  "cleanUrls": false
 })
 
-workboxSW.precache([
-  {
-    "url": "/_nuxt/03bfbac93cf29dfa7b30.js",
-    "revision": "09154b6befafc7f01837c53d1a31df85"
-  },
-  {
-    "url": "/_nuxt/098c8560743a94312b82.js",
-    "revision": "7526f4c2229dbeaeeb3108ef5dd373e7"
-  },
-  {
-    "url": "/_nuxt/12de1b50a49f81408dcf.css",
-    "revision": "cfef01e8b2f16b0f478ba50c66f231b2"
-  },
-  {
-    "url": "/_nuxt/26f5da7e2cd150912eca.js",
-    "revision": "7163e2c49e35177cce34203e1a4c8398"
-  },
-  {
-    "url": "/_nuxt/471f1cc4719e779c1781.css",
-    "revision": "750e44d4546b4f0905579c6885ab58d6"
-  },
-  {
-    "url": "/_nuxt/64ffca04ca9b8a255502.js",
-    "revision": "9417b906f573cd28b17fe15f9adda831"
-  },
-  {
-    "url": "/_nuxt/7e16c2d1904fe8008c6e.css",
-    "revision": "76fef9861851f2ee38590539976b8fd1"
-  },
-  {
-    "url": "/_nuxt/86ad3cdcc40313620480.css",
-    "revision": "76fef9861851f2ee38590539976b8fd1"
-  },
-  {
-    "url": "/_nuxt/9ec57e4dabcf6aeed5d0.js",
-    "revision": "36359da7227f3eabe1828c322eb1dec5"
-  },
-  {
-    "url": "/_nuxt/a7b3301561ba4f3cc5f9.css",
-    "revision": "0dfcd8f1a9bbca12d3cb32d12980a703"
-  },
-  {
-    "url": "/_nuxt/e408c73ecbc745fdce85.js",
-    "revision": "24e2649090e8ebcd51e6ab71906e0140"
-  }
-])
+workbox.clientsClaim()
+workbox.skipWaiting()
 
+workbox.routing.registerRoute(new RegExp('/_nuxt/.*'), workbox.strategies.cacheFirst({}), 'GET')
 
-workboxSW.router.registerRoute(new RegExp('/_nuxt/.*'), workboxSW.strategies.cacheFirst({}), 'GET')
+workbox.routing.registerRoute(new RegExp('/.*'), workbox.strategies.networkFirst({}), 'GET')
 
-workboxSW.router.registerRoute(new RegExp('/.*'), workboxSW.strategies.networkFirst({}), 'GET')
-
+workbox.routing.registerRoute(new RegExp('/images/uploads/.*'), workbox.strategies.cacheFirst({"cacheName":"image-cache","cacheExpiration":{"maxEntries":100,"maxAgeSeconds":86400}}), 'GET')

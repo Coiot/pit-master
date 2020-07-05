@@ -1,18 +1,21 @@
 <template>
-  <main>
-    <div class="full-height single xs-border-left xs-border-right" :style="`min-height:calc(100vh - ${navbarheight}px);margin-top:${navbarheight}px`">
-      <div class="xs-mt2 xs-p2 bcg-item">
-        <div class="item xs-block xs-full-height">
-          <div v-if="thumbnail" class="fill-gray-lighter feat-wrapper"><transition appear name="fade"><img class="featured-image" :src="thumbnail" :alt="title"></transition></div>
-          <h1 class="xs-py3 main-title">{{title}}</h1>
-          <div class="xs-py3 post-content text-gray">
-            <div v-html="$md.render(body)"></div>
-          </div>
+<main>
+  <div class="full-height single xs-border-left xs-border-right" :style="`min-height:calc(100vh - ${navbarheight}px);margin-top:${navbarheight}px`">
+    <div class="xs-mt2 xs-p2 bcg-item">
+      <div class="item xs-block xs-full-height">
+        <div v-if="thumbnail" class="fill-gray-lighter feat-wrapper">
+          <transition appear name="fade"><img class="featured-image" :src="thumbnail" :alt="title"></transition>
+        </div>
+        <h1 class="xs-py3 main-title">{{title}}</h1>
+        <p>{{ date }}</p>
+        <div class="xs-py3 post-content text-gray">
+          <div v-html="$md.render(body)"></div>
         </div>
       </div>
-
     </div>
-  </main>
+
+  </div>
+</main>
 </template>
 
 
@@ -21,20 +24,25 @@
 import MdWrapper from "~/components/MdWrapper";
 
 export default {
-  async asyncData({ params, app, payload, route, store }) {
+  async asyncData({
+    params,
+    app,
+    payload,
+    route,
+    store
+  }) {
     let post = await import("~/content/page/posts/" + params.slug + ".json");
     console.log(post);
     await store.commit("SET_TITLE", post.title);
-    
+
     return post;
   },
-     transition (to, from) {
-    if (!from) { return 'slide-left' } else {return 'slide-right'}
-  },
-  head() {
-    return {
-      title: this.title + " | " + this.$store.state.siteInfo.sitename
-    };
+  transition(to, from) {
+    if (!from) {
+      return 'slide-left'
+    } else {
+      return 'slide-right'
+    }
   },
   data() {
     return {};
@@ -46,14 +54,15 @@ export default {
       console.log("slug resize");
     },
     navHeight() {
-      var height = document.getElementById("navbar").clientHeight;
+      var height = document.getElementById("navbar")
+        .clientHeight;
       this.$store.commit("SET_NAVHEIGHT", height);
     }
   },
   updated() {
     if (process.browser) {
       this.$nextTick(() => {
-           this.$store.commit("paginateOff", false);
+        this.$store.commit("paginateOff", false);
 
         this.navHeight();
         console.log(this.$store.state.navheight);
@@ -65,7 +74,7 @@ export default {
     if (process.browser) {
       this.$nextTick(() => {
         this.navHeight();
-                   this.$store.commit("paginateOff", false);
+        this.$store.commit("paginateOff", false);
 
         window.addEventListener("resize", this.onResize);
         console.log(this.$store.state.navheight);
