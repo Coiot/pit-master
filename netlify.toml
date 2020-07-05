@@ -1,5 +1,4 @@
 [build]
-  publish = "./dist/"
   command = "yarn run generate --no-lock && yarn run build:api"
   functions = "./functions"
 [build.environment]
