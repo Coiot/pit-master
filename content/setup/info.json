@@ -1,8 +1,10 @@
 {
   "sitename": "JMBBQ",
-  "sitedescription": "Bringing you the best darn Texan barbeque in Portland imaginable!",
+  "sitedescription": "Bringing you the best darn Texan barbeque imaginable!",
   "siteicon": "/images/uploads/icon.png",
   "showmenu": true,
+  "emailsignup": true,
+  "altlayout": false,
   "menu": [
     {
       "name": "Facebook",
