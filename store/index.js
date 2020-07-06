@@ -13,6 +13,7 @@ const createStore = () =>
       blogTitle: '',
       siteInfo: [],
       connect: [],
+      faq: [],
       allTags: [],
       gridItems: [],
       gridNumPosts: '11',
@@ -48,15 +49,13 @@ const createStore = () =>
       },
       async getPages({ state, commit }) {
 
+        const faq = await require('~/content/page/faq.json');
+        const shirt = await require('~/content/page/shirt.json');
+        const about = await require('~/content/page/about.json');
 
-        const context = await require.context('~/content/page/posts/', false, /\.json$/);
-
-        const pages = await context.keys().map(key => ({
-          ...context(key),
-          _path: `/page/${key.replace('.json', '').replace('./', '')}`
-        }));
-
-        commit('SET_PAGES', pages)
+        commit('SET_FAQ', faq)
+        commit('SET_SHIRT', shirt)
+        commit('SET_ABOUT', about)
 
       },
       setGridNumPosts({ state, commit }) {
@@ -83,29 +82,16 @@ const createStore = () =>
         commit('SET_CATS', pages)
 
       },
-      async getTags({ state, commit }) {
-
-
-        const context = await require.context('~/content/tags/posts/', false, /\.json$/);
-
-        const pages = await context.keys().map(key => ({
-          ...context(key),
-          _path: `/tagged/${key.replace('.json', '').replace('./', '')}`
-        }));
-
-        commit('SET_TAGS', pages)
-
-      },
       getSiteInfo({ state, commit }) {
         const info = require('~/content/setup/info.json');
         const connect = require('~/content/setup/connect.json');
         const context = require.context('~/content/blog/posts/', false, /\.json$/);
 
+
         const searchposts = context.keys().map(key => ({
           ...context(key),
           _path: `/blog/${key.replace('.json', '').replace('./', '')}`
         }));
-
 
 
         commit('SET_POSTS', searchposts)
@@ -159,6 +145,15 @@ const createStore = () =>
       },
       SET_CONNECT(state, data) {
         state.connect = data
+      },
+      SET_FAQ(state, data) {
+        state.faq = data
+      },
+      SET_SHIRT(state, data) {
+        state.shirt = data
+      },
+      SET_ABOUT(state, data) {
+        state.about = data
       },
       SET_RESULTS(state, data) {
         state.results = data

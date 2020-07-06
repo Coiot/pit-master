@@ -7,7 +7,7 @@
 
           <section class="col xs-col-12 xs-py2">
             <h2 class="xs-py2 main-title">Mission Statement</h2>
-            <p>{{ section.mission_statement }}</p>
+            <p>{{ about.mission_statement }}</p>
           </section>
 
           <section class="col xs-col-12 xs-py2">
@@ -20,11 +20,22 @@
             </div>
             <div class="col xs-col-12 md-col-6">
               <h2 class="xs-py3 main-title">History</h2>
-              <p>{{ section.history }}</p>
+              <p>{{ about.history }}</p>
             </div>
           </section>
 
-          <Team />
+          <section v-if="about.members" class="col xs-col-12 xs-py2 xs-text-center">
+            <h2 class="xs-py3 main-title">The Squad</h2>
+            <figure v-for="member in about.members" :key="i" class="col xs-col-12 md-col-4 xs-p2">
+              <transition appear name="fade">
+                <img
+                  src="https://generative-placeholders.glitch.me/image?width=300&height=300&colors=61&style=tiles"
+                />
+              </transition>
+              <figcaption class="secondary-title">{{ member.name }}</figcaption>
+              <p>{{ member.bio }}</p>
+            </figure>
+          </section>
 
           <section class="col xs-col-12 xs-py2">
             <div class="col xs-col-12 md-col-6">
@@ -33,15 +44,11 @@
               />
             </div>
             <div class="col xs-col-12 md-col-6">
-              <h2 class="xs-py3 main-title">Process</h2>
-              <p>{{ section.process }}</p>
+              <h2 class="xs-py3 main-title">The Process</h2>
+              <p>{{ about.process }}</p>
             </div>
             <div class="col xs-col-12 xs-py4 xs-text-center">
-              <figure
-                v-for="image in section.images"
-                :key="image.src"
-                class="col xs-col-12 md-col-4"
-              >
+              <figure v-for="image in about.images" :key="image.src" class="col xs-col-12 md-col-4">
                 <img :src="image.src" />
                 <figcaption class>{{ image.alt }}</figcaption>
               </figure>
@@ -59,38 +66,16 @@
   </main>
 </template>
 <script>
-import Team from "@/components/Team.vue";
-
 export default {
   name: "About",
-  components: {
-    Team
-  },
   data: function() {
-    return {
-      section: {
-        mission_statement: "Text here.",
-        history: "Some text.",
-        process: "More text.",
-        images: [
-          {
-            src:
-              "https://generative-placeholders.glitch.me/image?width=300&height=300&colors=61&style=joy-division&img=01",
-            alt: "Process 1"
-          },
-          {
-            src:
-              "https://generative-placeholders.glitch.me/image?width=300&height=300&colors=61&style=joy-division&img=02",
-            alt: "Process 2"
-          },
-          {
-            src:
-              "https://generative-placeholders.glitch.me/image?width=300&height=300&colors=61&style=joy-division&img=03",
-            alt: "Process 3"
-          }
-        ]
-      }
-    };
+    return {};
+  },
+  methods: {},
+  computed: {
+    about() {
+      return this.$store.state.about;
+    }
   }
 };
 </script>

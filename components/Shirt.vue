@@ -14,13 +14,13 @@
 <script>
 export default {
   data: function() {
-    return {
-      shirt: {
-        title: "JM BBQ Shirt",
-        body: "Support your local pit master.",
-        button: "Order now to rep the Q"
-      }
-    };
+    return {};
+  },
+  methods: {},
+  computed: {
+    shirt() {
+      return this.$store.state.shirt;
+    }
   }
 };
 </script>

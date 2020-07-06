@@ -35,7 +35,6 @@ export default {
     return {};
   },
   methods: {},
-
   computed: {
     allBlogPosts() {
       return this.$store.state.blogPosts;

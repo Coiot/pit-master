@@ -10,7 +10,7 @@
             netlify-honeypot="bot-field"
             data-netlify="true"
             id="contact-form"
-            class="contact-form xs-flex xs-flex-column xs-fit"
+            class="contact-form xs-flex xs-flex-column xs-fit xs-mb3"
             netlify
           >
             <p class="form-row">

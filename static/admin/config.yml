@@ -22,7 +22,6 @@ collections:
   - name: "page" # Used in routes, e.g., /admin/collections/blog
     label: "Pages" # Used in the UI
     folder: "content/page/posts" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     format: 'json'
     fields: # The fields for each document, usually in front matter
@@ -42,18 +41,17 @@ collections:
         - {label: Site Description, name: sitedescription, widget: string}
         - {label: Site Icon (Must be 512x512 or larger square PNG), name: siteicon, widget: image,default: "/icon.png"}
         - {label: Show Icon in Menu, name: showmenu, widget: boolean}
-        - {label: Email Newsletter Signup, name: emailsignup, widget: boolean}
-        - {label: Full Page Alt Layout, name: altlayout, widget: boolean}
-        - label: Menu Links
+        - label: Social Media Menu Links
           name: menu
           widget: list
           fields:
             - {label: Name, name: name, widget: string}
             - {label: Position, name: position, widget: string}
             - {label: Link, name: link, widget: string}
-    - label: "Connect"
+    - label: "Footer Social Media Links"
       name: "connect"
       format: 'json'
+      create: true
       file: "content/setup/connect.json"
       fields:
         - label: 'Links'

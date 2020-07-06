@@ -1,0 +1,22 @@
+{
+  "questions": [
+    {
+      "question": "Refunds?",
+      "answer": "Sure thing."
+    },
+    {
+      "question": "Peanuts?",
+      "answer": "None whatsover."
+    },
+    {
+      "question": "Do you deliver?",
+      "answer": "From here to the moon."
+    },
+    {
+      "question": "How many calories?",
+      "answer": "Two day's worth of protein."
+    }
+  ],
+  "title": "Frequently Asked Questions",
+  "body": "Before you send us a message, read our most commonly addressed questions. Save time with a response already here."
+}
