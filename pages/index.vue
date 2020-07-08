@@ -85,9 +85,6 @@ export default {
   },
   methods: {},
   computed: {
-    allBlogPosts() {
-      return this.$store.state.blogPosts;
-    },
     cta() {
       return this.$store.state.cta;
     },

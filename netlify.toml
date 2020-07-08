@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "yarn run generate && yarn run generate --no-lock"
+  command = "yarn run build && yarn run generate"
 [build.environment]
   NODE_VERSION = "9" 
   YARN_FLAGS = "--no-ignore-optional"
