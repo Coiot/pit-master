@@ -2,5 +2,4 @@
   publish = "dist"
   command = "yarn run generate --no-lock"
 [build.environment]
-  NODE_VERSION = "9" 
   YARN_FLAGS = "--no-ignore-optional"
