@@ -6,6 +6,41 @@ backend:
 media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 collections:
+  - name: "menu" 
+    label: "Menu" 
+    format: 'json'
+    file: "content/setup/info.json"
+    fields: 
+      - label: Plates
+          name: plates
+          widget: list
+          fields:
+            - {label: Name, name: item, widget: string}
+            - {label: Includes, name: includes, widget: string}
+            - {label: Price, name: price, widget: string}
+            - {label: Description, name: description, widget: string}
+            - {label: "Image", name: "image", widget: "image"}
+      - label: Meats
+          name: meats
+          widget: list
+          fields:
+            - {label: Name, name: item, widget: string}
+            - {label: Price, name: price, widget: string}
+            - {label: Description, name: description, widget: string}
+      - label: Sides
+          name: sides
+          widget: list
+          fields:
+            - {label: Name, name: item, widget: string}
+            - {label: Price, name: price, widget: string}
+            - {label: Description, name: description, widget: string}
+      - label: Extras
+          name: extras
+          widget: list
+          fields:
+            - {label: Name, name: item, widget: string}
+            - {label: Price, name: price, widget: string}
+            - {label: Description, name: description, widget: string}
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
     folder: "content/blog/posts" # The path to the folder where the documents are stored
@@ -18,16 +53,6 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime", format: "dddd MMMM Do, YYYY"}
       - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
       - {label: "Category", name: "category", widget: "relation", collection: "blogcategories", searchFields: ["title"], valueField: "title", displayFields: ["title"], required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
-  - name: "page" # Used in routes, e.g., /admin/collections/blog
-    label: "Pages" # Used in the UI
-    folder: "content/page/posts" # The path to the folder where the documents are stored
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    format: 'json'
-    fields: # The fields for each document, usually in front matter
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
   - label: "Setup"
     name: "setup"

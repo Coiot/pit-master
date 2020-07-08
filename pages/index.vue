@@ -5,8 +5,8 @@
         <div class="item xs-block xs-full-height">
           <section class="col xs-col-12 xs-py2 xs-px2 md-px4">
             <div class="col xs-col-12 md-col-6">
-              <h1 class="xs-py3 main-title">Call-to-Action</h1>
-              <p>Text here.</p>
+              <h1 class="xs-py3 main-title">{{ cta.title }}</h1>
+              <p>{{ cta.body }}</p>
             </div>
             <div class="col xs-col-12 md-col-6">
               <transition appear name="fade">
@@ -17,52 +17,53 @@
             </div>
           </section>
           <section class="col xs-col-12 xs-p2 xs-px2 xs-my3 md-px3 card">
-            <h3 class="secondary-title">Covid-19 Assurance</h3>
-            <p>Text here.</p>
+            <h3 class="secondary-title">{{ notice.title }}</h3>
+            <p>{{ notice.body }}</p>
           </section>
-          <section class="col xs-col-12 xs-py2 xs-px2 xs-my3 md-px4">
+          <section class="col xs-col-12 xs-py2 xs-px2 xs-my4 md-px4">
             <h2 class="xs-py2 main-title">Barbecue Plates — Our Homage to Texas</h2>
-            <div class="col xs-col-12 md-col-8">
-              <h3 class="xs-py3 main-title">Plate</h3>
-              <p>Text here.</p>
-              <button class="button xs-px3 xs-py2">+ Price</button>
-            </div>
-            <div class="col xs-col-12 md-col-4">
-              <transition appear name="fade">
-                <img
-                  src="https://generative-placeholders.glitch.me/image?width=500&height=500&colors=61&img=01"
-                />
-              </transition>
-            </div>
+            <article v-for="plate in menu.plates" key="plate.item" class="plate xs-flex xs-my4">
+              <div class="col xs-col-12 md-col-8">
+                <h3 class="xs-pt1 main-title">{{ plate.item }}</h3>
+                <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
+                <p>{{ plate.description }}</p>
+                <button class="button xs-px3 xs-py2">{{ plate.price }}</button>
+              </div>
+              <div class="col xs-col-12 md-col-4">
+                <transition appear name="fade">
+                  <img :src="plate.image" />
+                </transition>
+              </div>
+            </article>
           </section>
           <section class="xs-py2 xs-px2 md-px4">
             <h2 class="main-title">Just Meats</h2>
-            <article>
+            <article v-for="meat in menu.meats" key="meat.item" class="xs-my2">
               <div class="xs-flex">
-                <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">Text</h3>
-                <button class="button xs-px3 xs-py1">+ Price</button>
+                <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ meat.item }}</h3>
+                <button class="button xs-px3 xs-py1">{{ meat.price }}</button>
               </div>
-              <p>Here</p>
+              <p>{{ meat.description }}</p>
             </article>
           </section>
           <section class="xs-py2 xs-px2 md-px4">
             <h2 class="main-title">Our Sides</h2>
-            <article>
+            <article v-for="side in menu.sides" key="side.item" class="xs-my2">
               <div class="xs-flex">
-                <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">Text</h3>
-                <button class="button xs-px3 xs-py1">+ Price</button>
+                <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ side.item }}</h3>
+                <button class="button xs-px3 xs-py1">{{ side.price }}</button>
               </div>
-              <p>Here</p>
+              <p>{{ side.description }}</p>
             </article>
           </section>
           <section class="xs-py2 xs-px2 md-px4">
             <h2 class="main-title">Extras</h2>
-            <article>
+            <article v-for="extra in menu.extras" key="extra.item" class="xs-my2">
               <div class="xs-flex">
-                <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">Text</h3>
-                <button class="button xs-px3 xs-py1">+ Price</button>
+                <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ extra.item }}</h3>
+                <button class="button xs-px3 xs-py1">{{ extra.price }}</button>
               </div>
-              <p>Here</p>
+              <p>{{ extra.description }}</p>
             </article>
           </section>
         </div>
@@ -79,15 +80,22 @@ export default {
     return +to.query.page > +from.query.page ? "slide-right" : "slide-left";
   },
   name: "Index",
-  components: {},
   data() {
     return {};
   },
   methods: {},
-
   computed: {
     allBlogPosts() {
       return this.$store.state.blogPosts;
+    },
+    cta() {
+      return this.$store.state.cta;
+    },
+    notice() {
+      return this.$store.state.notice;
+    },
+    menu() {
+      return this.$store.state.menu;
     }
   }
 };
@@ -113,10 +121,10 @@ section {
   margin: 0 auto;
 }
 .leaders {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .leaders:after {
-  content: "     -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -  ";
+  content: "    -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   ";
   white-space: pre;
 }
 .button {
@@ -125,6 +133,15 @@ section {
   font-family: "Archivo Black", sans-serif !important;
   font-weight: 300 !important;
   line-height: 1.1 !important;
+}
+.plate:nth-of-type(even) {
+  flex-flow: row-reverse;
+  justify-content: flex-end;
+}
+.plate:nth-of-type(even) div {
+  display: flex;
+  align-items: flex-end;
+  flex-flow: column;
 }
 @media only screen and (max-width: 40rem) {
   .xs-collapse {

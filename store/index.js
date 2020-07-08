@@ -14,6 +14,9 @@ const createStore = () =>
       siteInfo: [],
       connect: [],
       faq: [],
+      shirt: [],
+      about: [],
+      cta: [],
       allTags: [],
       gridItems: [],
       gridNumPosts: '11',
@@ -52,10 +55,16 @@ const createStore = () =>
         const faq = await require('~/content/page/faq.json');
         const shirt = await require('~/content/page/shirt.json');
         const about = await require('~/content/page/about.json');
+        const cta = await require('~/content/page/cta.json');
+        const notice = await require('~/content/page/notice.json');
+        const menu = await require('~/content/page/menu.json');
 
         commit('SET_FAQ', faq)
         commit('SET_SHIRT', shirt)
         commit('SET_ABOUT', about)
+        commit('SET_CTA', cta)
+        commit('SET_NOTICE', notice)
+        commit('SET_MENU', menu)
 
       },
       setGridNumPosts({ state, commit }) {
@@ -154,6 +163,15 @@ const createStore = () =>
       },
       SET_ABOUT(state, data) {
         state.about = data
+      },
+      SET_CTA(state, data) {
+        state.cta = data
+      },
+      SET_NOTICE(state, data) {
+        state.notice = data
+      },
+      SET_MENU(state, data) {
+        state.menu = data
       },
       SET_RESULTS(state, data) {
         state.results = data
