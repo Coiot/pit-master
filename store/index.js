@@ -54,6 +54,13 @@ const createStore = () =>
       },
       async getPages({ state, commit }) {
 
+        const context = await require.context('~/content/page/posts/', false, /\.json$/);
+
+        const pages = await context.keys().map(key => ({
+          ...context(key),
+          _path: `/page/${key.replace('.json', '').replace('./', '')}`
+        }));
+
         const faq = await require('~/content/page/faq.json');
         const shirt = await require('~/content/page/shirt.json');
         const about = await require('~/content/page/about.json');
@@ -61,6 +68,7 @@ const createStore = () =>
         const notice = await require('~/content/page/notice.json');
         const menu = await require('~/content/page/menu.json');
 
+        commit('SET_PAGES', pages)
         commit('SET_FAQ', faq)
         commit('SET_SHIRT', shirt)
         commit('SET_ABOUT', about)
@@ -79,7 +87,19 @@ const createStore = () =>
           this.$store.commit("SET_GRIDNUMCATS", 12);
         }
       },
+      async getTags({ state, commit }) {
 
+
+        const context = await require.context('~/content/tags/posts/', false, /\.json$/);
+
+        const pages = await context.keys().map(key => ({
+          ...context(key),
+          _path: `/tagged/${key.replace('.json', '').replace('./', '')}`
+        }));
+
+        commit('SET_TAGS', pages)
+
+      },
       async getCats({ state, commit }) {
 
 

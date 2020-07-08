@@ -8,7 +8,6 @@ var path = require('path');
 // The Nuxt routes are generate by Nuxt automatically based on the pages folder.
 var dynamicRoutes = getDynamicPaths({
   '/blog': 'blog/posts/*.json',
-  '/page': 'page/posts/*.json',
   '/category': 'categories/posts/*.json',
   '/tagged': 'tags/posts/*.json'
 });
@@ -19,10 +18,7 @@ module.exports = {
   /*
   ** Headers of the page
   */
-transition: { mode: "in-out"},
-env: {
-  API_URL: process.env.API_URL,
-},
+  transition: { mode: "in-out" },
   head: {
     title: siteInfo.sitename,
     meta: [
@@ -36,7 +32,7 @@ env: {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Archivo+Black' }
     ]
   },
-  css: ["@/assets/grid.css","bf-solid/dist/solid.latest.css"],
+  css: ["@/assets/grid.css", "bf-solid/dist/solid.latest.css"],
   // icon: {
   //   iconSrc: `${siteInfo.siteicon}`
   //  },
@@ -44,14 +40,14 @@ env: {
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
-  modules: ['@nuxtjs/markdownit', '@nuxtjs/pwa','@nuxtjs/axios'],
+  modules: ['@nuxtjs/markdownit', '@nuxtjs/pwa', '@nuxtjs/axios'],
   markdownit: {
     injected: true,
     preset: 'default',
     breaks: true,
     html: true
 
-    
+
   },
   manifest: {
     name: siteInfo.sitename,
@@ -78,22 +74,22 @@ env: {
   /*
   ** Route config for pre-rendering
   */
- router: {
-  scrollBehavior: function (to, from, savedPosition) {
-    return { x: 0, y: 0 }
+  router: {
+    scrollBehavior: function (to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    },
+    middleware: ['title']
   },
-middleware: ['title']
- },
   generate: {
     routes: dynamicRoutes
   },
-  plugins: ['~/plugins/vuefuse',{
+  plugins: ['~/plugins/vuefuse', {
     src: "~/plugins/moment",
     ssr: false
-  },{
-    src: "~/plugins/lazyload",
-    ssr: false
-  }],
+  }, {
+      src: "~/plugins/lazyload",
+      ssr: false
+    }],
   /*
   ** Build configuration
   */
