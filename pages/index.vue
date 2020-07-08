@@ -22,7 +22,7 @@
           </section>
           <section class="col xs-col-12 xs-py2 xs-px2 xs-my4 md-px4">
             <h2 class="xs-py2 main-title">Barbecue Plates — Our Homage to Texas</h2>
-            <article v-for="plate in menu.plates" key="plate.item" class="plate xs-flex xs-my4">
+            <article v-for="plate in menu.plates" :key="plate.item" class="plate xs-flex xs-my4">
               <div class="col xs-col-12 md-col-8">
                 <h3 class="xs-pt1 main-title">{{ plate.item }}</h3>
                 <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
@@ -38,7 +38,7 @@
           </section>
           <section class="xs-py2 xs-px2 md-px4">
             <h2 class="main-title">Just Meats</h2>
-            <article v-for="meat in menu.meats" key="meat.item" class="xs-my2">
+            <article v-for="meat in menu.meats" :key="meat.item" class="xs-my2">
               <div class="xs-flex">
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ meat.item }}</h3>
                 <button class="button xs-px3 xs-py1">{{ meat.price }}</button>
@@ -48,7 +48,7 @@
           </section>
           <section class="xs-py2 xs-px2 md-px4">
             <h2 class="main-title">Our Sides</h2>
-            <article v-for="side in menu.sides" key="side.item" class="xs-my2">
+            <article v-for="side in menu.sides" :key="side.item" class="xs-my2">
               <div class="xs-flex">
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ side.item }}</h3>
                 <button class="button xs-px3 xs-py1">{{ side.price }}</button>
@@ -58,7 +58,7 @@
           </section>
           <section class="xs-py2 xs-px2 md-px4">
             <h2 class="main-title">Extras</h2>
-            <article v-for="extra in menu.extras" key="extra.item" class="xs-my2">
+            <article v-for="extra in menu.extras" :key="extra.item" class="xs-my2">
               <div class="xs-flex">
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ extra.item }}</h3>
                 <button class="button xs-px3 xs-py1">{{ extra.price }}</button>

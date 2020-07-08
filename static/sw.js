@@ -2,8 +2,8 @@ importScripts('/_nuxt/workbox.4c4f5ca6.js')
 
 workbox.precaching.precacheAndRoute([
   {
-    "url": "/_nuxt/app.51d8a47.js",
-    "revision": "1012a93810f6f77a7cf776dfca8b54b4"
+    "url": "/_nuxt/app.37b8211.js",
+    "revision": "7b9ea6f2d9f127f5eeca9cd2a7459e71"
   },
   {
     "url": "/_nuxt/app.af29210.css",
@@ -38,8 +38,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "457142fe1dcf69f34d395bea49e02810"
   },
   {
-    "url": "/_nuxt/pages/community.9ccbc25.js",
-    "revision": "8c9ea557e24047034d14616aac37796c"
+    "url": "/_nuxt/pages/community.8f16fca.js",
+    "revision": "52e4813473e347f422e19832f8926779"
   },
   {
     "url": "/_nuxt/pages/community.e6e5500.css",
@@ -62,8 +62,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "ab29f4f536fc07f67e817fc5aeee1536"
   },
   {
-    "url": "/_nuxt/runtime.6092946.js",
-    "revision": "ed001f2d3759296499c488cb0d7a51a1"
+    "url": "/_nuxt/runtime.1da4fcd.js",
+    "revision": "722f1cdd3343d3efe9a7727106c696e6"
   },
   {
     "url": "/_nuxt/vendors~app.3cacae4.js",

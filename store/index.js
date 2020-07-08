@@ -28,8 +28,7 @@ const createStore = () =>
       theCrumb: '',
       allCats: [],
       results: [],
-      resultsnum: [],
-      pagination: false
+      resultsnum: []
     },
     actions: {
       async nuxtServerInit({ dispatch }) {
