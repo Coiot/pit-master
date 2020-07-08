@@ -26,7 +26,11 @@
 
           <section v-if="about.members" class="col xs-col-12 xs-py2 xs-text-center">
             <h2 class="xs-py3 main-title">The Squad</h2>
-            <figure v-for="member in about.members" :key="i" class="col xs-col-12 md-col-4 xs-p2">
+            <figure
+              v-for="member in about.members"
+              :key="member.name"
+              class="col xs-col-12 md-col-4 xs-p2"
+            >
               <transition appear name="fade">
                 <img
                   src="https://generative-placeholders.glitch.me/image?width=300&height=300&colors=61&style=tiles"
