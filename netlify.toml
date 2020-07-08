@@ -1,6 +1,5 @@
 [build]
-  command = "yarn run generate --no-lock && yarn run build:api"
-  functions = "./functions"
+  command = "yarn run generate --no-lock"
 [build.environment]
   NODE_VERSION = "9"
   YARN_FLAGS = "--no-ignore-optional"
