@@ -1,5 +1,6 @@
 [build]
   publish = "dist"
-  command = "yarn run generate --no-lock"
+  command = "yarn run generate --no-lock && yarn run build:api"
 [build.environment]
-  NODE_VERSION = "9"
+  NODE_VERSION = "9" 
+  YARN_FLAGS = "--no-ignore-optional"
