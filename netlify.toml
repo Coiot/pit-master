@@ -1,5 +1,5 @@
 [build]
   publish = "dist"
-  command = "yarn run build && yarn run generate"
+  command = "yarn run generate"
 [build.environment]
   NODE_VERSION = "9"
