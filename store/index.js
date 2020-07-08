@@ -17,6 +17,8 @@ const createStore = () =>
       shirt: [],
       about: [],
       cta: [],
+      item: [],
+      menu: [],
       allTags: [],
       gridItems: [],
       gridNumPosts: '11',
