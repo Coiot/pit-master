@@ -9,7 +9,7 @@ collections:
   - name: "menu" 
     label: "Menu" 
     format: 'json'
-    file: "content/setup/info.json"
+    file: "content/page/menu.json"
     fields: 
       - label: Plates
           name: plates
