@@ -19,7 +19,6 @@ const createStore = () =>
       cta: [],
       item: [],
       menu: [],
-      allTags: [],
       gridItems: [],
       gridNumPosts: '11',
       gridNumCats: '11',
@@ -52,23 +51,16 @@ const createStore = () =>
         commit('SET_POSTS', searchposts.reverse())
 
       },
-      async getPages({ state, commit }) {
+      getPages({ state, commit }) {
 
-        const context = await require.context('~/content/page/posts/', false, /\.json$/);
 
-        const pages = await context.keys().map(key => ({
-          ...context(key),
-          _path: `/page/${key.replace('.json', '').replace('./', '')}`
-        }));
+        const faq = require('~/content/page/faq.json');
+        const shirt = require('~/content/page/shirt.json');
+        const about = require('~/content/page/about.json');
+        const cta = require('~/content/page/cta.json');
+        const notice = require('~/content/page/notice.json');
+        const menu = require('~/content/page/menu.json');
 
-        const faq = await require('~/content/page/faq.json');
-        const shirt = await require('~/content/page/shirt.json');
-        const about = await require('~/content/page/about.json');
-        const cta = await require('~/content/page/cta.json');
-        const notice = await require('~/content/page/notice.json');
-        const menu = await require('~/content/page/menu.json');
-
-        commit('SET_PAGES', pages)
         commit('SET_FAQ', faq)
         commit('SET_SHIRT', shirt)
         commit('SET_ABOUT', about)
@@ -87,19 +79,7 @@ const createStore = () =>
           this.$store.commit("SET_GRIDNUMCATS", 12);
         }
       },
-      async getTags({ state, commit }) {
 
-
-        const context = await require.context('~/content/tags/posts/', false, /\.json$/);
-
-        const pages = await context.keys().map(key => ({
-          ...context(key),
-          _path: `/tagged/${key.replace('.json', '').replace('./', '')}`
-        }));
-
-        commit('SET_TAGS', pages)
-
-      },
       async getCats({ state, commit }) {
 
 
