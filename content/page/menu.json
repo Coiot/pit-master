@@ -1,76 +1,71 @@
 {
-    "plates": [
-        {
-            "item": "Name",
-            "price": "+ Price",
-            "description": "Description",
-            "includes": "Includes",
-            "image": "https://generative-placeholders.glitch.me/image?width=500&height=500&colors=61&img=01"
-        },
-        {
-            "item": "Name",
-            "price": "+ Price",
-            "description": "Description",
-            "includes": "Includes",
-            "image": "https://generative-placeholders.glitch.me/image?width=500&height=500&colors=61&img=02"
-        },
-        {
-            "item": "Name",
-            "price": "+ Price",
-            "description": "Description",
-            "includes": "Includes",
-            "image": "https://generative-placeholders.glitch.me/image?width=500&height=500&colors=61&img=03"
-        }
-    ],
-    "meats": [
-        {
-            "item": "Name",
-            "price": "+ Price",
-            "description": "Description"
-        },
-        {
-            "item": "Name",
-            "price": "+ Price",
-            "description": "Description"
-        },
-        {
-            "item": "Name",
-            "price": "+ Price",
-            "description": "Description"
-        }
-    ],
-    "sides": [
-        {
-            "item": "Name",
-            "price": "+ Price",
-            "description": "Description"
-        },
-        {
-            "item": "Name",
-            "price": "+ Price",
-            "description": "Description"
-        },
-        {
-            "item": "Name",
-            "price": "+ Price",
-            "description": "Description"
-        }
-    ],
-    "extras": [
-        {
-            "item": "Name",
-            "price": "+ Price",
-            "description": "Description"
-        },
-        {
-            "item": "Name",
-            "price": "+ Price",
-            "description": "Description"
-        },
-        {
-            "item": "Name",
-            "price": "+ Price",
-            "description": "Description"
-        }
-    ]
+  "plates": [
+    {
+      "item": "Name",
+      "price": "+ Price",
+      "description": "Description",
+      "includes": "Includes",
+      "image": "https://generative-placeholders.glitch.me/image?width=500&height=500&colors=61&img=01"
+    },
+    {
+      "item": "Name",
+      "price": "+ Price",
+      "description": "Description",
+      "includes": "Includes",
+      "image": "https://generative-placeholders.glitch.me/image?width=500&height=500&colors=61&img=02"
+    },
+    {
+      "item": "Name",
+      "price": "+ Price",
+      "description": "Description",
+      "includes": "Includes",
+      "image": "https://generative-placeholders.glitch.me/image?width=500&height=500&colors=61&img=03"
+    }
+  ],
+  "meats": [
+    {
+      "item": "Name",
+      "price": "+ Price",
+      "description": "Description"
+    },
+    {
+      "item": "Name",
+      "price": "+ Price",
+      "description": "Description"
+    },
+    {
+      "item": "Name",
+      "price": "+ Price",
+      "description": "Description"
+    }
+  ],
+  "sides": [
+    {
+      "item": "Name",
+      "price": "+ Price",
+      "description": "Description"
+    },
+    {
+      "item": "Name",
+      "price": "+ Price",
+      "description": "Description"
+    },
+    {
+      "item": "Name",
+      "price": "+ Price",
+      "description": "Description"
+    }
+  ],
+  "extras": [
+    {
+      "item": "Sauce",
+      "price": "+ $5 / Pint",
+      "description": "Dark and tangy."
+    },
+    {
+      "item": "Name",
+      "price": "+ Price",
+      "description": "Description"
+    }
+  ]
 }
