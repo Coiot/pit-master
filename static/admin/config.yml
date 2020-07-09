@@ -14,36 +14,36 @@ collections:
       format: 'json'
       file: "content/page/menu.json"
       fields: 
-        - label: "Plates"
-          name: "plates"
-         widget: 'list'
-         fields:
-           - {label: 'Name', name: item, widget: string}
-            - {label: 'Includes', name: includes, widget: string}
-            - {label: 'Price', name: price, widget: string}
-            - {label: 'Description', name: description, widget: string}
-            - {label: "Image", name: "image", widget: "image"}
-        - label: 'Meats'
-          name: 'meats'
-          widget: list
-          fields:
-           - {label: Name, name: item, widget: string}
-           - {label: Price, name: price, widget: string}
-           - {label: Description, name: description, widget: string}
-        - label: 'Sides'
-          name: 'sides'
-         widget: 'list'
-         fields:
-            - {label: Name, name: item, widget: string}
-            - {label: Price, name: price, widget: string}
-           - {label: Description, name: description, widget: string}
-        - label: 'Extras'
-          name: 'extras'
-          widget: 'list'
-          fields:
-            - {label: Name, name: item, widget: string}
-            - {label: Price, name: price, widget: string}
-            - {label: Description, name: description, widget: string}
+      - label: "Plates"
+        name: "plates"
+        widget: 'list'
+        fields:
+          - {label: 'Name', name: item, widget: string}
+          - {label: 'Includes', name: includes, widget: string}
+          - {label: 'Price', name: price, widget: string}
+          - {label: 'Description', name: description, widget: string}
+          - {label: "Image", name: "image", widget: "image"}
+      - label: 'Meats'
+        name: 'meats'
+        widget: list
+        fields:
+          - {label: Name, name: item, widget: string}
+          - {label: Price, name: price, widget: string}
+          - {label: Description, name: description, widget: string}
+      - label: 'Sides'
+        name: 'sides'
+        widget: 'list'
+        fields:
+          - {label: Name, name: item, widget: string}
+          - {label: Price, name: price, widget: string}
+          - {label: Description, name: description, widget: string}
+      - label: 'Extras'
+        name: 'extras'
+        widget: 'list'
+        fields:
+          - {label: Name, name: item, widget: string}
+          - {label: Price, name: price, widget: string}
+          - {label: Description, name: description, widget: string}
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
     folder: "content/blog/posts" # The path to the folder where the documents are stored
