@@ -26,8 +26,8 @@
               <div class="col xs-col-12 md-col-8">
                 <h3 class="xs-pt1 main-title">{{ plate.item }}</h3>
                 <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
-                <p>{{ plate.description }}</p>
-                <button class="button xs-px3 xs-py2">{{ plate.price }}</button>
+                <p class="xs-my2">{{ plate.description }}</p>
+                <button class="button xs-px3 xs-py2 xs-my2">{{ plate.price }}</button>
               </div>
               <div class="col xs-col-12 md-col-4">
                 <transition appear name="fade">
@@ -117,13 +117,6 @@ section {
   max-width: 1200px;
   margin: 0 auto;
 }
-.leaders {
-  overflow: hidden;
-}
-.leaders:after {
-  content: "    -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   ";
-  white-space: pre;
-}
 .button {
   background-color: black !important;
   font-size: 1.1rem !important;
@@ -139,6 +132,8 @@ section {
   display: flex;
   align-items: flex-end;
   flex-flow: column;
+  justify-content: flex-end;
+  text-align: end;
 }
 @media only screen and (max-width: 40rem) {
   .xs-collapse {
