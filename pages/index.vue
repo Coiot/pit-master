@@ -23,7 +23,7 @@
           <section class="col xs-col-12 xs-py2 xs-px2 xs-my4 md-px4">
             <h2 class="xs-py2 main-title">Barbecue Plates — Our Homage to Texas</h2>
             <article v-for="plate in menu.plates" :key="plate.item" class="plate xs-flex xs-my4">
-              <div class="col xs-col-12 md-col-8">
+              <div class="col xs-col-12 md-col-8 xs-px0 md-px2">
                 <h3 class="xs-pt1 main-title">{{ plate.item }}</h3>
                 <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
                 <p class="xs-my2">{{ plate.description }}</p>
@@ -43,7 +43,7 @@
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ meat.item }}</h3>
                 <button class="button xs-px3 xs-py1">{{ meat.price }}</button>
               </div>
-              <p>{{ meat.description }}</p>
+              <p class="xs-my1">{{ meat.description }}</p>
             </article>
           </section>
           <section class="xs-py2 xs-px2 md-px4">
@@ -53,7 +53,7 @@
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ side.item }}</h3>
                 <button class="button xs-px3 xs-py1">{{ side.price }}</button>
               </div>
-              <p>{{ side.description }}</p>
+              <p class="xs-my1">{{ side.description }}</p>
             </article>
           </section>
           <section class="xs-py2 xs-px2 md-px4">
@@ -63,7 +63,7 @@
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ extra.item }}</h3>
                 <button class="button xs-px3 xs-py1">{{ extra.price }}</button>
               </div>
-              <p>{{ extra.description }}</p>
+              <p class="xs-my1">{{ extra.description }}</p>
             </article>
           </section>
         </div>
@@ -132,7 +132,6 @@ section {
   display: flex;
   align-items: flex-end;
   flex-flow: column;
-  justify-content: flex-end;
   text-align: right;
 }
 @media only screen and (max-width: 40rem) {

@@ -78,9 +78,17 @@ body {
   line-height: 1.2;
 }
 .secondary-title {
-  font-size: 2em;
+  font-size: 1.8em;
   font-family: "Archivo Black", sans-serif;
   font-weight: 400;
+}
+@media only screen and (max-width: 40rem) {
+  .main-title {
+    font-size: 2.2rem;
+  }
+  .secondary-title {
+    font-size: 1.5em;
+  }
 }
 .feat-wrapper {
   max-height: 55vh;
