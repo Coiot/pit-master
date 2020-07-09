@@ -27,7 +27,7 @@
                 <h3 class="xs-pt1 main-title">{{ plate.item }}</h3>
                 <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
                 <p class="xs-my2">{{ plate.description }}</p>
-                <button class="button xs-px3 xs-py2 xs-my2">{{ plate.price }}</button>
+                <button class="button xs-px3 xs-py2 xs-my1">{{ plate.price }}</button>
               </div>
               <div class="col xs-col-12 md-col-4">
                 <transition appear name="fade">
@@ -133,7 +133,7 @@ section {
   align-items: flex-end;
   flex-flow: column;
   justify-content: flex-end;
-  text-align: end;
+  text-align: right;
 }
 @media only screen and (max-width: 40rem) {
   .xs-collapse {
