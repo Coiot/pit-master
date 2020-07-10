@@ -98,30 +98,30 @@ body {
 .slide-right-leave-active {
   transform: translate(50%, 0);
   opacity: 0;
-  transition: all 0.25s;
+  transition: all 0.2s;
 }
 .slide-left-leave-active,
 .slide-right-enter {
   transform: translate(-50%, 0);
   opacity: 0;
-  transition: all 0.25s;
+  transition: all 0.2s;
 }
 .slide-down-enter,
 .slide-up-leave-active {
   transform: translate(0, 50%);
   opacity: 1;
-  transition: all 0.25s;
+  transition: all 0.2s;
 }
 .slide-down-leave-active,
 .slide-up-enter {
   transform: translate(0, -50%);
   opacity: 1;
-  transition: all 0.25s;
+  transition: all 0.2s;
 }
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
-  transition-delay: 0.3s;
+  transition-delay: 0.35s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;

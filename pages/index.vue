@@ -22,7 +22,11 @@
           </section>
           <section class="col xs-col-12 xs-py2 xs-px2 xs-my4 md-px4">
             <h2 class="xs-py2 main-title">Barbecue Plates — Our Homage to Texas</h2>
-            <article v-for="plate in menu.plates" :key="plate.item" class="plate xs-flex xs-my4">
+            <article
+              v-for="plate in menu.plates"
+              :key="plate.item"
+              class="plate xs-flex xs-flex-column-reverse md-flex-row xs-my6 md-my4 xs-py1 md-py2"
+            >
               <div class="col xs-col-12 md-col-8 xs-px0 md-px2">
                 <h3 class="xs-pt1 main-title">{{ plate.item }}</h3>
                 <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
@@ -125,14 +129,17 @@ section {
   line-height: 1.1 !important;
 }
 .plate:nth-of-type(even) {
-  flex-flow: row-reverse;
-  justify-content: flex-end;
+  flex-flow: row-reverse !important;
+}
+@media only screen and (max-width: 40rem) {
+  .plate:nth-of-type(even) {
+    flex-flow: column-reverse !important;
+  }
 }
 .plate:nth-of-type(even) div {
   display: flex;
   align-items: flex-end;
-  flex-flow: column;
-  text-align: right;
+  flex-flow: column !important;
 }
 @media only screen and (max-width: 40rem) {
   .xs-collapse {
