@@ -131,17 +131,18 @@ section {
 .plate:nth-of-type(even) {
   flex-flow: row-reverse !important;
 }
-@media only screen and (max-width: 40rem) {
-  .plate:nth-of-type(even) {
-    flex-flow: column-reverse !important;
-  }
-}
 .plate:nth-of-type(even) div {
   display: flex;
   align-items: flex-end;
   flex-flow: column !important;
 }
 @media only screen and (max-width: 40rem) {
+  .plate:nth-of-type(even) {
+    flex-flow: column-reverse !important;
+  }
+  .plate:nth-of-type(even) div {
+    align-items: flex-start;
+  }
   .xs-collapse {
     visibility: hidden;
     visibility: collapse;
