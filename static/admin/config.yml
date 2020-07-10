@@ -108,8 +108,6 @@ collections:
       fields:
         - {label: Header, name: title, widget: string}
         - {label: Text, name: body, widget: string}
-        - {label: Site Icon (Must be 512x512 or larger square PNG), name: siteicon, widget: image,default: "/icon.png"}
-        - {label: Show Icon in Menu, name: showmenu, widget: boolean}
         - label: Questions
           name: 'questions'
           widget: 'list'
