@@ -2,15 +2,18 @@
     "members": [
         {
             "name": "Josh",
-            "bio": "Pit Boss"
+            "bio": "Pit Boss",
+            "image": "https://generative-placeholders.glitch.me/image?width=300&height=300&colors=61&style=tiles"
         },
         {
             "name": "Obed",
-            "bio": "Head Brusher"
+            "bio": "Head Brusher",
+            "image": "https://generative-placeholders.glitch.me/image?width=300&height=300&colors=61&style=tiles"
         },
         {
             "name": "Isaac",
-            "bio": "Apprentice Tenderizer"
+            "bio": "Apprentice Tenderizer",
+            "image": "https://generative-placeholders.glitch.me/image?width=300&height=300&colors=61&style=tiles"
         }
     ],
     "mission_statement": "Text here.",
