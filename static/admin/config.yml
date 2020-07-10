@@ -9,6 +9,22 @@ collections:
   - name: "home" 
     label: "Home" 
     files:
+    - name: "cta" 
+      label: "Call-to-Action" 
+      format: 'json'
+      file: "content/page/cta.json"
+      widget: 'list'
+      fields:
+        - {label: 'Header', name: title, widget: string}
+        - {label: 'Text', name: body, widget: string}
+    - name: "notice" 
+      label: "Special Notice" 
+      format: 'json'
+      file: "content/page/notice.json"
+      widget: 'list'
+      fields:
+        - {label: 'Header', name: title, widget: string}
+        - {label: 'Message', name: body, widget: string}
     - name: "menu" 
       label: "Menu" 
       format: 'json'
