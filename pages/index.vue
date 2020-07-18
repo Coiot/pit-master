@@ -70,24 +70,51 @@
               <p class="xs-my1">{{ extra.description }}</p>
             </article>
           </section>
+          <contentComponent />
         </div>
       </div>
     </div>
   </main>
 </template>
-
 <script>
+import contentComponent from "@/components/contentComponent";
+
 export default {
-  watchQuery: ["page"],
-  transition(to, from) {
-    if (!from) return "fade";
-    return +to.query.page > +from.query.page ? "slide-right" : "slide-left";
+  components: {
+    contentComponent
+  },
+  /** Get data on Server Side: */
+  async fetch({ app, store }) {
+    if (process.browser) return;
+    try {
+      // Binds it on server side then unbind again to avoid memory leaks on the server.
+      await store.dispatch("bindnumber");
+      store.dispatch("unbindnumber");
+    } catch (e) {
+      console.error(e);
+    }
+  },
+  /**  Bind Vuexfire on client-side: */
+  async mounted() {
+    try {
+      await this.$store.dispatch("bindnumber");
+    } catch (e) {
+      console.error(e);
+    }
   },
   name: "Index",
   data() {
-    return {};
+    return {
+      value1: null
+    };
   },
-  methods: {},
+  methods: {
+    full(date) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      return date < new Date(new Date().setHours(24, 0, 0, 0));
+    }
+  },
   computed: {
     cta() {
       return this.$store.state.cta;

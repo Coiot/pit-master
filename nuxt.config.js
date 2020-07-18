@@ -39,7 +39,23 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
-  modules: ['@nuxtjs/markdownit', '@nuxtjs/pwa', '@nuxtjs/axios'],
+  modules: ['@nuxtjs/markdownit', '@nuxtjs/pwa', '@nuxtjs/axios', '@nuxtjs/eslint-module',
+    ['@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: "AIzaSyBKVrabadwbUtiUAxyyPhFR1ek4cBiWkVs",
+          authDomain: "jm-bbq.firebaseapp.com",
+          databaseURL: "https://jm-bbq.firebaseio.com",
+          projectId: "jm-bbq",
+          storageBucket: "jm-bbq.appspot.com",
+          messagingSenderId: "214249158067",
+          appId: "1:214249158067:web:db9151c8470fc12b1c47c6",
+          measurementId: "G-8TMJ6289XP"
+        },
+        services: {
+          firestore: true,
+        },
+      }]],
   markdownit: {
     injected: true,
     preset: 'default',
@@ -93,7 +109,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    extractCSS: true
+    extractCSS: true,
     /*
     ** Run ESLint on save
     */

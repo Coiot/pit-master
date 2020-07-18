@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { vuexfireMutations, firestoreAction } from 'vuexfire'
 Vue.use(Vuex)
 
 const createStore = () =>
@@ -28,8 +29,18 @@ const createStore = () =>
       theCrumb: '',
       allCats: [],
       results: [],
-      resultsnum: []
+      resultsnum: [],
+      number: {
+        orders: null,
+      },
     },
+
+    getters: {
+      orders(state) {
+        return state.number.orders
+      },
+    },
+
     actions: {
       async nuxtServerInit({ dispatch }) {
         await dispatch('getSiteInfo')
@@ -108,9 +119,24 @@ const createStore = () =>
         commit('SET_INFO', info)
         commit('SET_CONNECT', connect)
 
-      }
+      },
+      bindnumber: firestoreAction(async function ({ bindFirestoreRef }) {
+        const ref = this.$fireStore
+          .collection('slots')
+          .doc('number')
+        await bindFirestoreRef('number', ref, { wait: true })
+      }),
+      unbindnumber: firestoreAction(function ({ unbindFirestoreRef }) {
+        unbindFirestoreRef('number', false)
+      }),
+
     },
     mutations: {
+      ...vuexfireMutations,
+      SET_COUNT_DOCUMENT: (state, number) => {
+        // Only needed for SSR/Universal Mode
+        state.number = number
+      },
       SET_POSTS(state, data) {
         state.blogPosts = data
       },
