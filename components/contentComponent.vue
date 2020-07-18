@@ -1,16 +1,11 @@
 <template>
   <div class="container">
     <div>
-      <h1 class="title">nuxt-fire-vuexfire-example</h1>
-      <h2 class="subtitle">
-        Example project showcasing the use of @nuxtjs/firebase together with
-        vuexfire.
-      </h2>
-      <h3>Count</h3>
-      <p>Total: {{ orders }}</p>
+      <h2 class="secondary-title">Testing the Slot Counter</h2>
+      <p>Remaining Slots: {{ orders }}</p>
       <div class="links">
-        <div class="button--green" @click="changeCount(-1)">-1</div>
-        <div class="button--green" @click="changeCount(1)">+1</div>
+        <button class="button xs-px3 xs-py1" @click="changeCount(-1)">-1</button>
+        <button class="button xs-px3 xs-py1" @click="changeCount(1)">+1</button>
       </div>
     </div>
   </div>
