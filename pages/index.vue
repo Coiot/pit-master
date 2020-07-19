@@ -45,7 +45,7 @@
             <article v-for="meat in menu.meats" :key="meat.item" class="xs-my2">
               <div class="xs-flex">
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ meat.item }}</h3>
-                <button class="button xs-px3 xs-py1">{{ meat.price }}</button>
+                <button class="button xs-px1 md-px3 xs-py1">{{ meat.price }}</button>
               </div>
               <p class="xs-my1">{{ meat.description }}</p>
             </article>
@@ -55,7 +55,7 @@
             <article v-for="side in menu.sides" :key="side.item" class="xs-my2">
               <div class="xs-flex">
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ side.item }}</h3>
-                <button class="button xs-px3 xs-py1">{{ side.price }}</button>
+                <button class="button xs-px1 md-px3 xs-py1">{{ side.price }}</button>
               </div>
               <p class="xs-my1">{{ side.description }}</p>
             </article>
@@ -65,7 +65,7 @@
             <article v-for="extra in menu.extras" :key="extra.item" class="xs-my2">
               <div class="xs-flex">
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ extra.item }}</h3>
-                <button class="button xs-px3 xs-py1">{{ extra.price }}</button>
+                <button class="button xs-px1 md-px3 xs-py1">{{ extra.price }}</button>
               </div>
               <p class="xs-my1">{{ extra.description }}</p>
             </article>

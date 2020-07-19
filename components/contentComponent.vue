@@ -8,13 +8,18 @@
         <button class="button xs-px3 xs-py1" @click="changeCount(1)">+1</button>
       </div>
     </div>
+    <Modal v-if="orders === 1" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import Modal from "@/components/Modal";
 
 export default {
+    components: {
+    Modal
+  },
   computed: {
     ...mapGetters(["orders"])
   },
