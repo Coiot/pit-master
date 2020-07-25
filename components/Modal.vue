@@ -7,7 +7,7 @@
             <h4 class="secondary-title xs-my2">Orders almost filled up!</h4>
           </div>
           <div>
-            <p>There is only one order slot left. Order fast to secure your spot!</p>
+            <p>Only one order slot left for this week. Order fast to secure your spot!</p>
             <button class="modal-default-button xs-my2">OK</button>
           </div>
         </div>

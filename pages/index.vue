@@ -10,9 +10,7 @@
             </div>
             <div class="col xs-col-12 md-col-6">
               <transition appear name="fade">
-                <img
-                  src="https://generative-placeholders.glitch.me/image?width=500&height=500&colors=61&img=01"
-                />
+                <img />
               </transition>
             </div>
           </section>
@@ -31,11 +29,23 @@
                 <h3 class="xs-pt1 main-title">{{ plate.item }}</h3>
                 <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
                 <p class="xs-my2">{{ plate.description }}</p>
-                <button class="button xs-px3 xs-py2 xs-my1">{{ plate.price }}</button>
+                <input
+                  type="number"
+                  v-model="plate.quantity"
+                  id="quantity"
+                  min="0"
+                  max="20"
+                  pattern="[0-9]*"
+                  oninput="(!validity.rangeOverflow||(value=10)) && (!validity.rangeUnderflow||(value=1)) &&(!validity.stepMismatch||(value=parseInt(this.value)));"
+                />
+                <button
+                  class="button xs-px3 xs-py2 xs-my1"
+                  @click="cartAdd(plate.item, plate.quantity, plate.price)"
+                >${{ plate.price }}</button>
               </div>
               <div class="col xs-col-12 md-col-4">
                 <transition appear name="fade">
-                  <img :src="plate.image" />
+                  <img />
                 </transition>
               </div>
             </article>
@@ -45,7 +55,19 @@
             <article v-for="meat in menu.meats" :key="meat.item" class="xs-my2">
               <div class="xs-flex">
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ meat.item }}</h3>
-                <button class="button xs-px1 md-px3 xs-py1">{{ meat.price }}</button>
+                <input
+                  type="number"
+                  v-model="meat.quantity"
+                  id="quantity"
+                  min="0"
+                  max="20"
+                  pattern="[0-9]*"
+                  oninput="(!validity.rangeOverflow||(value=10)) && (!validity.rangeUnderflow||(value=1)) &&(!validity.stepMismatch||(value=parseInt(this.value)));"
+                />
+                <button
+                  class="button xs-px1 md-px3 xs-py1"
+                  @click="cartAdd(meat.item, meat.quantity, meat.price)"
+                >${{ meat.price }}</button>
               </div>
               <p class="xs-my1">{{ meat.description }}</p>
             </article>
@@ -55,7 +77,19 @@
             <article v-for="side in menu.sides" :key="side.item" class="xs-my2">
               <div class="xs-flex">
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ side.item }}</h3>
-                <button class="button xs-px1 md-px3 xs-py1">{{ side.price }}</button>
+                <input
+                  type="number"
+                  v-model="side.quantity"
+                  id="quantity"
+                  min="0"
+                  max="20"
+                  pattern="[0-9]*"
+                  oninput="(!validity.rangeOverflow||(value=10)) && (!validity.rangeUnderflow||(value=1)) &&(!validity.stepMismatch||(value=parseInt(this.value)));"
+                />
+                <button
+                  class="button xs-px1 md-px3 xs-py1"
+                  @click="cartAdd(side.item, side.quantity, side.price)"
+                >${{ side.price }}</button>
               </div>
               <p class="xs-my1">{{ side.description }}</p>
             </article>
@@ -65,10 +99,39 @@
             <article v-for="extra in menu.extras" :key="extra.item" class="xs-my2">
               <div class="xs-flex">
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ extra.item }}</h3>
-                <button class="button xs-px1 md-px3 xs-py1">{{ extra.price }}</button>
+                <input
+                  type="number"
+                  v-model="extra.quantity"
+                  id="quantity"
+                  min="0"
+                  max="20"
+                  pattern="[0-9]*"
+                  oninput="(!validity.rangeOverflow||(value=10)) && (!validity.rangeUnderflow||(value=1)) &&(!validity.stepMismatch||(value=parseInt(this.value)));"
+                />
+                <button
+                  class="button xs-px1 md-px3 xs-py1"
+                  @click="cartAdd(extra.item, extra.quantity, extra.price)"
+                >${{ extra.price }}</button>
               </div>
               <p class="xs-my1">{{ extra.description }}</p>
             </article>
+          </section>
+          <section class="xs-py2 xs-px2 md-px4">
+            <h2 class="main-title">Checkout Review</h2>
+            <article
+              v-for="cartitem in cart"
+              :key="cartitem.item"
+              class="xs-my4 xs-px2 md-mx6 xs-border-bottom-lighter"
+            >
+              <div class="xs-flex">
+                <h3 class="secondary-title xs-flex xs-flex-grow-1 xs-mr4">{{ cartitem.item }}</h3>
+                <p class="xs-my1">{{ cartitem.quantity }}</p>
+              </div>
+            </article>
+            <div class="xs-flex">
+              <h3 class="main-title xs-flex xs-flex-grow-1 xs-mr4">Total</h3>
+              <p class="main-title xs-my1">${{ total() }}</p>
+            </div>
           </section>
           <contentComponent />
         </div>
@@ -78,7 +141,7 @@
 </template>
 <script>
 import contentComponent from "@/components/contentComponent";
-
+import { mapState, mapGetters } from "vuex";
 export default {
   components: {
     contentComponent
@@ -105,15 +168,7 @@ export default {
   name: "Index",
   data() {
     return {
-      value1: null
     };
-  },
-  methods: {
-    full(date) {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      return date < new Date(new Date().setHours(24, 0, 0, 0));
-    }
   },
   computed: {
     cta() {
@@ -124,9 +179,30 @@ export default {
     },
     menu() {
       return this.$store.state.menu;
+    },
+    cart() {
+      return this.$store.state.cart;
     }
-  }
-};
+  },
+    methods: {
+    cartAdd(item, quantity, price) {
+      let plate = this.plate
+      plate = { 
+        item: item,
+        quantity: quantity,
+        price: price,
+      };
+      this.$store.commit("addToCart", plate);
+    },
+    total() {
+      var total = 0
+      this.cart.forEach(function(s) {
+          total += s.price * s.quantity || 0;
+      });
+      return total;
+    },
+  },
+}
 </script>
 
 <style>
