@@ -246,15 +246,26 @@ const createStore = () =>
       setClientSecret: (state, payload) => {
         state.clientSecret = payload;
       },
-      removeAllFromCart: (state, payload) => {
-        state.cart = state.cart.filter(el => el.item !== payload.item)
-      },
       addToCart: (state, payload) => {
         let itemfound = state.cart.find(el => el.item === payload.item);
         itemfound
           ? (itemfound.quantity = payload.quantity)
           : state.cart.push(payload)
+
       },
+      addOneToCart: (state, payload) => {
+        let itemfound = state.cart.find(el => el.item === payload.item)
+        itemfound ? itemfound.quantity++ : state.cart.push(payload)
+      },
+      removeOneFromCart: (state, payload) => {
+        let index = state.cart.findIndex(el => el.item === payload.item)
+        state.cart[index].quantity
+          ? state.cart[index].quantity--
+          : state.cart.splice(index, 1)
+      },
+      removeAllFromCart: (state, payload) => {
+        state.cart = state.cart.filter(el => el.item !== payload.item)
+      }
 
     }
   })

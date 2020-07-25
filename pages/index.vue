@@ -30,6 +30,26 @@
                 <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
                 <p class="xs-my2">{{ plate.description }}</p>
                 <input
+                  v-model="plate.side1"
+                  type="text"
+                  name="sides"
+                  list="sides"
+                  placeholder="Pick Side #1"
+                />
+                <input
+                  v-model="plate.side2"
+                  type="text"
+                  name="sides"
+                  list="sides"
+                  placeholder="Pick Side #2"
+                />
+                <datalist id="sides">
+                  <option value="Southern Mac n’ Cheese"></option>
+                  <option value="Smoked Jalapeno n’ Brisket Beans"></option>
+                  <option value="Coleslaw"></option>
+                  <option value="Banana Pudding"></option>
+                </datalist>
+                <input
                   type="number"
                   v-model="plate.quantity"
                   id="quantity"
@@ -40,7 +60,7 @@
                 />
                 <button
                   class="button xs-px3 xs-py2 xs-my1"
-                  @click="cartAdd(plate.item, plate.quantity, plate.price)"
+                  @click="cartAdd(plate.item, plate.quantity, plate.price, plate.side1, plate.side2)"
                 >${{ plate.price }}</button>
               </div>
               <div class="col xs-col-12 md-col-4">
@@ -121,15 +141,22 @@
             <article
               v-for="cartitem in cart"
               :key="cartitem.item"
-              class="xs-my4 xs-px2 md-mx6 xs-border-bottom-lighter"
+              class="xs-my4 xs-px2 md-mx4 xs-border-bottom-lighter"
             >
               <div class="xs-flex">
-                <h3 class="secondary-title xs-flex xs-flex-grow-1 xs-mr4">{{ cartitem.item }}</h3>
-                <p class="xs-my1">{{ cartitem.quantity }}</p>
+                <h3 class="secondary-title xs-flex xs-flex-grow-1">
+                  {{ cartitem.item }}
+                  <small v-if="cartitem.side1">+ {{ cartitem.side1 }}</small>
+                  <small v-if="cartitem.side2">+ {{ cartitem.side2 }}</small>
+                </h3>
+                <button @click="removeOneFromCart(cartitem)" class="button xs-mr2">-</button>
+                <p class="secondary-title xs-my1 xs-mr2">{{ cartitem.quantity }}</p>
+                <button @click="addOneToCart(cartitem)" class="button xs-mr2">+</button>
+                <button @click="removeAllFromCart(cartitem)" class="button">x</button>
               </div>
             </article>
             <div class="xs-flex">
-              <h3 class="main-title xs-flex xs-flex-grow-1 xs-mr4">Total</h3>
+              <h3 class="main-title xs-flex xs-flex-grow-1">Total</h3>
               <p class="main-title xs-my1">${{ total() }}</p>
             </div>
           </section>
@@ -185,12 +212,14 @@ export default {
     }
   },
     methods: {
-    cartAdd(item, quantity, price) {
+    cartAdd(item, quantity, price, side1, side2) {
       let plate = this.plate
       plate = { 
         item: item,
         quantity: quantity,
         price: price,
+        side1: side1,
+        side2: side2,
       };
       this.$store.commit("addToCart", plate);
     },
@@ -201,6 +230,15 @@ export default {
       });
       return total;
     },
+    addOneToCart(cartitem) {
+      this.$store.commit("addOneToCart", cartitem);
+    },
+    removeOneFromCart(cartitem) {
+      this.$store.commit("removeOneFromCart", cartitem);
+    },
+    removeAllFromCart(cartitem) {
+      this.$store.commit("removeAllFromCart", cartitem);
+    }
   },
 }
 </script>
