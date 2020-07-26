@@ -30,18 +30,18 @@
                 <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
                 <p class="xs-my2">{{ plate.description }}</p>
                 <input
-                  v-model="plate.side1"
-                  type="text"
+                  v-if="plate.side1"
+                  v-model="side1"
                   name="sides"
                   list="sides"
-                  placeholder="Pick Side #1"
+                  placeholder="Pick a Side"
                 />
                 <input
-                  v-model="plate.side2"
-                  type="text"
+                  v-show="plate.side2"
+                  v-model="side2"
                   name="sides"
                   list="sides"
-                  placeholder="Pick Side #2"
+                  placeholder="Pick another Side"
                 />
                 <datalist id="sides">
                   <option value="Southern Mac n’ Cheese"></option>
@@ -60,7 +60,7 @@
                 />
                 <button
                   class="button xs-px3 xs-py2 xs-my1"
-                  @click="cartAdd(plate.item, plate.quantity, plate.price, plate.side1, plate.side2)"
+                  @click="cartAdd(plate.item, plate.quantity, plate.price, side1, side2)"
                 >${{ plate.price }}</button>
               </div>
               <div class="col xs-col-12 md-col-4">
@@ -143,16 +143,20 @@
               :key="cartitem.item"
               class="xs-my4 xs-px2 md-mx4 xs-border-bottom-lighter"
             >
-              <div class="xs-flex">
-                <h3 class="secondary-title xs-flex xs-flex-grow-1">
-                  {{ cartitem.item }}
-                  <small v-if="cartitem.side1">+ {{ cartitem.side1 }}</small>
-                  <small v-if="cartitem.side2">+ {{ cartitem.side2 }}</small>
-                </h3>
-                <button @click="removeOneFromCart(cartitem)" class="button xs-mr2">-</button>
-                <p class="secondary-title xs-my1 xs-mr2">{{ cartitem.quantity }}</p>
-                <button @click="addOneToCart(cartitem)" class="button xs-mr2">+</button>
-                <button @click="removeAllFromCart(cartitem)" class="button">x</button>
+              <div class="xs-flex xs-flex-column md-flex-row">
+                <div class="xs-flex xs-flex-row xs-flex-grow-1">
+                  <h3 class="secondary-title">
+                    {{ cartitem.item }}
+                    <small v-if="cartitem.side1">+ {{ cartitem.side1 }}</small>
+                    <small v-if="cartitem.side2">+ {{ cartitem.side2 }}</small>
+                  </h3>
+                </div>
+                <div class="xs-flex xs-flex-row">
+                  <button @click="removeOneFromCart(cartitem)" class="button xs-mr2">-</button>
+                  <p class="secondary-title xs-my1 xs-mr2">{{ cartitem.quantity }}</p>
+                  <button @click="addOneToCart(cartitem)" class="button xs-mr2">+</button>
+                  <button @click="removeAllFromCart(cartitem)" class="button">x</button>
+                </div>
               </div>
             </article>
             <div class="xs-flex">
@@ -273,15 +277,16 @@ section {
   flex-flow: row-reverse !important;
 }
 .plate:nth-of-type(even) div {
-  display: flex;
+  text-align: right;
   align-items: flex-end;
   flex-flow: column !important;
 }
-@media only screen and (max-width: 40rem) {
+@media only screen and (max-width: 45rem) {
   .plate:nth-of-type(even) {
     flex-flow: column-reverse !important;
   }
   .plate:nth-of-type(even) div {
+    text-align: left;
     align-items: flex-start;
   }
   .xs-collapse {
