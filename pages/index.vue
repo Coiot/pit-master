@@ -226,6 +226,8 @@ export default {
         side2: side2,
       };
       this.$store.commit("addToCart", plate);
+      this.side1 = "";
+      this.side2 = "";
     },
     total() {
       var total = 0

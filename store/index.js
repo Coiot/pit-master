@@ -249,8 +249,9 @@ const createStore = () =>
       addToCart: (state, payload) => {
         let itemfound = state.cart.find(el => el.item === payload.item);
         itemfound
-          ? (itemfound.quantity = payload.quantity)
-          : state.cart.push(payload)
+          ? (itemfound.quantity = payload.quantity, itemfound.side1 = payload.side1, itemfound.side2 = payload.side2)
+          : state.cart.push(payload);
+
 
       },
       addOneToCart: (state, payload) => {
