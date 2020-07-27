@@ -7,7 +7,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 // Create your webhook in the Stripe dashboard at https://dashboard.stripe.com/webhooks
 // Use the secret listed in the "Signing secret" section
-const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
+const endpointSecret = whsec_y0gxjwEMsFPgFySMS0T4sYIl7pck7ph7;
 
 exports.handler = async (event, context) => {
     const sig = event.headers["stripe-signature"];

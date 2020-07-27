@@ -1,6 +1,5 @@
 [
     {
-        "id": "01",
         "item": "The Campbell",
         "price": "25",
         "quantity": "1",
@@ -11,7 +10,6 @@
         "image": "https://generative-placeholders.glitch.me/image?width=500&height=500&colors=61&img=01"
     },
     {
-        "id": "02",
         "item": "The Triplets",
         "price": "20",
         "quantity": "1",
@@ -22,7 +20,6 @@
         "image": "https://generative-placeholders.glitch.me/image?width=500&height=500&colors=61&img=02"
     },
     {
-        "id": "03",
         "item": "The Troubador",
         "price": "15",
         "quantity": "1",
@@ -33,7 +30,6 @@
         "image": "https://generative-placeholders.glitch.me/image?width=500&height=500&colors=61&img=03"
     },
     {
-        "id": "04",
         "item": "El Tejano",
         "price": "15",
         "quantity": "1",
@@ -43,7 +39,6 @@
         "image": "https://generative-placeholders.glitch.me/image?width=500&height=500&colors=61&img=03"
     },
     {
-        "id": "05",
         "item": "The Dozer",
         "price": "15",
         "quantity": "1",

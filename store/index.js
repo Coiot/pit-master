@@ -246,9 +246,6 @@ const createStore = () =>
         //this clears the cart
         (state.cart = []), (state.cartUIStatus = "idle");
       },
-      setClientSecret: (state, payload) => {
-        state.clientSecret = payload;
-      },
       addToCart: (state, payload) => {
         let itemfound = state.cart.find(el => el.item === payload.item);
         itemfound
@@ -269,7 +266,10 @@ const createStore = () =>
       },
       removeAllFromCart: (state, payload) => {
         state.cart = state.cart.filter(el => el.item !== payload.item)
-      }
+      },
+      setClientSecret: (state, payload) => {
+        state.clientSecret = payload;
+      },
 
     }
   })

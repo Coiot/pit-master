@@ -3,7 +3,8 @@
 
 require("dotenv").config();
 const axios = require("axios");
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY),
+const stripe = require("stripe")(sk_test_51H9Hb9ELeQTfYocAakCT3SlWJu76oJzZQK0z8w4Zw8Dj6kVLEfL855B6ye6D4lnXxkd72NK001GJnI2EsgsuFtBL00CPNheItz
+),
     headers = {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "Content-Type"
@@ -54,7 +55,7 @@ exports.handler = async (event, context) => {
         // Create a PaymentIntent on Stripe
         // A PaymentIntent represents your customer's intent to pay
         // and needs to be confirmed on the client to finalize the payment
-        const paymentIntent = await stripe.paymentIntents.create({
+        const paymentIntent = stripe.paymentIntents.create({
             currency: "usd",
             amount: amount,
             description: "Order from store"
