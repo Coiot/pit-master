@@ -48,7 +48,7 @@ exports.handler = async (event, context) => {
         const amount = data.items.reduce((prev, item) => {
             // lookup item information from "database" and calculate total amount
             const itemData = storeDatabase.data.find(
-                storeItem => storeItem.item === item
+                storeItem => storeItem.item === cart.item
             );
             return prev + itemData.price * 100 * item.quantity;
         }, 0);
