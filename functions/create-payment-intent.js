@@ -3,7 +3,7 @@
 
 require("dotenv").config();
 const axios = require("axios");
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY),
+const stripe = require("stripe")(process.env.STRIPE_PUBLIC_KEY),
     headers = {
         'Content-Type': 'application/json',
         "Access-Control-Allow-Origin": "*",
