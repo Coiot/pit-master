@@ -48,7 +48,9 @@ const createStore = () =>
       cartItems: state => {
         return state.cart.map(payload => payload);
       },
-      clientSecret: state => state.clientSecret
+      clientSecret(state) {
+        return state.clientSecret
+      }
     },
 
     actions: {
