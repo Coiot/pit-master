@@ -188,7 +188,7 @@
                   </li>
                 </ul>
               </small>
-              <card
+              <Card
                 class="stripe-card"
                 id="card"
                 :class="{ complete }"
@@ -200,7 +200,7 @@
               <button
                 class="pay-with-stripe button"
                 @click="pay"
-                :disabled="!complete || !stripeEmail || loading"
+                :disabled="!complete || !stripeEmail"
               >Pay with credit card</button>
             </div>
 
@@ -231,9 +231,7 @@ import contentComponent from "@/components/contentComponent";
 import { mapState, mapGetters } from "vuex";
 import { Card, handleCardPayment } from "vue-stripe-elements-plus";
 export default {
-  components: {
-    contentComponent, Card
-  },
+  components: { contentComponent, Card },
   /** Get data on Server Side: */
   async fetch({ app, store }) {
     if (process.browser) return;
@@ -281,7 +279,10 @@ export default {
     cart() {
       return this.$store.state.cart;
     },
-    ...mapState(["cartUIStatus"])
+    ...mapState(["cartUIStatus"]),
+    cartUIStatus() {
+      return this.$store.state.cartUIStatus;
+    },
   },
     methods: {
     cartAdd(item, quantity, price, side1, side2) {
