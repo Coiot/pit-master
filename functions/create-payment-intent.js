@@ -41,7 +41,7 @@ exports.handler = async (event, context, callback) => {
         // from manipulating the order amount from the client
         // Here we will use a simple json file to represent inventory
         // but you could replace this with a DB lookup
-        const storeDatabase = this.$store.state.cart
+        const storeDatabase = require('./static/menu.json')
         );
 
         const amount = data.items.reduce((prev, item) => {
