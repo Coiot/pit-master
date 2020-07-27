@@ -59,6 +59,7 @@ exports.handler = async (event, context) => {
             amount: amount,
             description: "Order from store",
             payment_method_types: ['card'],
+            confirm: true,
         });
 
         // Send the client_secret to the client
