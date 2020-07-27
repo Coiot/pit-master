@@ -54,10 +54,11 @@ exports.handler = async (event, context) => {
         // Create a PaymentIntent on Stripe
         // A PaymentIntent represents your customer's intent to pay
         // and needs to be confirmed on the client to finalize the payment
-        const paymentIntent = await stripe.paymentIntents.create({
+        const paymentIntent = stripe.paymentIntents.create({
             currency: "usd",
             amount: amount,
-            description: "Order from store"
+            description: "Order from store",
+            payment_method_types: ['card'],
         });
 
         // Send the client_secret to the client
