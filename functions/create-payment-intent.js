@@ -5,8 +5,10 @@ require("dotenv").config();
 const axios = require("axios");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY),
     headers = {
+        'Content-Type': 'application/json',
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type"
+        "Access-Control-Allow-Headers": "Content-Type",
+        'Access-Control-Allow-Method': 'GET,POST,OPTIONS',
     };
 
 exports.handler = async (event, context) => {
@@ -28,7 +30,7 @@ exports.handler = async (event, context) => {
             statusCode: 400,
             headers,
             body: JSON.stringify({
-                status: "missing information"
+                status: "some missing information (items)"
             })
         };
     }
@@ -46,7 +48,7 @@ exports.handler = async (event, context) => {
         const amount = data.items.reduce((prev, item) => {
             // lookup item information from "database" and calculate total amount
             const itemData = storeDatabase.data.find(
-                storeItem => storeItem.description === item.description
+                storeItem => storeItem.item === item
             );
             return prev + itemData.price * 100 * item.quantity;
         }, 0);
