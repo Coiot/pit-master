@@ -11,7 +11,7 @@ const stripe = require("stripe")(process.env.STRIPE_PUBLIC_KEY),
         'Access-Control-Allow-Method': 'GET,POST,OPTIONS',
     };
 
-exports.handler = async (event, context, callback) => {
+exports.handler = async (event, context) => {
     // CORS
     if (event.httpMethod === "OPTIONS") {
         return {
@@ -41,15 +41,16 @@ exports.handler = async (event, context, callback) => {
         // from manipulating the order amount from the client
         // Here we will use a simple json file to represent inventory
         // but you could replace this with a DB lookup
-        const storeDatabase = require('./static/menu.json')
+        const storeDatabase = await axios.get(
+            "https://pit-master.netlify.app/menu.json"
         );
 
-        const amount = items.reduce((prev, item) => {
+        const amount = data.items.reduce((prev, item) => {
             // lookup item information from "database" and calculate total amount
-            const itemData = storeDatabase.find(
+            const item = storeDatabase.data.find(
                 storeItem => storeItem.item === item.item
             );
-            return prev + itemData.price * 100 * item.quantity;
+            return prev + item.price * 100 * item.quantity;
         }, 0);
 
         // Create a PaymentIntent on Stripe
@@ -57,7 +58,7 @@ exports.handler = async (event, context, callback) => {
         // and needs to be confirmed on the client to finalize the payment
         const paymentIntent = await stripe.paymentIntents.create({
             currency: "usd",
-            amount: 50000,
+            amount: amount,
             description: "Order from store",
             payment_method_types: ['card'],
             confirm: true,
