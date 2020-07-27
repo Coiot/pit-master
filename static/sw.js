@@ -86,4 +86,6 @@ workbox.routing.registerRoute(new RegExp('/_nuxt/.*'), workbox.strategies.cacheF
 
 workbox.routing.registerRoute(new RegExp('/.*'), workbox.strategies.networkFirst({}), 'GET')
 
-workbox.routing.registerRoute(new RegExp('/images/uploads/.*'), workbox.strategies.cacheFirst({"cacheName":"image-cache","cacheExpiration":{"maxEntries":100,"maxAgeSeconds":86400}}), 'GET')
+workbox.routing.registerRoute(new RegExp('/.netlify/functions/.*'), workbox.strategies.networkFirst({ "SameSite=None; Secure"}), 'GET')
+
+workbox.routing.registerRoute(new RegExp('/images/uploads/.*'), workbox.strategies.cacheFirst({ "cacheName": "image-cache", "cacheExpiration": { "maxEntries": 100, "maxAgeSeconds": 86400 } }), 'GET')

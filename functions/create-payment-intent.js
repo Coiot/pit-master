@@ -11,7 +11,7 @@ const stripe = require("stripe")(process.env.STRIPE_PUBLIC_KEY),
         'Access-Control-Allow-Method': 'GET,POST,OPTIONS',
     };
 
-exports.handler = async (event, context) => {
+exports.handler = async (event, context, callback) => {
     // CORS
     if (event.httpMethod === "OPTIONS") {
         return {
@@ -56,7 +56,7 @@ exports.handler = async (event, context) => {
         // Create a PaymentIntent on Stripe
         // A PaymentIntent represents your customer's intent to pay
         // and needs to be confirmed on the client to finalize the payment
-        const paymentIntent = stripe.paymentIntents.create({
+        const paymentIntent = await stripe.paymentIntents.create({
             currency: "usd",
             amount: amount,
             description: "Order from store",
