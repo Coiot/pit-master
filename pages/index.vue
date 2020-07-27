@@ -200,7 +200,7 @@
               <button
                 class="pay-with-stripe button"
                 @click="pay"
-                :disabled="!complete || !stripeEmail"
+                :disabled="!complete || !stripeEmail || loading"
               >Pay with credit card</button>
             </div>
 
