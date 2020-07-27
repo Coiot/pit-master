@@ -3,12 +3,10 @@
 
 require("dotenv").config();
 const axios = require("axios");
-const stripe = require("stripe")(process.env.STRIPE_PUBLIC_KEY),
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY),
     headers = {
-        'Content-Type': 'application/json',
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        'Access-Control-Allow-Method': 'GET,POST,OPTIONS',
+        "Access-Control-Allow-Headers": "Content-Type"
     };
 
 exports.handler = async (event, context) => {
@@ -30,7 +28,7 @@ exports.handler = async (event, context) => {
             statusCode: 400,
             headers,
             body: JSON.stringify({
-                status: "some missing information (items)"
+                status: "missing information"
             })
         };
     }
@@ -47,10 +45,10 @@ exports.handler = async (event, context) => {
 
         const amount = data.items.reduce((prev, item) => {
             // lookup item information from "database" and calculate total amount
-            const item = storeDatabase.data.find(
-                storeItem => storeItem.item === item.item
+            const itemData = storeDatabase.find(
+                storeItem => storeItem.item === item
             );
-            return prev + item.price * 100 * item.quantity;
+            return prev + itemData.price * 100 * item.quantity;
         }, 0);
 
         // Create a PaymentIntent on Stripe
@@ -59,9 +57,7 @@ exports.handler = async (event, context) => {
         const paymentIntent = await stripe.paymentIntents.create({
             currency: "usd",
             amount: amount,
-            description: "Order from store",
-            payment_method_types: ['card'],
-            confirm: true,
+            description: "Order from store"
         });
 
         // Send the client_secret to the client

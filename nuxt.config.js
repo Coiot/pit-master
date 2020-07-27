@@ -1,5 +1,5 @@
 var siteInfo = require('./content/setup/info.json');
-import data from './static/menu.json'
+import data from './static/menu.json';
 console.log(siteInfo)
 var glob = require('glob');
 var path = require('path');
