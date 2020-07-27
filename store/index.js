@@ -251,8 +251,6 @@ const createStore = () =>
         itemfound
           ? (itemfound.quantity = payload.quantity, itemfound.side1 = payload.side1, itemfound.side2 = payload.side2)
           : state.cart.push(payload);
-
-
       },
       addOneToCart: (state, payload) => {
         let itemfound = state.cart.find(el => el.item === payload.item)
@@ -270,8 +268,38 @@ const createStore = () =>
       setClientSecret: (state, payload) => {
         state.clientSecret = payload;
       },
+      updateCartUI: (state, payload) => {
+        state.cartUIStatus = payload;
+      },
 
     }
-  })
+  });
+
+export const actions = {
+  async createPaymentIntent({ getters, commit }) {
+    try {
+      // Create a PaymentIntent with the information about the order
+      const result = await axios.post(
+        "https://pit-master.netlify.app/.netlify/functions/create-payment-intent",
+        {
+          items: getters.cartItems
+        },
+        {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
+
+      if (result.data.clientSecret) {
+        // Store a reference to the client secret created by the PaymentIntent
+        // This secret will be used to finalize the payment from the client
+        commit("setClientSecret", result.data.clientSecret);
+      }
+    } catch (e) {
+      console.log("error", e);
+    }
+  }
+};
 
 export default createStore

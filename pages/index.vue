@@ -221,6 +221,7 @@
               </div>
             </div>
           </section>
+          <button id="checkout-button">Checkout</button>
         </div>
       </div>
     </div>
@@ -230,6 +231,7 @@
 import contentComponent from "@/components/contentComponent";
 import { mapState, mapGetters } from "vuex";
 import { Card, handleCardPayment } from "vue-stripe-elements-plus";
+const stripe = require('stripe')('sk_test_51H9Hb9ELeQTfYocAakCT3SlWJu76oJzZQK0z8w4Zw8Dj6kVLEfL855B6ye6D4lnXxkd72NK001GJnI2EsgsuFtBL00CPNheItz');
 export default {
   components: { contentComponent, Card },
   /** Get data on Server Side: */
