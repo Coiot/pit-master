@@ -196,6 +196,7 @@
                   stripe="pk_test_51H9Hb9ELeQTfYocA9K9qrofOR3zA1I2y5AnXtw4jhrYHeZZrwBUWvjg7U9Rux2paeZRpi9DEg34KD5OCig4DXy6700diLulvgg"
                   :options="stripeOptions"
                   @change="complete = $event.complete"
+                  ref="stripeCard"
                 />
                 <small class="card-error">{{error}}</small>
                 <button
