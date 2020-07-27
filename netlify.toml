@@ -1,5 +1,7 @@
 [build]
-  publish = "dist"
-  command = "yarn run generate --no-lock"
+publish = "dist"
+command = "yarn run generate --no-lock"
+functions = "functions"
+
 [build.environment]
-  YARN_FLAGS = "--no-ignore-optional"
+YARN_FLAGS = "--no-ignore-optional"

@@ -188,7 +188,7 @@
                   </li>
                 </ul>
               </small>
-              <Card
+              <card
                 class="stripe-card"
                 id="card"
                 :class="{ complete }"
@@ -243,6 +243,10 @@ export default {
       console.error(e);
     }
   },
+   mounted() {
+    // create a PaymentIntent on Stripe with order information
+    this.$store.dispatch("createPaymentIntent");
+  },
   /**  Bind Vuexfire on client-side: */
   async mounted() {
     try {
@@ -264,6 +268,7 @@ export default {
       loading: false,
       side1: '',
       side2: '',
+      tempcart: []
     };
   },
   computed: {
@@ -294,6 +299,7 @@ export default {
         side1: side1,
         side2: side2,
       };
+      this.tempcart.push(plate);
       this.$store.commit("addToCart", plate);
       this.side1 = "";
       this.side2 = "";
@@ -346,9 +352,6 @@ export default {
       this.$store.commit("clearCart");
     }
   },
-  mounted() {
-    this.$store.dispatch("createPaymentIntent");
-  }
 
 }
 </script>
