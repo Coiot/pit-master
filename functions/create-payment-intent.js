@@ -44,9 +44,9 @@ exports.handler = async (event, context, callback) => {
         const storeDatabase = require('./static/menu.json')
         );
 
-        const amount = data.items.reduce((prev, item) => {
+        const amount = items.reduce((prev, item) => {
             // lookup item information from "database" and calculate total amount
-            const itemData = storeDatabase.data.find(
+            const itemData = storeDatabase.find(
                 storeItem => storeItem.item === item.item
             );
             return prev + itemData.price * 100 * item.quantity;
@@ -57,7 +57,7 @@ exports.handler = async (event, context, callback) => {
         // and needs to be confirmed on the client to finalize the payment
         const paymentIntent = await stripe.paymentIntents.create({
             currency: "usd",
-            amount: amount,
+            amount: 50000,
             description: "Order from store",
             payment_method_types: ['card'],
             confirm: true,
