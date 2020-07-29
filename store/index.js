@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 import { vuexfireMutations, firestoreAction } from 'vuexfire'
 import axios from "axios";
 import data from "~/static/menu.json";
-
 Vue.use(Vuex)
 
 const createStore = () =>
@@ -47,16 +46,7 @@ const createStore = () =>
         return state.number.orders
       },
       cartItems: state => {
-        if (!state.cart.length) return [];
-        return state.cart.map(item => {
-          return {
-            item: item.item,
-            quantity: item.quantity,
-            price: item.price,
-            side1: item.side1,
-            side2: item.side2,
-          };
-        });
+        return state.cart.map(payload => payload);
       },
       clientSecret: state => state.clientSecret
     },
@@ -78,7 +68,7 @@ const createStore = () =>
             },
             {
               headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
               }
             }
           );
@@ -285,31 +275,4 @@ const createStore = () =>
     }
   });
 
-export default createStore;
-
-export const actions = {
-  createPaymentIntent({ getters, commit }) {
-    try {
-      // Create a PaymentIntent with the information about the order
-      const result = axios.post(
-        "https://pit-master.netlify.app/.netlify/functions/create-payment-intent",
-        {
-          items: getters.cartItems
-        },
-        {
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
-      );
-
-      if (result.data.clientSecret) {
-        // Store a reference to the client secret created by the PaymentIntent
-        // This secret will be used to finalize the payment from the client
-        commit("setClientSecret", result.data.clientSecret);
-      }
-    } catch (e) {
-      console.log("error", e);
-    }
-  }
-};
+export default createStore

@@ -230,13 +230,9 @@
 import contentComponent from "@/components/contentComponent";
 import { mapState, mapGetters } from "vuex";
 import { Card, handleCardPayment } from "vue-stripe-elements-plus";
-const stripe = require("stripe")(process.env.STRIPE_PUBLIC_KEY);
+import axios from "axios";
 export default {
   components: { contentComponent, Card },
-  mounted() {
-    // create a PaymentIntent on Stripe with order information
-    this.$store.dispatch("createPaymentIntent");
-  },
   /** Get data on Server Side: */
   async fetch({ app, store }) {
     if (process.browser) return;
@@ -285,10 +281,10 @@ export default {
     cart() {
       return this.$store.state.cart;
     },
-    ...mapState(["cartUIStatus"]),
     cartUIStatus() {
       return this.$store.state.cartUIStatus;
     },
+    
   },
     methods: {
     cartAdd(item, quantity, price, side1, side2) {
@@ -324,6 +320,7 @@ export default {
     pay() {
       // confirms the payment and will automatically display a
       // pop-up modal if the purchase requires authentication
+      this.$store.dispatch("createPaymentIntent");
       this.loading = true;
       handleCardPayment(this.$store.getters.clientSecret, {
         receipt_email: this.stripeEmail
@@ -348,6 +345,30 @@ export default {
         }
       });
     },
+    createPaymentIntent({ getters, commit }) {
+        try {
+          // Create a PaymentIntent with the information about the order
+          const result = axios.post(
+            "https://pit-master.netlify.app/.netlify/functions/create-payment-intent",
+            {
+              items: this.$store.getters.cartItems
+            },
+            {
+              headers: {
+                "Content-Type": "application/json",
+              }
+            }
+          );
+
+          if (result.data.clientSecret) {
+            // Store a reference to the client secret created by the PaymentIntent
+            // This secret will be used to finalize the payment from the client
+            commit("setClientSecret", result.data.clientSecret);
+          }
+        } catch (e) {
+          console.log("error", e);
+        }
+      },
     clearCart() {
       this.complete = false;
       this.$store.commit("clearCart");
