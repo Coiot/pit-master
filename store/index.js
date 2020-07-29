@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import { vuexfireMutations, firestoreAction } from 'vuexfire'
 import axios from "axios";
 import menu from "~/static/menu.json";
+import { handleCardPayment } from "vue-stripe-elements-plus";
 Vue.use(Vuex)
 
 const createStore = () =>
@@ -81,6 +82,29 @@ const createStore = () =>
         } catch (e) {
           console.log("error", e);
         }
+        handleCardPayment(getters.clientSecret, {
+          receipt_email: this.stripeEmail
+        }).then(result => {
+          this.loading = false;
+          if (result.error) {
+            // show the error to the customer, let them try to pay again
+            this.error = result.error.message;
+            setTimeout(() => (this.error = ""), 3000);
+          } else if (
+            result.paymentIntent &&
+            result.paymentIntent.status === "succeeded"
+          ) {
+            // payment succeeded! show a success message
+            // there's always a chance your customer closes the browser after the payment process and before this code runs so
+            // we will use the webhook in handle-payment-succeeded for any business-critical post-payment actions
+            this.cartUIStatus === "success";
+            setTimeout(this.clearCart, 5000);
+          } else {
+            this.error = "Some unknown error occured";
+            setTimeout(() => (this.error = ""), 3000);
+          }
+        });
+
       },
       async getBlogPosts({ state, commit }) {
         const context = await require.context('~/content/blog/posts/', false, /\.json$/);

@@ -322,29 +322,7 @@ export default {
       // pop-up modal if the purchase requires authentication
       this.$store.dispatch("createPaymentIntent");
       this.loading = true;
-      function handleCardPayment(){(this.$store.getters.clientSecret, {
-        receipt_email: this.stripeEmail
-      }).then(result => {
-        this.loading = false;
-        if (result.error) {
-          // show the error to the customer, let them try to pay again
-          this.error = result.error.message;
-          setTimeout(() => (this.error = ""), 3000);
-        } else if (
-          result.paymentIntent &&
-          result.paymentIntent.status === "succeeded"
-        ) {
-          // payment succeeded! show a success message
-          // there's always a chance your customer closes the browser after the payment process and before this code runs so
-          // we will use the webhook in handle-payment-succeeded for any business-critical post-payment actions
-          this.$store.commit("updateCartUI", "success");
-          setTimeout(this.clearCart, 2000);
-        } else {
-          this.error = "Some unknown error occured";
-          setTimeout(() => (this.error = ""), 3000);
-        }
-      })};
-      setTimeout(handleCardPayment, 5000);
+  
     },
     clearCart() {
       this.complete = false;
