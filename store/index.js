@@ -46,7 +46,7 @@ const createStore = () =>
         return state.number.orders
       },
       cartItems: state => {
-        return state.cart.map(payload => payload);
+        return state.cart;
       },
       clientSecret(state) {
         return state.clientSecret
@@ -70,7 +70,9 @@ const createStore = () =>
             },
             {
               headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Content-Type"
               }
             }
           );
