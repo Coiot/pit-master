@@ -322,7 +322,7 @@ export default {
       // pop-up modal if the purchase requires authentication
       this.$store.dispatch("createPaymentIntent");
       this.loading = true;
-      handleCardPayment(this.$store.getters.clientSecret, {
+      function handleCardPayment(){(this.$store.getters.clientSecret, {
         receipt_email: this.stripeEmail
       }).then(result => {
         this.loading = false;
@@ -338,12 +338,13 @@ export default {
           // there's always a chance your customer closes the browser after the payment process and before this code runs so
           // we will use the webhook in handle-payment-succeeded for any business-critical post-payment actions
           this.$store.commit("updateCartUI", "success");
-          setTimeout(this.clearCart, 5000);
+          setTimeout(this.clearCart, 2000);
         } else {
           this.error = "Some unknown error occured";
           setTimeout(() => (this.error = ""), 3000);
         }
-      }, 5000);
+      })};
+      setTimeout(handleCardPayment, 5000);
     },
     clearCart() {
       this.complete = false;
