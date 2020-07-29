@@ -35,7 +35,7 @@ const createStore = () =>
       number: {
         orders: null,
       },
-      cartUIStatus: 'idle',
+      cartUIStatus: "idle",
       cart: [],
       storedata: data,
       clientSecret: ""
