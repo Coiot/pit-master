@@ -18,7 +18,7 @@ exports.handler = async (event, context) => {
         };
     }
 
-    const data = event;
+    const data = event.body;
     console.log(data);
 
     if (!data.items) {
