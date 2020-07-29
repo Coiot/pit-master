@@ -343,32 +343,8 @@ export default {
           this.error = "Some unknown error occured";
           setTimeout(() => (this.error = ""), 3000);
         }
-      });
+      }, 5000);
     },
-    createPaymentIntent({ getters, commit }) {
-        try {
-          // Create a PaymentIntent with the information about the order
-          const result = axios.post(
-            "https://pit-master.netlify.app/.netlify/functions/create-payment-intent",
-            {
-              items: this.$store.getters.cartItems
-            },
-            {
-              headers: {
-                "Content-Type": "application/json",
-              }
-            }
-          );
-
-          if (result.data.clientSecret) {
-            // Store a reference to the client secret created by the PaymentIntent
-            // This secret will be used to finalize the payment from the client
-            commit("setClientSecret", result.data.clientSecret);
-          }
-        } catch (e) {
-          console.log("error", e);
-        }
-      },
     clearCart() {
       this.complete = false;
       this.$store.commit("clearCart");
