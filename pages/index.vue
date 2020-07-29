@@ -233,6 +233,10 @@ import { Card, handleCardPayment } from "vue-stripe-elements-plus";
 const stripe = require("stripe")(process.env.STRIPE_PUBLIC_KEY);
 export default {
   components: { contentComponent, Card },
+  mounted() {
+    // create a PaymentIntent on Stripe with order information
+    this.$store.dispatch("createPaymentIntent");
+  },
   /** Get data on Server Side: */
   async fetch({ app, store }) {
     if (process.browser) return;
@@ -243,10 +247,6 @@ export default {
     } catch (e) {
       console.error(e);
     }
-  },
-   mounted() {
-    // create a PaymentIntent on Stripe with order information
-    this.$store.dispatch("createPaymentIntent");
   },
   /**  Bind Vuexfire on client-side: */
   async mounted() {
