@@ -53,6 +53,10 @@ const createStore = () =>
     },
 
     actions: {
+      clearCart() {
+        this.complete = false;
+        this.$store.commit("clearCart");
+      },
       async nuxtServerInit({ dispatch }) {
         await dispatch('getSiteInfo')
         await dispatch('getBlogPosts')
@@ -97,8 +101,17 @@ const createStore = () =>
             // payment succeeded! show a success message
             // there's always a chance your customer closes the browser after the payment process and before this code runs so
             // we will use the webhook in handle-payment-succeeded for any business-critical post-payment actions
-            this.cartUIStatus === "success";
-            setTimeout(this.clearCart, 5000);
+            this.state.cartUIStatus = "success";
+            const increment = this.$fireStoreObj.FieldValue.increment(-1);
+            this.$fireStore
+              .collection("slots")
+              .doc("number")
+              .update({ orders: increment });
+            setTimeout(() => {
+              commit('clearCart')
+
+            }, 15000);
+
           } else {
             this.error = "Some unknown error occured";
             setTimeout(() => (this.error = ""), 3000);

@@ -175,16 +175,10 @@
               <label for="card">Credit Card</label>
               <br />
               <small>
-                Test using these Stripe test credit card numbers with any CVC, postal code, and expiration date in the future:
+                Test using this Stripe test credit card numbers with any CVC, postal code, and expiration date in the future:
                 <ul>
                   <li>
                     <span class="cc-number">4242 4242 4242 4242</span>
-                  </li>
-                  <li>
-                    <span class="cc-number">4000 0027 6000 3184</span> (requires authentication, will trigger a pop-up)
-                  </li>
-                  <li>
-                    <span class="cc-number">4000 0000 0000 9995</span> (will decline with a decline code of insufficient funds)
                   </li>
                 </ul>
               </small>
