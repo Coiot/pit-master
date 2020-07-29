@@ -264,7 +264,10 @@ export default {
   data() {
     return {
       complete: false,
-      stripeOptions: "",
+      stripeOptions: {
+        // you can configure that cc element. I liked the default, but you can
+        // see https://stripe.com/docs/stripe.js#element-options for details
+      },
       stripeEmail: "",
       error: "",
       loading: false,
