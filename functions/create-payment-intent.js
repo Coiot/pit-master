@@ -18,7 +18,7 @@ exports.handler = async (event, context) => {
         };
     }
 
-    const data = event.body;
+    const data = JSON.stringify(event.body);
     console.log(data);
 
     if (!data.items) {
@@ -46,7 +46,7 @@ exports.handler = async (event, context) => {
         const amount = data.items.reduce((prev, item) => {
             // lookup item information from "database" and calculate total amount
             const itemData = storeDatabase.data.find(
-                storeItem => storeItem === item
+                storeItem => storeItem.item === item.item
             );
             return prev + itemData.price * 100 * item.quantity;
         }, 0);
