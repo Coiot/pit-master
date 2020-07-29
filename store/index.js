@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { vuexfireMutations, firestoreAction } from 'vuexfire'
 import axios from "axios";
-import data from "~/static/menu.json";
+import menu from "~/static/menu.json";
 Vue.use(Vuex)
 
 const createStore = () =>
@@ -38,7 +38,7 @@ const createStore = () =>
       cartUIStatus: 'idle',
       cart: [],
       clientSecret: "",
-      storedata: data,
+      storedata: menu,
     },
 
     getters: {
