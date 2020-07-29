@@ -46,7 +46,7 @@ const createStore = () =>
         return state.number.orders
       },
       cartItems: state => {
-        return state.cart.map(payload => payload);
+        return state.cart;
       },
       clientSecret(state) {
         return state.clientSecret
