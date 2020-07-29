@@ -45,8 +45,8 @@ exports.handler = async (event, context) => {
 
         const amount = data.items.reduce((prev, item) => {
             // lookup item information from "database" and calculate total amount
-            const itemData = storeDatabase.find(
-                storeItem => storeItem.item === item
+            const itemData = storeDatabase.data.find(
+                storeItem => storeItem === item
             );
             return prev + itemData.price * 100 * item.quantity;
         }, 0);
@@ -71,7 +71,7 @@ exports.handler = async (event, context) => {
             })
         };
     } catch (err) {
-        console.log("err");
+        console.log(err);
 
         return {
             statusCode: 400,

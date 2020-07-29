@@ -35,10 +35,10 @@ const createStore = () =>
       number: {
         orders: null,
       },
-      cartUIStatus: "idle",
+      cartUIStatus: 'idle',
       cart: [],
+      clientSecret: "",
       storedata: data,
-      clientSecret: ""
     },
 
     getters: {
@@ -46,7 +46,7 @@ const createStore = () =>
         return state.number.orders
       },
       cartItems: state => {
-        return state.cart;
+        return state.cart.map(payload => payload);
       },
       clientSecret(state) {
         return state.clientSecret

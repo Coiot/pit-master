@@ -9,7 +9,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 // Use the secret listed in the "Signing secret" section
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
-exports.handler = async (event, context) => {
+exports.handler = async (event, content) => {
     const sig = event.headers["stripe-signature"];
     let stripeEvent;
 
