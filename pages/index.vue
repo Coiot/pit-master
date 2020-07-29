@@ -289,6 +289,9 @@ export default {
     cart() {
       return this.$store.state.cart;
     },
+     clientSecret() {
+      return this.$store.state.clientSecret;
+    },
     ...mapState(["cartUIStatus"]),
     cartUIStatus() {
       return this.$store.state.cartUIStatus;
@@ -329,7 +332,7 @@ export default {
       // confirms the payment and will automatically display a
       // pop-up modal if the purchase requires authentication
       this.loading = true;
-      handleCardPayment(this.$store.getters.clientSecret, {
+      handleCardPayment(this.clientSecret, {
         receipt_email: this.stripeEmail
       }).then(result => {
         this.loading = false;

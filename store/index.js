@@ -37,8 +37,8 @@ const createStore = () =>
       },
       cartUIStatus: 'idle',
       cart: [],
-      clientSecret: "",
       storedata: data,
+      clientSecret: ""
     },
 
     getters: {
