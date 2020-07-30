@@ -57,7 +57,8 @@ exports.handler = async (event, context) => {
         const paymentIntent = await stripe.paymentIntents.create({
             currency: "usd",
             amount: amount,
-            description: data.items,
+            description: "Order from JMBBQ" + data.items,
+            metadata: data.items
         });
 
         // Send the client_secret to the client
