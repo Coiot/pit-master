@@ -58,7 +58,7 @@ exports.handler = async (event, context) => {
             currency: "usd",
             amount: amount,
             description: JSON.stringify(data.items),
-            metadata: paymentIntent.receipt_email
+            metadata: JSON.stringify(data.items)
         });
 
         // Send the client_secret to the client
