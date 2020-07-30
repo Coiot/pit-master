@@ -254,12 +254,11 @@ export default {
         // you can configure that cc element. I liked the default, but you can
         // see https://stripe.com/docs/stripe.js#element-options for details
       },
-      stripeEmail: "",
       error: "",
       loading: false,
       side1: '',
       side2: '',
-      tempcart: []
+      tempcart: [],
     };
   },
   computed: {
@@ -278,9 +277,17 @@ export default {
     cartUIStatus() {
       return this.$store.state.cartUIStatus;
     },
+   stripeEmail: {
+      get() {
+        return this.$store.state.stripeEmail
+      },
+      set(value) {
+        this.$store.commit('Email', value)
+      }
+    }
     
   },
-    methods: {
+  methods: {
     cartAdd(item, quantity, price, side1, side2) {
       let plate = this.plate
       plate = { 

@@ -40,11 +40,15 @@ const createStore = () =>
       cart: [],
       clientSecret: "",
       storedata: menu,
+      stripeEmail: "",
     },
 
     getters: {
       orders(state) {
         return state.number.orders
+      },
+      stripeEmail(state) {
+        return state.stripeEmail
       },
       cartItems: state => {
         return state.cart.map(payload => payload);
@@ -87,7 +91,7 @@ const createStore = () =>
           console.log("error", e);
         }
         handleCardPayment(getters.clientSecret, {
-          receipt_email: this.stripeEmail
+          receipt_email: getters.stripeEmail
         }).then(result => {
           this.loading = false;
           if (result.error) {
@@ -264,6 +268,9 @@ const createStore = () =>
       SET_RESULTS(state, data) {
         state.results = data
       },
+      SET_EMAIL(state, data) {
+        state.stripeEmail = stripeEmail
+      },
       paginateOn(state, data) {
         state.pagination = data
       },
@@ -308,6 +315,9 @@ const createStore = () =>
       updateCartUI: (state, payload) => {
         state.cartUIStatus = payload;
       },
+      Email(state, payload) {
+        state.stripeEmail = payload;
+      }
 
     }
   });
