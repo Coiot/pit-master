@@ -114,7 +114,7 @@ const createStore = () =>
             setTimeout(() => {
               commit('clearCart')
 
-            }, 15000);
+            }, 30000);
 
           } else {
             this.error = "Some unknown error occured";

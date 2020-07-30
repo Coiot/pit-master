@@ -14,6 +14,7 @@
               </transition>
             </div>
           </section>
+          <contentComponent />
           <section class="col xs-col-12 xs-p2 xs-px2 xs-my3 md-px3 card">
             <h3 class="secondary-title">{{ notice.title }}</h3>
             <p>{{ notice.body }}</p>
@@ -164,8 +165,18 @@
               <p class="main-title xs-my1">${{ total() }}</p>
             </div>
           </section>
-          <contentComponent />
-          <section class="xs-py2 xs-px2 md-px4">
+          <section v-if="orders < 1" class="xs-py2 xs-px2 md-px4">
+            <h4 class="main-title">Oh no!</h4>
+            <h5 class="secondary-title">All available order slots have been taken this week.</h5>
+            <p class="xs-my1">We are not accepting new orders at this time.</p>
+            <p
+              class="xs-my1"
+            >However, if you simply must have some BBQ soon, contact us to see if we can squeeze another order in, or if someone has canceled.</p>
+            <p
+              class="xs-my1"
+            >Check tabs on this site and our social media for when we open up orders again.</p>
+          </section>
+          <section v-else class="xs-py2 xs-px2 md-px4">
             <div v-if="cartUIStatus === 'idle'" class="payment">
               <h3>Please enter your payment details:</h3>
               <label for="email">Email</label>
@@ -202,7 +213,7 @@
               <div v-if="cartUIStatus === 'failure'">
                 <h3>Oh No!</h3>
                 <p>Something went wrong!</p>
-                <button @click="clearCart">Please try again</button>
+                <button class="button" @click="clearCart">Please try again</button>
               </div>
 
               <div v-else-if="cartUIStatus === 'loading'" class="loadcontain">
@@ -211,7 +222,14 @@
               </div>
 
               <div v-else-if="cartUIStatus === 'success'" class="loadcontain">
-                <h4>Success!</h4>
+                <h4 class="secondary-title">Success! Your order is in.</h4>
+                <p class="xs-my1">An email receipt will appear in your inbox shortly.</p>
+                <p
+                  class="xs-my1"
+                >We'll contact you the day of the grilling when your order is ready for pickup or delivery.</p>
+                <p
+                  class="xs-my1"
+                >If you need to cancel your order, we offer refunds before 48 hours of the grilling day.</p>
               </div>
             </div>
           </section>
@@ -284,7 +302,8 @@ export default {
       set(value) {
         this.$store.commit('Email', value)
       }
-    }
+    },
+    ...mapGetters(["orders"])
     
   },
   methods: {
