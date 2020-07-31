@@ -73,7 +73,7 @@ body {
   font-weight: 600;
 }
 p {
-  line-height: 2;
+  line-height: 1.6;
 }
 .main-title {
   font-size: 3rem;

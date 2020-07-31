@@ -26,10 +26,10 @@
               :key="plate.item"
               class="plate xs-flex xs-flex-column-reverse md-flex-row xs-my6 md-my4 xs-py1 md-py2"
             >
-              <div class="col xs-col-12 md-col-8 xs-px0 md-px2">
-                <h3 class="plate-title main-title">{{ plate.item }}</h3>
+              <div class="col xs-col-12 md-col-6 xs-px0 md-px2 xs-mt2">
+                <h3 class="plate-title main-title xs-mt4">{{ plate.item }}</h3>
                 <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
-                <p class="xs-my2">{{ plate.description }}</p>
+                <p class="xs-mb2">{{ plate.description }}</p>
                 <input
                   v-if="plate.side1"
                   v-model="side1"
@@ -64,9 +64,9 @@
                   @click="cartAdd(plate.item, plate.quantity, plate.price, side1, side2)"
                 >+ ${{ plate.price }}</button>
               </div>
-              <div class="col xs-col-12 md-col-4">
+              <div class="col xs-col-12 md-col-6">
                 <transition appear name="fade">
-                  <img />
+                  <img :src="plate.image" />
                 </transition>
               </div>
             </article>
@@ -160,11 +160,11 @@
                 </div>
               </div>
             </article>
-            <div class="xs-flex">
-              <h3 class="main-title xs-flex xs-flex-grow-1">Total</h3>
-              <p class="main-title xs-my1">${{ total() }}</p>
-            </div>
           </section>
+          <div class="total xs-flex xs-px4 xs-pt2">
+            <h3 class="main-title xs-flex xs-flex-grow-1">Total</h3>
+            <p class="main-title xs-my1">${{ total() }}</p>
+          </div>
           <section v-if="orders < 1" class="xs-py2 xs-px2 md-px4">
             <h4 class="main-title">Oh no!</h4>
             <h5 class="secondary-title">All available order slots have been taken this week.</h5>
@@ -277,6 +277,7 @@ export default {
       side1: '',
       side2: '',
       tempcart: [],
+      orders: ""
     };
   },
   computed: {
@@ -394,6 +395,7 @@ section {
   background-color: #ee4231;
   padding: 0.3em 1em;
   margin: 0px 0 0.4em;
+  text-align: center;
 }
 .plate:nth-of-type(even) {
   text-align: right;
@@ -404,7 +406,22 @@ section {
   align-items: flex-end;
   flex-flow: column !important;
 }
+.total {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  background: #fff;
+}
 @media only screen and (max-width: 45rem) {
+  .section-title {
+    padding: 0 0.5em 0.1em;
+    margin: 0 0 0.3em;
+  }
+  .plate-title {
+    display: flex;
+    padding: 0.2em 0.6em;
+    margin: 0 0 0.3em;
+  }
   .plate:nth-of-type(even) {
     flex-flow: column-reverse !important;
   }

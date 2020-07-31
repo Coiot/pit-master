@@ -34,6 +34,7 @@ collections:
         name: "plates"
         widget: 'list'
         fields:
+          - {label: 'Active', name: item, widget: boolean, default: true}
           - {label: 'Name', name: item, widget: string}
           - {label: 'Includes', name: includes, widget: string}
           - {label: 'Price', name: price, widget: string}
