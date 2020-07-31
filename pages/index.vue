@@ -276,8 +276,7 @@ export default {
       loading: false,
       side1: '',
       side2: '',
-      tempcart: [],
-      orders: ""
+      tempcart: []
     };
   },
   computed: {
