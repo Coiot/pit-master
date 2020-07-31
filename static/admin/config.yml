@@ -34,7 +34,7 @@ collections:
         name: "plates"
         widget: 'list'
         fields:
-          - {label: 'Active', name: item, widget: boolean, default: true}
+          - {label: 'Active', name: active, widget: boolean, default: true}
           - {label: 'Name', name: item, widget: string}
           - {label: 'Includes', name: includes, widget: string}
           - {label: 'Price', name: price, widget: string}
@@ -44,6 +44,7 @@ collections:
         name: 'meats'
         widget: list
         fields:
+          - {label: 'Active', name: active, widget: boolean, default: true}
           - {label: Name, name: item, widget: string}
           - {label: Price, name: price, widget: string}
           - {label: Description, name: description, widget: string}
@@ -51,6 +52,7 @@ collections:
         name: 'sides'
         widget: 'list'
         fields:
+          - {label: 'Active', name: active, widget: boolean, default: true}
           - {label: Name, name: item, widget: string}
           - {label: Price, name: price, widget: string}
           - {label: Description, name: description, widget: string}
@@ -58,6 +60,7 @@ collections:
         name: 'extras'
         widget: 'list'
         fields:
+          - {label: 'Active', name: active, widget: boolean, default: true}
           - {label: Name, name: item, widget: string}
           - {label: Price, name: price, widget: string}
           - {label: Description, name: description, widget: string}
