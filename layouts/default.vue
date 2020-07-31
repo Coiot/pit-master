@@ -68,19 +68,24 @@ html,
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Bitter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+}
+p {
+  line-height: 2;
 }
 .main-title {
   font-size: 3rem;
-  font-family: "Archivo Black", sans-serif;
-  font-weight: 400;
+  font-family: "Bitter", serif;
+  font-weight: 900;
   line-height: 1.2;
+  color: #ee4231;
 }
 .secondary-title {
   font-size: 1.8em;
-  font-family: "Archivo Black", sans-serif;
-  font-weight: 400;
+  font-family: "Bitter", serif;
+  font-weight: 800;
 }
 @media only screen and (max-width: 40rem) {
   .main-title {

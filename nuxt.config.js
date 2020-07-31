@@ -29,7 +29,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Archivo+Black' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Bitter:wght@600;800;900' }
     ]
   },
   css: ["@/assets/grid.css", "bf-solid/dist/solid.latest.css"],

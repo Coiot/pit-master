@@ -108,10 +108,10 @@ nav {
 }
 
 .sitename {
-  color: #363636;
-  font-family: "Archivo Black", sans-serif;
+  color: #ee4231;
+  font-family: "Bitter", serif;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 800;
   font-size: 18px;
 }
 

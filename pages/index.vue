@@ -20,14 +20,14 @@
             <p>{{ notice.body }}</p>
           </section>
           <section class="col xs-col-12 xs-py2 xs-px2 xs-my4 md-px4">
-            <h2 class="xs-py2 main-title">Barbecue Plates — Our Homage to Texas</h2>
+            <h2 class="section-title main-title xs-py1">Barbecue Plates</h2>
             <article
               v-for="plate in menu.plates"
               :key="plate.item"
               class="plate xs-flex xs-flex-column-reverse md-flex-row xs-my6 md-my4 xs-py1 md-py2"
             >
               <div class="col xs-col-12 md-col-8 xs-px0 md-px2">
-                <h3 class="xs-pt1 main-title">{{ plate.item }}</h3>
+                <h3 class="plate-title main-title">{{ plate.item }}</h3>
                 <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
                 <p class="xs-my2">{{ plate.description }}</p>
                 <input
@@ -62,7 +62,7 @@
                 <button
                   class="button xs-px3 xs-py2 xs-my1"
                   @click="cartAdd(plate.item, plate.quantity, plate.price, side1, side2)"
-                >${{ plate.price }}</button>
+                >+ ${{ plate.price }}</button>
               </div>
               <div class="col xs-col-12 md-col-4">
                 <transition appear name="fade">
@@ -72,7 +72,7 @@
             </article>
           </section>
           <section class="xs-py2 xs-px2 md-px4">
-            <h2 class="main-title">Just Meats</h2>
+            <h2 class="section-title main-title">Just Meats</h2>
             <article v-for="meat in menu.meats" :key="meat.item" class="xs-my2">
               <div class="xs-flex">
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ meat.item }}</h3>
@@ -94,7 +94,7 @@
             </article>
           </section>
           <section class="xs-py2 xs-px2 md-px4">
-            <h2 class="main-title">Our Sides</h2>
+            <h2 class="section-title main-title">Our Sides</h2>
             <article v-for="side in menu.sides" :key="side.item" class="xs-my2">
               <div class="xs-flex">
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ side.item }}</h3>
@@ -116,7 +116,7 @@
             </article>
           </section>
           <section class="xs-py2 xs-px2 md-px4">
-            <h2 class="main-title">Extras</h2>
+            <h2 class="section-title main-title">Extras</h2>
             <article v-for="extra in menu.extras" :key="extra.item" class="xs-my2">
               <div class="xs-flex">
                 <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ extra.item }}</h3>
@@ -372,14 +372,31 @@ section {
   max-width: 1200px;
   margin: 0 auto;
 }
+.section-title {
+  border-bottom: #ee4231 2px solid;
+  padding: 0 2em 0.1em;
+  margin: 0 0 0.6em;
+  text-align: center;
+  font-size: 4rem;
+}
 .button {
-  background-color: black !important;
-  font-size: 1.1rem !important;
-  font-family: "Archivo Black", sans-serif !important;
-  font-weight: 300 !important;
+  background-color: #ee4231 !important;
+  font-size: 2rem !important;
+  font-family: "Bitter", serif !important;
+  font-weight: 900 !important;
   line-height: 1.1 !important;
 }
+.plate-title {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 2px;
+  color: #fff;
+  background-color: #ee4231;
+  padding: 0.3em 1em;
+  margin: 0px 0 0.4em;
+}
 .plate:nth-of-type(even) {
+  text-align: right;
   flex-flow: row-reverse !important;
 }
 .plate:nth-of-type(even) div {

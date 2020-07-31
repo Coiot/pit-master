@@ -177,8 +177,8 @@ img[lazy="loaded"] {
   padding: 1.4rem;
   transition: 0.8s all;
   font-size: 1rem;
-  font-family: "Archivo Black", sans-serif;
-  font-weight: 400;
+  font-family: "Bitter", serif;
+  font-weight: 800;
   color: #000;
 }
 .item-txt {

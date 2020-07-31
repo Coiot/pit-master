@@ -1,12 +1,15 @@
 <template>
   <div class="searchwrapper xs-relative">
-    <input class="search xs-flex-grow-1 text-input xs-border-none xs-fit xs-text-5 md-text-4 xs-m0 xs-p0" type="search" v-model="value" :placeholder="placeholder">
-    <img class="xs-absolute searchicon xs-r0 sm-l0" src="~/assets/bx-search.svg">
+    <input
+      class="search xs-flex-grow-1 text-input xs-border-none xs-fit xs-text-5 md-text-4 xs-m0 xs-p0"
+      type="search"
+      v-model="value"
+      :placeholder="placeholder"
+    />
+    <img class="xs-absolute searchicon xs-r0 sm-l0" src="~/assets/bx-search.svg" />
     <ul class="xs-absolute results">
       <li class="xs-border xs-p2 fill-white" v-for="(xx,i) in compResults" :key="i">
-        <a :href="`${xx._path}/`">
-          {{xx.title}}
-        </a>
+        <a :href="`${xx._path}/`">{{xx.title}}</a>
       </li>
     </ul>
   </div>
@@ -186,9 +189,13 @@ export default {
 .searchwrapper {
   width: 100%;
 }
+input,
+input::placeholder {
+  color: #b03c31;
+}
 input.search {
   width: 100%;
-  text-indent: 22px;
+  text-indent: 24px;
 }
 .results {
   top: 1.35rem;
@@ -200,6 +207,7 @@ input.search {
 .results a {
   display: block;
   width: 100%;
+  color: #b03c31;
 }
 @media only screen and (max-width: 40rem) {
   input.search {

@@ -15,17 +15,15 @@
       </div>
     </div>
     <ul class="zap-slideout-menu list-unstyled black-font">
-      <li class="zap-slideout-menu-item">
-        <nuxt-link style="color:#000" class="text-black black-font" to="/" exact>
-          <img
-            style="width:64px;"
-            class="xs-block xs-fit xs-mb2"
-            v-if="this.$store.state.siteInfo.siteicon  && this.$store.state.siteInfo.showmenu"
-            :src="this.$store.state.siteInfo.siteicon"
-            :alt="menuSiteName"
-          />
-          {{menuSiteName}}
-        </nuxt-link>
+      <li class="zap-slideout-menu-item menu-header">
+        <img
+          style="width:64px;"
+          class="xs-block xs-fit xs-mb2"
+          v-if="this.$store.state.siteInfo.siteicon  && this.$store.state.siteInfo.showmenu"
+          :src="this.$store.state.siteInfo.siteicon"
+          :alt="menuSiteName"
+        />
+        {{menuSiteName}}
       </li>
       <li class="zap-slideout-menu-item--small">
         <nuxt-link to="/" exact>Order</nuxt-link>
@@ -39,7 +37,7 @@
       <li class="zap-slideout-menu-item--small">
         <nuxt-link to="/contact" exact>Contact</nuxt-link>
       </li>
-      <li v-if="menuLinks" class="xs-mt5 zap-slideout-menu-item black-font">Social Media</li>
+      <li v-if="menuLinks" class="xs-mt4 zap-slideout-menu-item menu-header">Social Media</li>
       <li
         v-if="menuLinks"
         v-for="m in menuLinks"
@@ -96,17 +94,23 @@ export default {
   }
 };
 </script>
-  <style lang="scss">
-.black-font {
+  <style lang="scss" scoped>
+a {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.menu-header {
   text-transform: uppercase;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 900;
 }
 .hamburger {
   padding: 15px 15px;
   display: inline-block;
   cursor: pointer;
   transition-property: opacity, filter;
-  transition-duration: 0.15s;
+  transition-duration: 0.2s;
   transition-timing-function: linear;
   font: inherit;
   color: inherit;
@@ -136,12 +140,12 @@ export default {
 .hamburger-inner::before,
 .hamburger-inner::after {
   width: 40px;
-  height: 4px;
-  background-color: #000;
+  height: 5px;
+  background-color: #ee4231;
   border-radius: 4px;
   position: absolute;
   transition-property: transform;
-  transition-duration: 0.15s;
+  transition-duration: 0.2s;
   transition-timing-function: ease;
 }
 .hamburger-inner::before,
@@ -226,7 +230,6 @@ export default {
 }
 
 .zap-slideout-menu {
-  font-weight: 600;
   transition: transform 1.6s ease(out-cubic);
 }
 
@@ -250,7 +253,6 @@ export default {
 }
 
 .zap-slideout-menu-item--small {
-  font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
