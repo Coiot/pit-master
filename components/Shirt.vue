@@ -1,6 +1,6 @@
 <template>
-  <section class="clearfix xs-mb3">
-    <div class="col xs-col-12 md-col-6">
+  <section class="clearfix">
+    <div class="col xs-col-12 md-col-6 xs-my4">
       <img src="https://pit-master.netlify.app/images/uploads/t-shirt.jpg" />
     </div>
     <div class="col xs-col-12 md-col-6 xs-px6 xs-py2 xs-flex-grow-1">

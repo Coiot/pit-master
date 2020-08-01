@@ -17,16 +17,16 @@
     <ul class="zap-slideout-menu list-unstyled black-font">
       <li class="zap-slideout-menu-item menu-header">
         <img
-          style="width:64px;"
+          style="width:180px;"
           class="xs-block xs-fit xs-mb2"
           v-if="this.$store.state.siteInfo.siteicon  && this.$store.state.siteInfo.showmenu"
           :src="this.$store.state.siteInfo.siteicon"
           :alt="menuSiteName"
         />
-        {{menuSiteName}}
+        Quick Links
       </li>
       <li class="zap-slideout-menu-item--small">
-        <nuxt-link to="/" exact>Order</nuxt-link>
+        <nuxt-link to="/" exact>Order Here</nuxt-link>
       </li>
       <li class="zap-slideout-menu-item--small">
         <nuxt-link to="/about" exact>Our Story</nuxt-link>
@@ -35,8 +35,11 @@
         <nuxt-link to="/community" exact>Community</nuxt-link>
       </li>
       <li class="zap-slideout-menu-item--small">
-        <nuxt-link to="/contact" exact>Contact</nuxt-link>
+        <nuxt-link to="/contact" exact>Contact Form</nuxt-link>
       </li>
+      <li class="xs-mt4 zap-slideout-menu-item menu-header">Contact Info</li>
+      <li class="zap-slideout-menu-item--small">(503) 967-9755</li>
+      <li class="zap-slideout-menu-item--small">joshmotesbbq@gmail.com</li>
       <li v-if="menuLinks" class="xs-mt4 zap-slideout-menu-item menu-header">Social Media</li>
       <li
         v-if="menuLinks"
@@ -236,6 +239,8 @@ a {
 .zap-slideout-menu-item--small {
   cursor: pointer;
   text-transform: uppercase;
+  font-size: 1.2em;
+  font-weight: 600;
 
   &:hover {
     text-decoration: underline;
@@ -248,7 +253,7 @@ a {
 
 .zap-slideout-menu-item {
   & + .zap-slideout-menu-item--small {
-    margin-top: 30px;
+    margin-top: 20px;
   }
 }
 

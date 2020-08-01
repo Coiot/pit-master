@@ -13,7 +13,7 @@
             class="item xs-block xs-flex xs-relative xs-flex-align-start xs-flex-justify-end xs-text-left"
           >
             <div class="xs-text-left xs-flex xs-flex-justify-end xs-flex-align-end xs-width-auto">
-              <div class="full-bg-link">
+              <div class="full-bg-link xs-text-2">
                 <nuxt-link class="xs-text-10" :to="p._path">{{p.title}}</nuxt-link>
                 <span class="xs-text-8">| {{p.category}}</span>
               </div>
@@ -29,7 +29,11 @@
       <aside class="col xs-col-12 md-col-3 xs-p2">
         <h3 class="secondary-title xs-pb2">All Posts</h3>
         <ul class="list-unstyled">
-          <li v-for="(pg,i) in blogPosts" :key="`pg-${i}`" class="zap-slideout-menu-item--small">
+          <li
+            v-for="(pg,i) in blogPosts"
+            :key="`pg-${i}`"
+            class="zap-slideout-menu-item--small xs-mb2 xs-text-2"
+          >
             <nuxt-link :to="pg._path">{{pg.title}}</nuxt-link>
           </li>
         </ul>
