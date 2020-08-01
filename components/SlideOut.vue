@@ -18,7 +18,7 @@
       <li class="zap-slideout-menu-item menu-header">
         <img
           style="width:180px;"
-          class="xs-block xs-fit xs-mb2"
+          class="xs-block xs-mb2"
           v-if="this.$store.state.siteInfo.siteicon  && this.$store.state.siteInfo.showmenu"
           :src="this.$store.state.siteInfo.siteicon"
           :alt="menuSiteName"
@@ -37,10 +37,14 @@
       <li class="zap-slideout-menu-item--small">
         <nuxt-link to="/contact" exact>Contact Form</nuxt-link>
       </li>
-      <li class="xs-mt4 zap-slideout-menu-item menu-header">Contact Info</li>
-      <li class="zap-slideout-menu-item--small">(503) 967-9755</li>
-      <li class="zap-slideout-menu-item--small">joshmotesbbq@gmail.com</li>
-      <li v-if="menuLinks" class="xs-mt4 zap-slideout-menu-item menu-header">Social Media</li>
+      <li class="xs-mt2 md-mt4 zap-slideout-menu-item menu-header">Contact Info</li>
+      <li class="zap-slideout-menu-item--small">
+        <a>(503) 967-9755</a>
+      </li>
+      <li class="zap-slideout-menu-item--small">
+        <a>joshmotesbbq@gmail.com</a>
+      </li>
+      <li v-if="menuLinks" class="xs-mt2 md-mt4 zap-slideout-menu-item menu-header">Social Media</li>
       <li
         v-if="menuLinks"
         v-for="m in menuLinks"
@@ -209,12 +213,6 @@ a {
   }
 }
 
-@media only screen and (max-width: 40rem) {
-  .zap-slideout {
-    width: 50vw;
-  }
-}
-
 .zap-slideout-opener {
   position: absolute;
   top: -4px;
@@ -262,8 +260,28 @@ a {
   letter-spacing: 0.08em;
 }
 
-/* The famed Zap agency logo (TM) */
-.zap-emoji {
-  height: 120px;
+@media only screen and (max-width: 40rem) {
+  .zap-slideout {
+    width: 60vw;
+  }
+
+  .zap-slideout-menu-item--small {
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+
+    & + & {
+      margin-top: 10px;
+    }
+  }
+
+  .zap-slideout-menu-item {
+    & + .zap-slideout-menu-item--small {
+      margin-top: 14px;
+    }
+  }
+  img {
+    width: 50px;
+  }
 }
 </style>

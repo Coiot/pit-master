@@ -148,7 +148,7 @@
       "item": "Beef Fat",
       "price": "10",
       "quantity": "1",
-      "description": "Called “Liquid Gold” and made from the beef fat of our briskets. This is a healthy butter substitute and is great for cooking and frying. You can also make candles out of it!",
+      "description": "Called “Liquid Gold.” Rendered beef fat from our briskets. Great for cooking and frying!",
       "active": true
     }
   ],
@@ -157,7 +157,7 @@
       "item": "Delivery",
       "price": "5",
       "quantity": "1",
-      "description": "Flat delivery fee. Order will go out as soon as it's ready.",
+      "description": "Flat delivery fee. Order will go out as soon as it's ready on grilling day.",
       "active": true
     },
     {
@@ -171,7 +171,7 @@
       "item": "Generous Tip",
       "price": "10",
       "quantity": "1",
-      "description": "Get our deserving young lads a nice treat.",
+      "description": "Get our deserving young lad a nice treat.",
       "active": true
     }
   ]

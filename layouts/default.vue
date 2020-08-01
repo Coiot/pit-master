@@ -90,10 +90,10 @@ p {
 }
 @media only screen and (max-width: 40rem) {
   .main-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   .secondary-title {
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
 }
 .feat-wrapper {

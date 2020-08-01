@@ -114,10 +114,11 @@ const createStore = () =>
             setTimeout(() => {
               commit('clearCart')
 
-            }, 30000);
+            }, 35000);
 
           } else {
             this.error = "Some unknown error occured";
+            this.state.cartUIStatus = "failure";
             setTimeout(() => (this.error = ""), 3000);
           }
         });
@@ -293,8 +294,8 @@ const createStore = () =>
       addToCart: (state, payload) => {
         let itemfound = state.cart.find(el => el.item === payload.item);
         itemfound
-          ? (itemfound.quantity = payload.quantity, itemfound.side1 = payload.side1, itemfound.side2 = payload.side2)
-          : state.cart.push(payload);
+        // ? (itemfound.quantity = payload.quantity, itemfound.side1 = payload.side1, itemfound.side2 = payload.side2)
+        : state.cart.push(payload);
       },
       setClientSecret: (state, payload) => {
         state.clientSecret = payload;

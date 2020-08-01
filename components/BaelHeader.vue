@@ -56,6 +56,9 @@ export default {
     headerSiteName() {
       return this.$store.state.siteInfo.sitename;
     },
+    logo() {
+      return this.$store.state.siteInfo.siteicon;
+    },
     componentResults() {
       return this.$store.state.results;
     },
@@ -105,6 +108,11 @@ nav {
   top: 0;
   left: 0;
   right: 0;
+}
+
+.logo {
+  height: 1.5rem;
+  width: auto;
 }
 
 .sitename {

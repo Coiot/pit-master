@@ -3,22 +3,17 @@
     <div class="full-height single xs-border-left xs-border-right">
       <div class="xs-mt2 xs-p2 bcg-item">
         <div class="item xs-block xs-full-height">
-          <section class="col xs-col-12 xs-py2 xs-px2 md-px4 xs-mt4">
-            <div v-if="orders >= 1" class="col xs-col-12 md-col-7">
-              <h1 class="xs-py3 main-title">{{ cta.title }}</h1>
+          <section class="col xs-col-12 xs-mt4">
+            <div v-if="orders >= 1" class="cta white col xs-col-12 xs-p6">
+              <h1 class="white xs-pt4 main-title">{{ cta.title }}</h1>
               <p class="secondary-title xs-my2">{{ cta.body }}</p>
               <p class="secondary-title xs-my2">Only {{ orders }} Slots Left!!</p>
             </div>
-            <div v-else class="col xs-col-12 md-col-7">
+            <div v-else class="cat col xs-col-12">
               <h1 class="xs-py3 main-title">Sold Out!</h1>
               <p
                 class="secondary-title xs-my2"
               >All available slots for this week are filled. Follow us on social media to know when we'll be grilling again.</p>
-            </div>
-            <div class="col xs-col-12 md-col-5">
-              <transition appear name="fade">
-                <img src="https://pit-master.netlify.app/images/uploads/cta.jpg" />
-              </transition>
             </div>
           </section>
           <Modal v-if="orders === 1" />
@@ -26,7 +21,7 @@
             <h3 class="secondary-title">{{ notice.title }}</h3>
             <p>{{ notice.body }}</p>
           </section>
-          <section class="col xs-col-12 xs-py2 xs-px2 xs-my4 md-px4">
+          <section class="col xs-col-12 xs-py2 xs-px1 xs-my4 md-px4">
             <h2 class="section-title main-title xs-py1">Barbecue Plates</h2>
             <article
               v-for="plate in menu.plates"
@@ -77,12 +72,12 @@
               </div>
               <div class="col xs-col-12 md-col-6">
                 <transition appear name="fade">
-                  <img :src="plate.image" />
+                  <img :src="plate.image" :alt="plate.item" />
                 </transition>
               </div>
             </article>
           </section>
-          <section class="xs-py2 xs-px2 md-px4">
+          <section class="xs-py2 xs-px1 md-px4">
             <h2 class="section-title main-title">Just Meats</h2>
             <article v-for="meat in menu.meats" :key="meat.item" class="xs-my2">
               <div v-if="meat.active === true">
@@ -106,7 +101,7 @@
               </div>
             </article>
           </section>
-          <section class="xs-py2 xs-px2 md-px4">
+          <section class="xs-py2 xs-px1 md-px4">
             <h2 class="section-title main-title">Our Sides</h2>
             <article v-for="side in menu.sides" :key="side.item" class="xs-my2">
               <div v-if="side.active === true">
@@ -130,7 +125,7 @@
               </div>
             </article>
           </section>
-          <section class="xs-py2 xs-px2 md-px4">
+          <section class="xs-py2 xs-px1 md-px4">
             <h2 class="section-title main-title">Extras</h2>
             <article v-for="extra in menu.extras" :key="extra.item" class="xs-my2">
               <div v-if="extra.active === true">
@@ -154,7 +149,7 @@
               </div>
             </article>
           </section>
-          <section class="xs-py2 xs-px2 md-px4">
+          <section class="xs-py2 xs-px1 md-px4">
             <h2 class="section-title main-title">Delivery</h2>
             <article v-for="delivery in menu.delivery" :key="delivery.item" class="xs-my2">
               <div v-if="delivery.active === true">
@@ -199,7 +194,7 @@
             <h3 class="main-title xs-flex xs-flex-grow-1">Total</h3>
             <p class="main-title xs-my1">${{ total() }}</p>
           </div>
-          <section v-if="orders < 1" class="xs-py2 xs-px2 md-px4">
+          <section v-if="orders < 1" class="xs-py2 xs-px1 md-px4">
             <h4 class="main-title">Oh no!</h4>
             <h5 class="secondary-title">All available order slots have been taken this week.</h5>
             <p class="xs-my1">We are not accepting new orders at this time.</p>
@@ -210,7 +205,7 @@
               class="xs-my1"
             >Check tabs on this site and our social media for when we open up orders again.</p>
           </section>
-          <section v-else class="xs-py2 xs-px2 md-px4">
+          <section v-else class="xs-py2 xs-px1 md-px4">
             <div v-if="cartUIStatus === 'idle'" class="payment">
               <h3>Please enter your payment details:</h3>
               <label for="email">Email</label>
@@ -245,8 +240,8 @@
 
             <div v-else class="statussubmit">
               <div v-if="cartUIStatus === 'failure'">
-                <h3>Oh No!</h3>
-                <p>Something went wrong!</p>
+                <h4 class="secondary-title">Oh No!</h4>
+                <p class="xs-my1">Something went wrong!</p>
                 <button class="button" @click="clearCart">Please try again</button>
               </div>
 
@@ -388,6 +383,16 @@ export default {
 </script>
 
 <style>
+.cta {
+  background: url(https://pit-master.netlify.app/images/uploads/cta1.jpg)
+    no-repeat center center fixed;
+  background-size: cover;
+}
+
+.white {
+  color: white;
+}
+
 .browse a {
   width: 100%;
 }

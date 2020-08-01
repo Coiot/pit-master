@@ -1,7 +1,7 @@
 <template>
   <main class="clearfix">
     <div class="full-height single xs-border-left xs-border-right">
-      <div class="xs-mt2 xs-p2 bcg-item">
+      <div class="xs-mt4 xs-p2 bcg-item">
         <div class="item xs-block xs-full-height">
           <h1 class="xs-pt4 main-title">About Us</h1>
 
@@ -16,8 +16,8 @@
                 <img src="https://pit-master.netlify.app/images/uploads/history.jpg" />
               </transition>
             </div>
-            <div class="col xs-col-12 md-col-6">
-              <h2 class="xs-py3 main-title">History</h2>
+            <div class="col xs-col-12 md-col-6 xs-px4">
+              <h2 class="xs-py2 main-title">History</h2>
               <p>{{ about.history }}</p>
             </div>
           </section>
@@ -41,8 +41,8 @@
             <div class="col xs-col-12 md-col-6">
               <img src="https://pit-master.netlify.app/images/uploads/process0.jpeg" />
             </div>
-            <div class="col xs-col-12 md-col-6">
-              <h2 class="xs-py3 main-title">The Process</h2>
+            <div class="col xs-col-12 md-col-6 xs-px4">
+              <h2 class="xs-py2 main-title">The Process</h2>
               <p>{{ about.process }}</p>
             </div>
             <div class="col xs-col-12 xs-py4 xs-text-center">

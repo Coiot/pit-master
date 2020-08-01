@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="xs-mt4">
     <FullGrid :allitems="allBlogPosts"></FullGrid>
     <hr />
     <div class="embedsocial-instagram xs-pt1" data-ref="452ee8ee5ab56640156aabd2b7d5a90a295430df"></div>
