@@ -190,7 +190,8 @@ export default {
   width: 100%;
 }
 input,
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: #b03c31;
 }
 input.search {

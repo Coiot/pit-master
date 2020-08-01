@@ -38,7 +38,10 @@
       </div>
       <div class="c-12 xs-text-left xs-p2 xs-border">
         <div class="item xs-text-6">
-          <p>Copyright 2020</p>
+          <p>
+            Copyright 2020. All rights reserved. Design by
+            <a href="http://isaacvolpe.com">Xican</a>.
+          </p>
         </div>
       </div>
     </div>

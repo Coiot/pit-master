@@ -1,9 +1,9 @@
 <template>
-  <section class="clearfix">
+  <section class="clearfix xs-mb3">
     <div class="col xs-col-12 md-col-6">
-      <img src="https://generative-placeholders.glitch.me/image?width=500&height=300&colors=61" />
+      <img src="https://pit-master.netlify.app/images/uploads/t-shirt.jpg" />
     </div>
-    <div class="col xs-col-12 md-col-6 xs-p4 xs-flex-grow-1">
+    <div class="col xs-col-12 md-col-6 xs-px6 xs-py2 xs-flex-grow-1">
       <h3 class="xs-py3 main-title">{{ shirt.title }}</h3>
       <p>{{ shirt.body }}</p>
       <button class="button xs-my3">{{ shirt.button }}</button>

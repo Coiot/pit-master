@@ -13,9 +13,7 @@
           <section class="col xs-col-12 xs-py2">
             <div class="col xs-col-12 md-col-6">
               <transition appear name="fade">
-                <img
-                  src="https://generative-placeholders.glitch.me/image?width=500&height=500&colors=61&img=01"
-                />
+                <img src="https://pit-master.netlify.app/images/uploads/history.jpg" />
               </transition>
             </div>
             <div class="col xs-col-12 md-col-6">
@@ -41,9 +39,7 @@
 
           <section class="col xs-col-12 xs-py2">
             <div class="col xs-col-12 md-col-6">
-              <img
-                src="https://generative-placeholders.glitch.me/image?width=500&height=500&colors=61&img=02"
-              />
+              <img src="https://pit-master.netlify.app/images/uploads/process0.jpeg" />
             </div>
             <div class="col xs-col-12 md-col-6">
               <h2 class="xs-py3 main-title">The Process</h2>

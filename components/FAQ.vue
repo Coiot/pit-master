@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="xs-pb2">
     <h3 class="main-title">{{ faq.title }}</h3>
     <p>{{ faq.body }}</p>
     <article v-for="question in faq.questions" :key="question.question">

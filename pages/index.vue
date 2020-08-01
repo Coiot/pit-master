@@ -3,18 +3,19 @@
     <div class="full-height single xs-border-left xs-border-right">
       <div class="xs-mt2 xs-p2 bcg-item">
         <div class="item xs-block xs-full-height">
-          <section class="col xs-col-12 xs-py2 xs-px2 md-px4">
-            <div class="col xs-col-12 md-col-6">
+          <section class="col xs-col-12 xs-py2 xs-px2 md-px4 xs-mt4">
+            <div class="col xs-col-12 md-col-7">
               <h1 class="xs-py3 main-title">{{ cta.title }}</h1>
-              <p>{{ cta.body }}</p>
+              <p class="secondary-title xs-my2">{{ cta.body }}</p>
+              <p class="secondary-title xs-my2">Only {{ orders }} Slots Left!!</p>
             </div>
-            <div class="col xs-col-12 md-col-6">
+            <div class="col xs-col-12 md-col-5">
               <transition appear name="fade">
-                <img />
+                <img src="https://pit-master.netlify.app/images/uploads/cta.jpg" />
               </transition>
             </div>
           </section>
-          <contentComponent />
+          <Modal v-if="orders === 1" />
           <section class="col xs-col-12 xs-p2 xs-px2 xs-my3 md-px3 card">
             <h3 class="secondary-title">{{ notice.title }}</h3>
             <p>{{ notice.body }}</p>
@@ -47,8 +48,10 @@
                 <datalist id="sides">
                   <option value="Southern Mac n’ Cheese"></option>
                   <option value="Smoked Jalapeno n’ Brisket Beans"></option>
+                  <option value="Mexican Street Corn Salad"></option>
                   <option value="Coleslaw"></option>
                   <option value="Banana Pudding"></option>
+                  <option value="Tortillas"></option>
                 </datalist>
                 <input
                   type="number"
@@ -74,67 +77,73 @@
           <section class="xs-py2 xs-px2 md-px4">
             <h2 class="section-title main-title">Just Meats</h2>
             <article v-for="meat in menu.meats" :key="meat.item" class="xs-my2">
-              <div class="xs-flex">
-                <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ meat.item }}</h3>
-                <input
-                  type="number"
-                  v-model="meat.quantity"
-                  id="quantity"
-                  min="0"
-                  max="20"
-                  pattern="[0-9]*"
-                  oninput="(!validity.rangeOverflow||(value=10)) && (!validity.rangeUnderflow||(value=1)) &&(!validity.stepMismatch||(value=parseInt(this.value)));"
-                />
-                <button
-                  class="button xs-px1 md-px3 xs-py1"
-                  @click="cartAdd(meat.item, meat.quantity, meat.price)"
-                >${{ meat.price }}</button>
+              <div v-if="meat.active === true">
+                <div class="xs-flex">
+                  <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ meat.item }}</h3>
+                  <input
+                    type="number"
+                    v-model="meat.quantity"
+                    id="quantity"
+                    min="0"
+                    max="20"
+                    pattern="[0-9]*"
+                    oninput="(!validity.rangeOverflow||(value=10)) && (!validity.rangeUnderflow||(value=1)) &&(!validity.stepMismatch||(value=parseInt(this.value)));"
+                  />
+                  <button
+                    class="button xs-px1 md-px3 xs-py1"
+                    @click="cartAdd(meat.item, meat.quantity, meat.price)"
+                  >${{ meat.price }}</button>
+                </div>
+                <p class="xs-my1">{{ meat.description }}</p>
               </div>
-              <p class="xs-my1">{{ meat.description }}</p>
             </article>
           </section>
           <section class="xs-py2 xs-px2 md-px4">
             <h2 class="section-title main-title">Our Sides</h2>
             <article v-for="side in menu.sides" :key="side.item" class="xs-my2">
-              <div class="xs-flex">
-                <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ side.item }}</h3>
-                <input
-                  type="number"
-                  v-model="side.quantity"
-                  id="quantity"
-                  min="0"
-                  max="20"
-                  pattern="[0-9]*"
-                  oninput="(!validity.rangeOverflow||(value=10)) && (!validity.rangeUnderflow||(value=1)) &&(!validity.stepMismatch||(value=parseInt(this.value)));"
-                />
-                <button
-                  class="button xs-px1 md-px3 xs-py1"
-                  @click="cartAdd(side.item, side.quantity, side.price)"
-                >${{ side.price }}</button>
+              <div v-if="side.active === true">
+                <div class="xs-flex">
+                  <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ side.item }}</h3>
+                  <input
+                    type="number"
+                    v-model="side.quantity"
+                    id="quantity"
+                    min="0"
+                    max="20"
+                    pattern="[0-9]*"
+                    oninput="(!validity.rangeOverflow||(value=10)) && (!validity.rangeUnderflow||(value=1)) &&(!validity.stepMismatch||(value=parseInt(this.value)));"
+                  />
+                  <button
+                    class="button xs-px1 md-px3 xs-py1"
+                    @click="cartAdd(side.item, side.quantity, side.price)"
+                  >${{ side.price }}</button>
+                </div>
+                <p class="xs-my1">{{ side.description }}</p>
               </div>
-              <p class="xs-my1">{{ side.description }}</p>
             </article>
           </section>
           <section class="xs-py2 xs-px2 md-px4">
             <h2 class="section-title main-title">Extras</h2>
             <article v-for="extra in menu.extras" :key="extra.item" class="xs-my2">
-              <div class="xs-flex">
-                <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ extra.item }}</h3>
-                <input
-                  type="number"
-                  v-model="extra.quantity"
-                  id="quantity"
-                  min="0"
-                  max="20"
-                  pattern="[0-9]*"
-                  oninput="(!validity.rangeOverflow||(value=10)) && (!validity.rangeUnderflow||(value=1)) &&(!validity.stepMismatch||(value=parseInt(this.value)));"
-                />
-                <button
-                  class="button xs-px1 md-px3 xs-py1"
-                  @click="cartAdd(extra.item, extra.quantity, extra.price)"
-                >${{ extra.price }}</button>
+              <div v-if="extra.active === true">
+                <div class="xs-flex">
+                  <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ extra.item }}</h3>
+                  <input
+                    type="number"
+                    v-model="extra.quantity"
+                    id="quantity"
+                    min="0"
+                    max="20"
+                    pattern="[0-9]*"
+                    oninput="(!validity.rangeOverflow||(value=10)) && (!validity.rangeUnderflow||(value=1)) &&(!validity.stepMismatch||(value=parseInt(this.value)));"
+                  />
+                  <button
+                    class="button xs-px1 md-px3 xs-py1"
+                    @click="cartAdd(extra.item, extra.quantity, extra.price)"
+                  >${{ extra.price }}</button>
+                </div>
+                <p class="xs-my1">{{ extra.description }}</p>
               </div>
-              <p class="xs-my1">{{ extra.description }}</p>
             </article>
           </section>
           <section class="xs-py2 xs-px2 md-px4">
@@ -239,12 +248,12 @@
   </main>
 </template>
 <script>
-import contentComponent from "@/components/contentComponent";
+import Modal from "@/components/Modal";
 import { mapState, mapGetters } from "vuex";
 import { Card, handleCardPayment } from "vue-stripe-elements-plus";
 import axios from "axios";
 export default {
-  components: { contentComponent, Card },
+  components: { Card, Modal },
   /** Get data on Server Side: */
   async fetch({ app, store }) {
     if (process.browser) return;
@@ -381,7 +390,7 @@ section {
 }
 .button {
   background-color: #ee4231 !important;
-  font-size: 2rem !important;
+  font-size: 1.6em !important;
   font-family: "Bitter", serif !important;
   font-weight: 900 !important;
   line-height: 1.1 !important;

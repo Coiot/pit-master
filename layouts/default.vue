@@ -83,9 +83,10 @@ p {
   color: #ee4231;
 }
 .secondary-title {
-  font-size: 1.8em;
+  font-size: 2em;
   font-family: "Bitter", serif;
   font-weight: 800;
+  align-items: flex-end;
 }
 @media only screen and (max-width: 40rem) {
   .main-title {
