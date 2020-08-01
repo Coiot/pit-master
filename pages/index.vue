@@ -4,10 +4,16 @@
       <div class="xs-mt2 xs-p2 bcg-item">
         <div class="item xs-block xs-full-height">
           <section class="col xs-col-12 xs-py2 xs-px2 md-px4 xs-mt4">
-            <div class="col xs-col-12 md-col-7">
+            <div v-if="orders >= 1" class="col xs-col-12 md-col-7">
               <h1 class="xs-py3 main-title">{{ cta.title }}</h1>
               <p class="secondary-title xs-my2">{{ cta.body }}</p>
               <p class="secondary-title xs-my2">Only {{ orders }} Slots Left!!</p>
+            </div>
+            <div v-else class="col xs-col-12 md-col-7">
+              <h1 class="xs-py3 main-title">Sold Out!</h1>
+              <p
+                class="secondary-title xs-my2"
+              >All available slots for this week are filled. Follow us on social media to know when we'll be grilling again.</p>
             </div>
             <div class="col xs-col-12 md-col-5">
               <transition appear name="fade">
