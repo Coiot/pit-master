@@ -39,10 +39,9 @@
       <div class="c-12 xs-text-left xs-p2 xs-border">
         <div class="item xs-text-6">
           <p>
-            Copyright ©2020 Josh Motes BBQ. All rights reserved. Design & Code by
-            <a
-              href="http://isaacvolpe.com"
-            >Xican</a>.
+            Copyright ©2020 Josh Motes BBQ. All rights reserved. Images by
+            <a href="https://www.instagram.com/og.illustration/">OG Illustration</a>. Design & Code by
+            <a href="http://isaacvolpe.com">Xican</a>.
           </p>
         </div>
       </div>

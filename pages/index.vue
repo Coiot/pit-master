@@ -43,6 +43,7 @@
                   name="sides"
                   list="sides"
                   placeholder="Pick a Side"
+                  type="text"
                 />
                 <input
                   v-show="plate.side2"
@@ -50,6 +51,7 @@
                   name="sides"
                   list="sides"
                   placeholder="Pick another Side"
+                  type="text"
                 />
                 <datalist id="sides">
                   <option value="Southern Mac n’ Cheese"></option>
@@ -149,6 +151,23 @@
                   >${{ extra.price }}</button>
                 </div>
                 <p class="xs-my1">{{ extra.description }}</p>
+              </div>
+            </article>
+          </section>
+          <section class="xs-py2 xs-px2 md-px4">
+            <h2 class="section-title main-title">Delivery</h2>
+            <article v-for="delivery in menu.delivery" :key="delivery.item" class="xs-my2">
+              <div v-if="delivery.active === true">
+                <div class="xs-flex">
+                  <h3
+                    class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4"
+                  >{{ delivery.item }}</h3>
+                  <button
+                    class="button xs-px1 md-px3 xs-py1"
+                    @click="cartAdd(delivery.item, delivery.quantity, delivery.price)"
+                  >${{ delivery.price }}</button>
+                </div>
+                <p class="xs-my1">{{ delivery.description }}</p>
               </div>
             </article>
           </section>
