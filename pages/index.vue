@@ -6,8 +6,8 @@
           <section class="col xs-col-12 xs-mt4">
             <div v-if="orders >= 1" class="cta white col xs-col-12 xs-p6">
               <h1 class="white xs-pt4 main-title">{{ cta.title }}</h1>
-              <p class="secondary-title xs-my2">{{ cta.body }}</p>
-              <p class="secondary-title xs-my2">Only {{ orders }} Slots Left!!</p>
+              <p class="secondary-title xs-my3">{{ cta.body }}</p>
+              <p class="secondary-title xs-text-2 xs-my3">Only {{ orders }} Slots Left!!</p>
             </div>
             <div v-else class="cat col xs-col-12">
               <h1 class="xs-py3 main-title">Sold Out!</h1>
@@ -384,9 +384,11 @@ export default {
 
 <style>
 .cta {
-  background: url(https://pit-master.netlify.app/images/uploads/cta1.jpg)
+  background: url(https://pit-master.netlify.app/images/uploads/cta2.jpg)
     no-repeat center center fixed;
   background-size: cover;
+  font-size: 120%;
+  letter-spacing: 0.05em;
 }
 
 .white {
