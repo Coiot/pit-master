@@ -41,6 +41,9 @@ const createStore = () =>
       clientSecret: "",
       storedata: menu,
       stripeEmail: "",
+      stripeCustomer: "",
+      stripePhone: "",
+      stripeAddress: "",
     },
 
     getters: {
@@ -49,6 +52,15 @@ const createStore = () =>
       },
       stripeEmail(state) {
         return state.stripeEmail
+      },
+      stripeCustomer(state) {
+        return state.stripeCustomer
+      },
+      stripePhone(state) {
+        return state.stripePhone
+      },
+      stripeAddress(state) {
+        return state.stripeAddress
       },
       cartItems: state => {
         return state.cart.map(payload => payload);
@@ -73,7 +85,10 @@ const createStore = () =>
           const result = await axios.post(
             "https://pit-master.netlify.app/.netlify/functions/create-payment-intent",
             {
-              items: getters.cartItems
+              items: getters.cartItems,
+              customer: getters.stripeCustomer,
+              phone: getters.stripePhone,
+              address: getters.stripeAddress,
             },
             {
               headers: {
@@ -318,6 +333,15 @@ const createStore = () =>
       },
       Email(state, payload) {
         state.stripeEmail = payload;
+      },
+      Customer(state, payload) {
+        state.stripeCustomer = payload;
+      },
+      Phone(state, payload) {
+        state.stripePhone = payload;
+      },
+      Address(state, payload) {
+        state.stripeAddress = payload;
       }
 
     }
