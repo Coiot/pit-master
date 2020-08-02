@@ -5,9 +5,13 @@
         <div class="item xs-block xs-full-height">
           <section class="col xs-col-12 xs-mt4">
             <div v-if="orders >= 1" class="cta white col xs-col-12 xs-p6">
-              <h1 class="white xs-pt4 main-title">{{ cta.title }}</h1>
-              <p class="secondary-title xs-my3">{{ cta.body }}</p>
-              <p class="secondary-title xs-text-2 xs-my3">Only {{ orders }} Slots Left!!</p>
+              <h1 class="white xs-pt4 xs-pb3 main-title">{{ cta.title }}</h1>
+              <p class="secondary-title">{{ cta.body }}</p>
+              <p class="secondary-title xs-pt1">
+                Only
+                <span v-if="orders <= 5" class="bigger">{{ orders }}</span>
+                <span v-else class="big">{{ orders }}</span> Slots Left!!
+              </p>
             </div>
             <div v-else class="cat col xs-col-12">
               <h1 class="xs-py3 main-title">Sold Out!</h1>
@@ -206,61 +210,112 @@
             >Check tabs on this site and our social media for when we open up orders again.</p>
           </section>
           <section v-else class="xs-py2 xs-px1 md-px4">
-            <div v-if="cartUIStatus === 'idle'" class="payment">
-              <h3>Please enter your payment details:</h3>
-              <label for="email">Email</label>
-              <br />
-              <input id="email" type="email" v-model="stripeEmail" placeholder="name@example.com" />
-              <br />
-              <label for="card">Credit Card</label>
-              <br />
-              <small>
-                Test using this Stripe test credit card numbers with any CVC, postal code, and expiration date in the future:
-                <ul>
-                  <li>
-                    <span class="cc-number">4242 4242 4242 4242</span>
-                  </li>
-                </ul>
-              </small>
-              <card
-                class="stripe-card"
-                id="card"
-                :class="{ complete }"
-                stripe="pk_test_51H9Hb9ELeQTfYocA9K9qrofOR3zA1I2y5AnXtw4jhrYHeZZrwBUWvjg7U9Rux2paeZRpi9DEg34KD5OCig4DXy6700diLulvgg"
-                :options="stripeOptions"
-                @change="complete = $event.complete"
-              />
-              <small class="card-error">{{error}}</small>
-              <button
-                class="pay-with-stripe button"
-                @click="pay"
-                :disabled="!complete || !stripeEmail || loading"
-              >Pay with credit card</button>
-            </div>
+            <form
+              name="checkoutForm"
+              method="POST"
+              netlify-honeypot="bot-field"
+              data-netlify="true"
+              id="contact-form"
+              class="contact-form xs-flex xs-flex-column xs-fit xs-mb3"
+              netlify
+            >
+              <div v-if="cartUIStatus === 'idle'" class="payment">
+                <p class="form-row">
+                  <label class="form-label" for="contact-user-name">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="contact-user-name"
+                    class="form-input"
+                    placeholder="Enter your name"
+                    required
+                  />
+                  <span class="input-focus" aria-hidden="true"></span>
+                </p>
+                <p class="form-row">
+                  <label class="form-label" for="contact-user-phone">Phone Number</label>
+                  <input
+                    type="phone"
+                    name="phone"
+                    id="contact-user-phone"
+                    class="form-input"
+                    placeholder="Enter your phone number"
+                    required
+                  />
+                  <span class="input-focus" aria-hidden="true"></span>
+                </p>
+                <p class="form-row">
+                  <label class="form-label" for="contact-user-address">Address</label>
+                  <input
+                    type="address"
+                    name="address"
+                    id="contact-user-address"
+                    class="form-input"
+                    placeholder="Enter your Address if Delivery"
+                  />
+                  <span class="input-focus" aria-hidden="true"></span>
+                </p>
+                <h3>Please enter your payment details:</h3>
+                <label for="email">Email</label>
+                <br />
+                <input id="email" type="email" v-model="stripeEmail" placeholder="name@example.com" />
+                <br />
+                <label for="card">Credit Card</label>
+                <br />
+                <small>
+                  Test using this Stripe test credit card numbers with any CVC, postal code, and expiration date in the future:
+                  <ul>
+                    <li>
+                      <span class="cc-number">4242 4242 4242 4242</span>
+                    </li>
+                  </ul>
+                </small>
 
-            <div v-else class="statussubmit">
-              <div v-if="cartUIStatus === 'failure'">
-                <h4 class="secondary-title">Oh No!</h4>
-                <p class="xs-my1">Something went wrong!</p>
-                <button class="button" @click="clearCart">Please try again</button>
+                <card
+                  class="stripe-card"
+                  id="card"
+                  :class="{ complete }"
+                  stripe="pk_test_51H9Hb9ELeQTfYocA9K9qrofOR3zA1I2y5AnXtw4jhrYHeZZrwBUWvjg7U9Rux2paeZRpi9DEg34KD5OCig4DXy6700diLulvgg"
+                  :options="stripeOptions"
+                  @change="complete = $event.complete"
+                />
+                <small class="card-error">{{error}}</small>
+                <input type="hidden" :value="cart" />
+                <input type="hidden" name="form-name" value="checkoutForm" />
+                <p class="form-row form-submit">
+                  <button
+                    class="pay-with-stripe button"
+                    type="submit"
+                    @click="pay"
+                    :disabled="!complete || !stripeEmail || loading"
+                  >Pay with credit card</button>
+                </p>
               </div>
 
-              <div v-else-if="cartUIStatus === 'loading'" class="loadcontain">
-                <h4>Please hold, we're filling up your cart with goodies</h4>
-                <p>Placeholder loader</p>
-              </div>
+              <div v-else class="statussubmit">
+                <div v-if="cartUIStatus === 'failure'">
+                  <h4 class="secondary-title">Oh No!</h4>
+                  <p class="xs-my1">Something went wrong!</p>
+                  <button class="button" @click="clearCart">Please try again</button>
+                </div>
 
-              <div v-else-if="cartUIStatus === 'success'" class="loadcontain">
-                <h4 class="secondary-title">Success! Your order is in.</h4>
-                <p class="xs-my1">An email receipt will appear in your inbox shortly.</p>
-                <p
-                  class="xs-my1"
-                >We'll contact you the day of the grilling when your order is ready for pickup or delivery.</p>
-                <p
-                  class="xs-my1"
-                >If you need to cancel your order, we offer refunds before 48 hours of the grilling day.</p>
+                <div v-else-if="cartUIStatus === 'loading'" class="loadcontain">
+                  <h4>Please hold, we're filling up your cart with goodies</h4>
+                  <p>Placeholder loader</p>
+                </div>
+
+                <div v-else-if="cartUIStatus === 'success'" class="loadcontain">
+                  <h4 class="secondary-title">Success! Your order is in.</h4>
+                  <p class="xs-my1">An email receipt will appear in your inbox shortly.</p>
+                  <p
+                    class="xs-my1"
+                  >We'll contact you the day of the grilling when your order is ready for pickup or delivery.</p>
+                  <p
+                    class="xs-my1"
+                  >If you need to cancel your order, we offer refunds before 48 hours of the grilling day.</p>
+                </div>
               </div>
-            </div>
+            </form>
           </section>
         </div>
       </div>
@@ -393,6 +448,14 @@ export default {
 
 .white {
   color: white;
+}
+
+.big {
+  font-size: 1.5em;
+}
+
+.bigger {
+  font-size: 1.8em;
 }
 
 .browse a {

@@ -193,6 +193,7 @@ input,
 input::placeholder,
 textarea::placeholder {
   color: #b03c31;
+  padding-left: 5px;
 }
 input.search {
   width: 100%;
