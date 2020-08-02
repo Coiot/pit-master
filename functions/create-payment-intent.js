@@ -58,28 +58,28 @@ exports.handler = async (event, context) => {
             currency: "usd",
             amount: amount,
             description: JSON.stringify(data.items),
-            metadata: [{ 'Name': 'data.customer' }, { 'Address': 'data.address' }, { 'Phone': 'data.phone' }],
+            metadata: { 'Name': 'data.customer' }, { 'Address': 'data.address' }, { 'Phone': 'data.phone' },
         });
 
-        // Send the client_secret to the client
-        // The client secret has a limited set of permissions that
-        // let you finalize the payment and update some details from the client
-        return {
-            statusCode: 200,
-            headers,
-            body: JSON.stringify({
-                clientSecret: paymentIntent.client_secret
-            })
-        };
-    } catch (err) {
-        console.log(err);
+    // Send the client_secret to the client
+    // The client secret has a limited set of permissions that
+    // let you finalize the payment and update some details from the client
+    return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({
+            clientSecret: paymentIntent.client_secret
+        })
+    };
+} catch (err) {
+    console.log(err);
 
-        return {
-            statusCode: 400,
-            headers,
-            body: JSON.stringify({
-                status: err
-            })
-        };
-    }
+    return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({
+            status: err
+        })
+    };
+}
 };
