@@ -215,43 +215,43 @@
               method="POST"
               netlify-honeypot="bot-field"
               data-netlify="true"
-              id="contact-form"
-              class="contact-form xs-flex xs-flex-column xs-fit xs-mb3"
+              id="checkout-form"
+              class="checkout-form xs-flex xs-flex-column xs-fit xs-mb3"
               netlify
             >
               <div v-if="cartUIStatus === 'idle'" class="payment">
                 <p class="form-row">
-                  <label class="form-label" for="contact-user-name">Name</label>
+                  <label class="form-label" for="checkout-user-name">Name</label>
                   <input
                     type="text"
                     name="name"
-                    id="contact-user-name"
+                    id="checkout-user-name"
                     class="form-input"
-                    placeholder="Enter your name"
+                    placeholder="Enter Name"
                     required
                   />
                   <span class="input-focus" aria-hidden="true"></span>
                 </p>
                 <p class="form-row">
-                  <label class="form-label" for="contact-user-phone">Phone Number</label>
+                  <label class="form-label" for="checkout-user-phone">Phone Number</label>
                   <input
                     type="phone"
                     name="phone"
-                    id="contact-user-phone"
+                    id="checkout-user-phone"
                     class="form-input"
-                    placeholder="Enter your phone number"
+                    placeholder="Enter Phone Number"
                     required
                   />
                   <span class="input-focus" aria-hidden="true"></span>
                 </p>
                 <p class="form-row">
-                  <label class="form-label" for="contact-user-address">Address</label>
+                  <label class="form-label" for="checkout-user-address">Address</label>
                   <input
                     type="address"
                     name="address"
-                    id="contact-user-address"
+                    id="checkout-user-address"
                     class="form-input"
-                    placeholder="Enter your Address if Delivery"
+                    placeholder="Enter Address if Delivery"
                   />
                   <span class="input-focus" aria-hidden="true"></span>
                 </p>
@@ -425,7 +425,6 @@ export default {
       // confirms the payment and will automatically display a
       // pop-up modal if the purchase requires authentication
       this.$store.dispatch("createPaymentIntent");
-      this.loading = true;
   
     },
     clearCart() {
