@@ -58,7 +58,7 @@ exports.handler = async (event, context) => {
             currency: "usd",
             amount: amount,
             description: "Order from Josh Motes BBQ",
-            customer: { 'Name': JSON.stringify(data.customer), 'Phone': JSON.stringify(data.phone), 'Address': JSON.stringify(data.address) },
+            customer: { 'name': JSON.stringify(data.customer), 'phone': JSON.stringify(data.phone), 'address': JSON.stringify(data.address) },
             metadata: { 'Name': JSON.stringify(data.customer), 'Phone': JSON.stringify(data.phone), 'Address': JSON.stringify(data.address), 'Order': JSON.stringify(data.items) },
         });
 
