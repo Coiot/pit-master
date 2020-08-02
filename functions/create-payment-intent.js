@@ -58,8 +58,8 @@ exports.handler = async (event, context) => {
             currency: "usd",
             amount: amount,
             description: JSON.stringify(data.items),
-            customer: JSON.stringify(data.customer),
-            shipping: JSON.stringify(data.address),
+            // customer: JSON.stringify(data.customer),
+            // shipping: JSON.stringify(data.address),
             // phone: JSON.stringify(data.phone),
         });
 
