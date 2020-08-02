@@ -1,6 +1,6 @@
 <template>
   <main class="clearfix">
-    <div class="full-height single xs-border-left xs-border-right">
+    <div class="full-height single">
       <div class="xs-mt4 xs-p2 bcg-item">
         <div class="item xs-block xs-full-height">
           <h1 class="xs-pt4 main-title">About Us</h1>

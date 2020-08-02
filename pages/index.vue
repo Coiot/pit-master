@@ -1,6 +1,6 @@
 <template>
   <main class="clearfix">
-    <div class="full-height single xs-border-left xs-border-right">
+    <div class="full-height single">
       <div class="xs-mt2 xs-p2 bcg-item">
         <div class="item xs-block xs-full-height">
           <section class="col xs-col-12 xs-mt4">
@@ -42,7 +42,7 @@
                   name="sides"
                   list="sides"
                   placeholder="Pick a Side"
-                  type="text"
+                  type="search"
                 />
                 <input
                   v-show="plate.side2"
@@ -50,7 +50,7 @@
                   name="sides"
                   list="sides"
                   placeholder="Pick another Side"
-                  type="text"
+                  type="search"
                 />
                 <datalist id="sides">
                   <option value="Southern Mac n’ Cheese"></option>
@@ -527,6 +527,21 @@ section {
   bottom: 0;
   z-index: 10;
   background: #fff;
+}
+.xs-border,
+.xs-border-left,
+.xs-border-right,
+.xs-border-top,
+.xs-border-bottom,
+.xs-border-bottom-lighter,
+.sm-border,
+.sm-border-left,
+.sm-border-right,
+.sm-border-top,
+.sm-border-bottom,
+.sm-border-bottom-lighter,
+.card {
+  border-color: #80d3ff !important;
 }
 @media only screen and (max-width: 45rem) {
   .section-title {

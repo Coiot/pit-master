@@ -6,7 +6,7 @@
           v-if="items2[pi]"
           v-for="(p,pi) in items2"
           :key="p.pi"
-          class="xs-border xs-p3"
+          class="xs-p3"
           :style="`height:calc(50vh - 0px);`"
         >
           <div
@@ -186,7 +186,6 @@ img[lazy="loaded"] {
   color: #000;
 }
 .item-txt {
-  border: 1px solid rgba(0, 0, 0, 0.2);
   background: rgb(255, 255, 255);
   background: radial-gradient(
     circle,
@@ -210,8 +209,7 @@ img[lazy="loaded"] {
 .item .full-bg-link {
   background: #fff;
   transition: 0.8s all;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  border: #5cacd7 1px solid;
 }
 .full-bg-link h2 {
   margin: 0;

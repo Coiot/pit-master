@@ -1,23 +1,23 @@
 <template>
   <footer class="xs-text-5 md-text-4">
     <div class="r no-gap">
-      <div class="c-12 xs-text-left xs-p2 xs-border">
+      <div class="c-12 xs-text-left xs-p2 xs-border-top">
         <div style="z-index:55;" class="c-12 xs-p0 xs-text-8">
           <div class="item">
             <nuxt-link to="/" exact>Home</nuxt-link>&nbsp;
-            <span class="text-gray-lightest">|</span>
+            <span class="red">|</span>
             &nbsp;
             <nuxt-link to="/about">Our Story</nuxt-link>&nbsp;
-            <span class="text-gray-lightest">|</span>
+            <span class="red">|</span>
             &nbsp;
             <nuxt-link to="/community">Community</nuxt-link>&nbsp;
-            <span class="text-gray-lightest">|</span>
+            <span class="red">|</span>
             &nbsp;
             <nuxt-link to="/contact">Contact</nuxt-link>
           </div>
         </div>
       </div>
-      <div class="c-6 xs-p3 xs-border">
+      <div class="c-6 xs-p3 xs-border-top">
         <div class="item">
           <div
             v-show="siteDescription"
@@ -26,7 +26,7 @@
           <p v-show="siteDescription">{{siteDescription}}</p>
         </div>
       </div>
-      <div class="c-6 xs-p3 xs-border">
+      <div class="c-6 xs-p3 xs-border-top">
         <div class="item">
           <div
             v-show="connectData"
@@ -39,7 +39,7 @@
           </ul>
         </div>
       </div>
-      <div class="c-12 xs-text-left xs-p2 xs-border">
+      <div class="c-12 xs-text-left xs-p2 xs-border-top">
         <div class="item xs-text-6 md-text-5">
           <p>
             Copyright ©2020 Josh Motes BBQ. All rights reserved. Images by
@@ -78,6 +78,10 @@ a {
 
 .list-unstyled a {
   font-size: 1.1rem;
+}
+
+.red {
+  color: #ee4231;
 }
 
 .text-input {

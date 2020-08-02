@@ -167,12 +167,6 @@ nav .r {
   grid-gap: 0;
 }
 @media only screen and (max-width: 40rem) {
-  .main-title {
-    font-size: 2rem;
-  }
-  .secondary-title {
-    font-size: 1.7rem;
-  }
   .xs-collapse {
     visibility: hidden;
     visibility: collapse;
