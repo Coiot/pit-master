@@ -216,6 +216,7 @@
               netlify-honeypot="bot-field"
               data-netlify="true"
               id="checkout-form"
+              action="/"
               class="checkout-form xs-flex xs-flex-column xs-fit xs-mb3"
               netlify
             >
@@ -280,7 +281,7 @@
                   @change="complete = $event.complete"
                 />
                 <small class="card-error">{{error}}</small>
-                <input type="hidden" :value="cart" />
+                <input type="hidden" id="cart" name="cart" :value="cart" />
                 <input type="hidden" name="form-name" value="checkoutForm" />
                 <p class="form-row form-submit">
                   <button
