@@ -58,9 +58,9 @@ exports.handler = async (event, context) => {
             currency: "usd",
             amount: amount,
             description: JSON.stringify(data.items),
-            customer: data.customer,
-            shipping: data.address,
-            metadata: data.phone,
+            customer: JSON.parse(data.customer),
+            shipping: JSON.parse(data.address),
+            metadata: JSON.parse(data.phone),
         });
 
         // Send the client_secret to the client

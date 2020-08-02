@@ -438,6 +438,7 @@ export default {
       // confirms the payment and will automatically display a
       // pop-up modal if the purchase requires authentication
       this.$store.dispatch("createPaymentIntent");
+      this.loading = true;
   
     },
     clearCart() {
