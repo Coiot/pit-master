@@ -216,6 +216,7 @@
               netlify-honeypot="bot-field"
               data-netlify="true"
               id="checkout-form"
+              onsubmit="{this.handleSubmit}"
               action="/"
               class="checkout-form xs-flex xs-flex-column xs-fit xs-mb3"
               netlify
@@ -281,7 +282,7 @@
                   @change="complete = $event.complete"
                 />
                 <small class="card-error">{{error}}</small>
-                <input type="hidden" id="cart" name="cart" :value="cart" />
+                <input type="hidden" id="cart" name="cart" :value="JSON.stringify(cart)" />
                 <input type="hidden" name="form-name" value="checkoutForm" />
                 <p class="form-row form-submit">
                   <button
@@ -349,6 +350,15 @@ export default {
       console.error(e);
     }
   },
+   handleSubmit() {
+fetch("/", {
+  method: "POST",
+  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  body: encode({ "form-name": "checkoutForm", ...this.state })
+})
+  .then(() => alert("Success!"))
+  .catch(error => alert(error));
+e.preventDefault(); },
   name: "Index",
   data() {
     return {
