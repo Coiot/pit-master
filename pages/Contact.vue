@@ -88,6 +88,8 @@ export default {
 input,
 textarea {
   width: -webkit-fill-available;
-  max-width: 60ch;
+  max-width: 50ch;
+  border: #5cacd7 1px solid;
+  padding: 0.5em;
 }
 </style>

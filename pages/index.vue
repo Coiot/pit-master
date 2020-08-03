@@ -224,7 +224,7 @@
                 />
                 <span class="input-focus" aria-hidden="true"></span>
               </p>
-              <p class="form-row">
+              <p class="form-row xs-mt2">
                 <label class="form-label" for="phone">Phone Number</label>
                 <input
                   type="phone"
@@ -237,7 +237,7 @@
                 />
                 <span class="input-focus" aria-hidden="true"></span>
               </p>
-              <p class="form-row">
+              <p class="form-row xs-mt2">
                 <label class="form-label" for="address">Address</label>
                 <input
                   type="address"
@@ -249,34 +249,42 @@
                 />
                 <span class="input-focus" aria-hidden="true"></span>
               </p>
-              <h3>Please enter your payment details:</h3>
-              <label for="email">Email</label>
-              <br />
-              <input id="email" type="email" v-model="stripeEmail" placeholder="name@example.com" />
-              <br />
-              <label for="card">Credit Card</label>
-              <br />
-              <small>
-                Test using this Stripe test credit card numbers with any CVC, postal code, and expiration date in the future:
-                <ul>
-                  <li>
-                    <span class="cc-number">4242 4242 4242 4242</span>
-                  </li>
-                </ul>
-              </small>
+              <h3 class="secondary-title xs-mt3">Please enter your payment details:</h3>
+              <p class="form-row xs-mt2">
+                <label class="form-label" for="email">Email</label>
 
-              <card
-                class="stripe-card"
-                id="card"
-                :class="{ complete }"
-                stripe="pk_test_51H9Hb9ELeQTfYocA9K9qrofOR3zA1I2y5AnXtw4jhrYHeZZrwBUWvjg7U9Rux2paeZRpi9DEg34KD5OCig4DXy6700diLulvgg"
-                :options="stripeOptions"
-                @change="complete = $event.complete"
-              />
-              <small class="card-error">{{error}}</small>
+                <input
+                  class="form-input"
+                  id="email"
+                  type="email"
+                  v-model="stripeEmail"
+                  placeholder="name@example.com"
+                />
+              </p>
+              <div class="form-row xs-mt2">
+                <label for="card">Credit Card</label>
+                <br />
+                <small>
+                  Test using this Stripe test credit card numbers with any CVC, postal code, and expiration date in the future:
+                  <ul>
+                    <li>
+                      <span class="cc-number">4242 4242 4242 4242</span>
+                    </li>
+                  </ul>
+                </small>
 
+                <card
+                  class="stripe-card"
+                  id="card"
+                  :class="{ complete }"
+                  stripe="pk_test_51H9Hb9ELeQTfYocA9K9qrofOR3zA1I2y5AnXtw4jhrYHeZZrwBUWvjg7U9Rux2paeZRpi9DEg34KD5OCig4DXy6700diLulvgg"
+                  :options="stripeOptions"
+                  @change="complete = $event.complete"
+                />
+                <small class="card-error">{{error}}</small>
+              </div>
               <button
-                class="pay-with-stripe button"
+                class="pay-with-stripe button xs-mt2"
                 @click="pay"
                 :disabled="!complete || !stripeEmail || loading"
               >Pay with credit card</button>
@@ -527,6 +535,13 @@ section {
   bottom: 0;
   z-index: 10;
   background: #fff;
+}
+.form-row input,
+textarea {
+  width: -webkit-fill-available;
+  max-width: 50ch;
+  border: #5cacd7 1px solid;
+  padding: 0.5em;
 }
 .xs-border,
 .xs-border-left,
