@@ -63,7 +63,7 @@
                 <input
                   type="number"
                   v-model="plate.quantity"
-                  id="quantity"
+                  id="plate.quantity"
                   min="0"
                   max="20"
                   pattern="[0-9]*"
@@ -90,7 +90,7 @@
                   <input
                     type="number"
                     v-model="meat.quantity"
-                    id="quantity"
+                    id="meat.quantity"
                     min="0"
                     max="20"
                     pattern="[0-9]*"
@@ -114,7 +114,7 @@
                   <input
                     type="number"
                     v-model="side.quantity"
-                    id="quantity"
+                    id="side.quantity"
                     min="0"
                     max="20"
                     pattern="[0-9]*"
@@ -138,7 +138,7 @@
                   <input
                     type="number"
                     v-model="extra.quantity"
-                    id="quantity"
+                    id="extra.quantity"
                     min="0"
                     max="20"
                     pattern="[0-9]*"
@@ -355,9 +355,9 @@ export default {
       },
       error: "",
       loading: false,
-      side1: '',
-      side2: '',
-      tempcart: []
+      side1: "",
+      side2: "",
+      tempcart: [],
     };
   },
   computed: {
@@ -376,45 +376,44 @@ export default {
     cartUIStatus() {
       return this.$store.state.cartUIStatus;
     },
-   stripeEmail: {
+    stripeEmail: {
       get() {
-        return this.$store.state.stripeEmail
+        return this.$store.state.stripeEmail;
       },
       set(value) {
-        this.$store.commit('Email', value)
-      }
+        this.$store.commit("Email", value);
+      },
     },
-       stripeCustomer: {
+    stripeCustomer: {
       get() {
-        return this.$store.state.stripeCustomer
+        return this.$store.state.stripeCustomer;
       },
       set(value) {
-        this.$store.commit('Customer', value)
-      }
+        this.$store.commit("Customer", value);
+      },
     },
-       stripePhone: {
+    stripePhone: {
       get() {
-        return this.$store.state.stripePhone
+        return this.$store.state.stripePhone;
       },
       set(value) {
-        this.$store.commit('Phone', value)
-      }
+        this.$store.commit("Phone", value);
+      },
     },
-       stripeAddress: {
+    stripeAddress: {
       get() {
-        return this.$store.state.stripeAddress
+        return this.$store.state.stripeAddress;
       },
       set(value) {
-        this.$store.commit('Address', value)
-      }
+        this.$store.commit("Address", value);
+      },
     },
-    ...mapGetters(["orders"])
-    
+    ...mapGetters(["orders"]),
   },
   methods: {
     cartAdd(item, quantity, price, side1, side2) {
-      let plate = this.plate
-      plate = { 
+      let plate = this.plate;
+      plate = {
         item: item,
         quantity: quantity,
         price: price,
@@ -427,9 +426,9 @@ export default {
       this.side2 = "";
     },
     total() {
-      var total = 0
-      this.cart.forEach(function(s) {
-          total += s.price * s.quantity || 0;
+      var total = 0;
+      this.cart.forEach(function (s) {
+        total += s.price * s.quantity || 0;
       });
       return total;
     },
@@ -447,15 +446,13 @@ export default {
       // pop-up modal if the purchase requires authentication
       this.$store.dispatch("createPaymentIntent");
       this.loading = true;
-  
     },
     clearCart() {
       this.complete = false;
       this.$store.commit("clearCart");
-    }
+    },
   },
-
-}
+};
 </script>
 
 <style>

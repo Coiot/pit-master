@@ -6,7 +6,11 @@
       v-model="value"
       :placeholder="placeholder"
     />
-    <img class="xs-absolute searchicon xs-r0 sm-l0" src="~/assets/bx-search.svg" />
+    <img
+      class="xs-absolute searchicon xs-r0 sm-l0"
+      src="~/assets/bx-search.svg"
+      alt="Magnifying Glass Search Icon"
+    />
     <ul class="xs-absolute results">
       <li class="xs-border xs-p2 fill-white" v-for="(xx,i) in compResults" :key="i">
         <a :href="`${xx._path}/`">{{xx.title}}</a>
@@ -24,7 +28,7 @@ export default {
     return {
       fuse: null,
       value: "",
-      result: []
+      result: [],
     };
   },
   name: "VueFuse",
@@ -43,13 +47,13 @@ export default {
         distance: this.distance,
         maxPatternLength: this.maxPatternLength,
         minMatchCharLength: this.minMatchCharLength,
-        keys: this.keys
+        keys: this.keys,
       };
       if (this.id !== "") {
         options.id = this.id;
       }
       return options;
-    }
+    },
   },
   watch: {
     list() {
@@ -65,7 +69,7 @@ export default {
     },
     result() {
       this.$parent.$emit(this.eventName, this.result);
-    }
+    },
   },
   methods: {
     initFuse() {
@@ -85,7 +89,7 @@ export default {
           this.result = [];
         }
       else this.result = this.fuse.search(this.value.trim());
-    }
+    },
   },
   /**
    * Vue 1.x
@@ -96,93 +100,93 @@ export default {
    */
   mounted() {
     this.initFuse();
-    this.$on("searchChanged", results => {
+    this.$on("searchChanged", (results) => {
       this.compResults = results;
     });
   },
   props: {
     compResults: {
-      type: Array
+      type: Array,
     },
     placeholder: {
       type: String,
-      default: ""
+      default: "",
     },
     search: {
       type: String,
-      default: ""
+      default: "",
     },
     eventName: {
       type: String,
-      default: "fuseResultsUpdated"
+      default: "fuseResultsUpdated",
     },
     inputChangeEventName: {
       type: String,
-      default: "fuseInputChanged"
+      default: "fuseInputChanged",
     },
     defaultAll: {
       type: Boolean,
-      default: false
+      default: false,
     },
     list: {
-      type: Array
+      type: Array,
     },
     caseSensitive: {
       type: Boolean,
-      default: false
+      default: false,
     },
     includeScore: {
       type: Boolean,
-      default: false
+      default: false,
     },
     includeMatches: {
       type: Boolean,
-      default: false
+      default: false,
     },
     tokenize: {
       type: Boolean,
-      default: true
+      default: true,
     },
     matchAllTokens: {
       type: Boolean,
-      default: true
+      default: true,
     },
     findAllMatches: {
       type: Boolean,
-      default: false
+      default: false,
     },
     id: {
       type: String,
-      default: ""
+      default: "",
     },
     shouldSort: {
       type: Boolean,
-      default: true
+      default: true,
     },
     threshold: {
       type: Number,
-      default: 0.25
+      default: 0.25,
     },
     location: {
       type: Number,
-      default: 0
+      default: 0,
     },
     distance: {
       type: Number,
-      default: 800
+      default: 800,
     },
     maxPatternLength: {
       type: Number,
-      default: 32
+      default: 32,
     },
     minMatchCharLength: {
       type: Number,
-      default: 1
+      default: 1,
     },
     keys: {
-      type: Array
-    }
-  }
+      type: Array,
+    },
+  },
 };
 </script>
 <style>

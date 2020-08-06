@@ -32,19 +32,19 @@ export default {
       keys: [
         {
           name: "title",
-          weight: 0.3
+          weight: 0.3,
         },
         {
           name: "body",
-          weight: 0.7
-        }
+          weight: 0.7,
+        },
       ],
 
-      compResults: []
+      compResults: [],
     };
   },
   components: {
-    VueFuse
+    VueFuse,
   },
   computed: {
     allPosts() {
@@ -64,7 +64,7 @@ export default {
     },
     crumb() {
       return this.$store.state.theCrumb;
-    }
+    },
   },
 
   methods: {
@@ -72,14 +72,14 @@ export default {
       var height = document.getElementById("navbar").clientHeight;
       console.log(height);
       this.$store.commit("SET_NAVHEIGHT", height - 1);
-    }
+    },
   },
 
   mounted() {
-    this.$on("searchChanged", results => {
+    this.$on("searchChanged", (results) => {
       this.compResults = results;
     });
-  }
+  },
 };
 </script>
 <style>
@@ -116,7 +116,7 @@ nav {
 }
 
 .sitename {
-  color: #ee4231;
+  color: #ee4231 !important;
   font-family: "Bitter", serif;
   text-transform: uppercase;
   font-weight: 800;
