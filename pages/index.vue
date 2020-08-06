@@ -22,7 +22,7 @@
           </section>
           <Modal v-if="orders === 1" />
           <section class="col xs-col-12 xs-p2 xs-px2 xs-my3 md-px3 card">
-            <h3 class="secondary-title">{{ notice.title }}</h3>
+            <h2 class="secondary-title">{{ notice.title }}</h2>
             <p>{{ notice.body }}</p>
           </section>
           <section class="col xs-col-12 xs-py2 xs-px1 xs-my4 md-px4">
@@ -43,6 +43,7 @@
                   list="sides"
                   placeholder="Pick a Side"
                   type="search"
+                  class="xs-p1"
                 />
                 <input
                   v-show="plate.side2"
@@ -51,6 +52,7 @@
                   list="sides"
                   placeholder="Pick another Side"
                   type="search"
+                  class="xs-p1"
                 />
                 <datalist id="sides">
                   <option value="Southern Mac n’ Cheese"></option>
@@ -64,6 +66,7 @@
                   type="number"
                   v-model="plate.quantity"
                   id="plate.quantity"
+                  class="xs-p1"
                   min="0"
                   max="20"
                   pattern="[0-9]*"
@@ -91,6 +94,7 @@
                     type="number"
                     v-model="meat.quantity"
                     id="meat.quantity"
+                    class="xs-p1"
                     min="0"
                     max="20"
                     pattern="[0-9]*"
@@ -115,6 +119,7 @@
                     type="number"
                     v-model="side.quantity"
                     id="side.quantity"
+                    class="xs-p1"
                     min="0"
                     max="20"
                     pattern="[0-9]*"
@@ -139,6 +144,7 @@
                     type="number"
                     v-model="extra.quantity"
                     id="extra.quantity"
+                    class="xs-p1"
                     min="0"
                     max="20"
                     pattern="[0-9]*"
