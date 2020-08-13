@@ -270,20 +270,11 @@
               <div class="form-row xs-mt2">
                 <label for="card">Credit Card</label>
                 <br />
-                <small>
-                  Test using this Stripe test credit card numbers with any CVC, postal code, and expiration date in the future:
-                  <ul>
-                    <li>
-                      <span class="cc-number">4242 4242 4242 4242</span>
-                    </li>
-                  </ul>
-                </small>
-
                 <card
                   class="stripe-card"
                   id="card"
                   :class="{ complete }"
-                  stripe="pk_test_51H9Hb9ELeQTfYocA9K9qrofOR3zA1I2y5AnXtw4jhrYHeZZrwBUWvjg7U9Rux2paeZRpi9DEg34KD5OCig4DXy6700diLulvgg"
+                  stripe="pk_live_51H9Hb9ELeQTfYocAbtIFhNy4JURr9e77qfDE8wCMTMeOfmDJt7szS6YCSEIHoBbEKu5tvqtGauDFgPNqTKSSwldt00tmYWoi4g"
                   :options="stripeOptions"
                   @change="complete = $event.complete"
                 />
