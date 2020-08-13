@@ -53,7 +53,7 @@ export default {
       items2: [],
       query: 1,
       busy: false,
-      count: 0
+      count: 0,
     };
   },
   methods: {
@@ -84,7 +84,7 @@ export default {
 
         this.$store.commit("SET_NAVHEIGHT", height - 1);
       }
-    }
+    },
   },
   watch: {
     // whenever question changes, this function will run
@@ -101,9 +101,9 @@ export default {
         this.navHeight();
       }
     },
-    queryParam: function() {
+    queryParam: function () {
       this.loadMore();
-    }
+    },
   },
   computed: {
     offset() {
@@ -136,7 +136,7 @@ export default {
     },
     blogPosts() {
       return this.$store.state.blogPosts;
-    }
+    },
   },
 
   updated() {
@@ -158,7 +158,7 @@ export default {
   beforeDestroy() {
     // Unregister the event listener before destroying this Vue instance
     window.removeEventListener("resize", this.onResize);
-  }
+  },
 };
 </script>
 

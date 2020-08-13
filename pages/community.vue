@@ -2,7 +2,8 @@
   <div class="xs-mt4">
     <FullGrid :allitems="allBlogPosts"></FullGrid>
     <hr />
-    <div class="embedsocial-instagram xs-pt1" data-ref="452ee8ee5ab56640156aabd2b7d5a90a295430df"></div>
+
+    <div class="embedsocial-instagram" data-ref="cbdf62376481a562b94a207bf4257e0ace5ff8a1"></div>
     <script>
   (function(d, s, id) {
     var js;
@@ -15,6 +16,7 @@
     d.getElementsByTagName("head")[0].appendChild(js);
   })(document, "script", "EmbedSocialInstagramScript");
     </script>
+
     <Shirt />
   </div>
 </template>
@@ -38,8 +40,8 @@ export default {
   computed: {
     allBlogPosts() {
       return this.$store.state.blogPosts;
-    }
-  }
+    },
+  },
 };
 </script>
 
