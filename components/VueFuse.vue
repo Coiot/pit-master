@@ -196,7 +196,7 @@ export default {
 input,
 input::placeholder,
 textarea::placeholder {
-  color: #b03c31;
+  color: #cf3e3a;
   padding-left: 5px;
 }
 input.search {
@@ -213,7 +213,7 @@ input.search {
 .results a {
   display: block;
   width: 100%;
-  color: #b03c31;
+  color: #cf3e3a;
 }
 @media only screen and (max-width: 40rem) {
   input.search {

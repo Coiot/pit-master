@@ -83,6 +83,7 @@
                   <option value="Banana Pudding"></option>
                   <option value="Tortillas"></option>
                 </datalist>-->
+                <label class="label" for="plate.quantity">Quanitity:</label>
                 <input
                   type="number"
                   v-model="plate.quantity"
@@ -111,6 +112,7 @@
               <div v-if="meat.active === true">
                 <div class="xs-flex">
                   <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ meat.item }}</h3>
+                  <label class="label" for="meat.quantity">Quanitity:</label>
                   <input
                     type="number"
                     v-model="meat.quantity"
@@ -136,6 +138,7 @@
               <div v-if="side.active === true">
                 <div class="xs-flex">
                   <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ side.item }}</h3>
+                  <label class="label" for="side.quantity">Quanitity:</label>
                   <input
                     type="number"
                     v-model="side.quantity"
@@ -161,6 +164,7 @@
               <div v-if="extra.active === true">
                 <div class="xs-flex">
                   <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ extra.item }}</h3>
+                  <label class="label" for="extra.quantity">Quanitity:</label>
                   <input
                     type="number"
                     v-model="extra.quantity"
@@ -544,6 +548,7 @@ section {
   font-family: "Bitter", serif !important;
   font-weight: 900 !important;
   line-height: 1.1 !important;
+  margin-left: 0.4em;
 }
 .plate-title {
   display: inline-flex;
@@ -570,15 +575,43 @@ section {
   z-index: 10;
   background: #fff;
 }
+
+.label {
+  font-size: 1.2rem;
+  font-weight: 800;
+  align-self: center;
+  margin-right: 0.5em;
+}
+
+input[type="number"] {
+  border: #5cacd7 1px solid !important;
+  border-radius: 3px !important;
+}
+
 .form-row input,
 textarea,
 .select {
   width: -webkit-fill-available;
   max-width: 50ch;
   cursor: pointer;
-  border: #5cacd7 1px solid;
+  color: #ee4231;
+  border: #5cacd7 1px solid !important;
+  border-radius: 3px !important;
   padding: 0.5em;
+  transition: all 0.02s ease-in-out;
 }
+
+.select:hover,
+.select:active,
+input:hover,
+input:active {
+  border: #5cacd7 1px solid !important;
+}
+
+.select + .select {
+  margin: 0.5em 0;
+}
+
 .xs-border,
 .xs-border-left,
 .xs-border-right,

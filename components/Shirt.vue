@@ -6,22 +6,22 @@
     <div class="col xs-col-12 md-col-6 xs-px6 xs-py2 xs-flex-grow-1">
       <h3 class="xs-py3 main-title">{{ shirt.title }}</h3>
       <p>{{ shirt.body }}</p>
-      <button class="button xs-my3">{{ shirt.button }}</button>
+      <!-- <button class="button xs-my3">{{ shirt.button }}</button> -->
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  data: function() {
+  data: function () {
     return {};
   },
   methods: {},
   computed: {
     shirt() {
       return this.$store.state.shirt;
-    }
-  }
+    },
+  },
 };
 </script>
 
