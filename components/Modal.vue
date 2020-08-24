@@ -2,13 +2,20 @@
   <transition name="modal">
     <div v-if="showModal" class="modal-mask" @click="showModal = false">
       <div class="modal-wrapper">
-        <div class="modal-container">
+        <div
+          class="modal-container"
+          role="dialog"
+          aria-labelledby="modalTitle"
+          aria-describedby="modalDescription"
+        >
           <div class="modal-header">
-            <h4 class="secondary-title xs-my2">Orders almost filled up!</h4>
+            <h4 class="secondary-title xs-my2" id="modalTitle">Orders almost filled up!</h4>
           </div>
           <div>
-            <p>Only one order slot left for this week. Order fast to secure your spot!</p>
-            <button class="modal-default-button xs-my2">OK</button>
+            <p
+              id="modalDescription"
+            >Only one order slot left for this week. Order fast to secure your spot!</p>
+            <button class="modal-default-button xs-my2" aria-label="Close modal">OK</button>
           </div>
         </div>
       </div>
@@ -18,7 +25,7 @@
 
 <script>
 export default {
-data() {
+  data() {
     return {
       showModal: true,
     };

@@ -13,10 +13,10 @@
                 <span v-else class="big">{{ orders }}</span> Slots Left!!
               </p>
             </div>
-            <div v-else class="cat col xs-col-12">
-              <h1 class="xs-py3 main-title">Sold Out!</h1>
+            <div v-else class="cta col xs-col-12 xs-p6">
+              <h1 class="white xs-pt4 xs-py3 main-title">Sold Out!</h1>
               <p
-                class="secondary-title xs-my2"
+                class="white secondary-title xs-my2"
               >All available slots for this week are filled. Follow us on social media to know when we'll be grilling again.</p>
             </div>
           </section>
@@ -36,16 +36,37 @@
                 <h3 class="plate-title main-title xs-mt4">{{ plate.item }}</h3>
                 <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
                 <p class="xs-mb2">{{ plate.description }}</p>
-                <input
+                <select
+                  class="xs-p1 select"
                   v-if="plate.side1"
                   v-model="side1"
                   name="sides"
-                  list="sides"
-                  placeholder="Pick a Side"
-                  type="search"
-                  class="xs-p1"
-                />
-                <input
+                  required
+                >
+                  <option value disabled selected hidden>Pick a Side</option>
+                  <option value="Southern Mac n’ Cheese">Southern Mac n’ Cheese</option>
+                  <option value="Smoked Jalapeno n’ Brisket Beans">Smoked Jalapeno n’ Brisket Beans</option>
+                  <option value="Mexican Street Corn Salad">Mexican Street Corn Salad</option>
+                  <option value="Coleslaw">Coleslaw</option>
+                  <option value="Banana Pudding">Banana Pudding</option>
+                  <option value="Tortillas">Tortillas</option>
+                </select>
+                <select
+                  class="xs-p1 select"
+                  v-show="plate.side2"
+                  v-model="side2"
+                  name="sides"
+                  required
+                >
+                  <option value disabled selected hidden>Pick another Side</option>
+                  <option value="Southern Mac n’ Cheese">Southern Mac n’ Cheese</option>
+                  <option value="Smoked Jalapeno n’ Brisket Beans">Smoked Jalapeno n’ Brisket Beans</option>
+                  <option value="Mexican Street Corn Salad">Mexican Street Corn Salad</option>
+                  <option value="Coleslaw">Coleslaw</option>
+                  <option value="Banana Pudding">Banana Pudding</option>
+                  <option value="Tortillas">Tortillas</option>
+                </select>
+                <!-- <input
                   v-show="plate.side2"
                   v-model="side2"
                   name="sides"
@@ -61,7 +82,7 @@
                   <option value="Coleslaw"></option>
                   <option value="Banana Pudding"></option>
                   <option value="Tortillas"></option>
-                </datalist>
+                </datalist>-->
                 <input
                   type="number"
                   v-model="plate.quantity"
@@ -74,7 +95,7 @@
                 />
                 <button
                   class="button xs-px3 xs-py2 xs-my1"
-                  @click="cartAdd(plate.item, plate.quantity, plate.price, side1, side2)"
+                  @click="cartAdd(plate.item, plate.quantity, plate.price, side1, side2, sauce)"
                 >+ ${{ plate.price }}</button>
               </div>
               <div class="col xs-col-12 md-col-6">
@@ -152,10 +173,23 @@
                   />
                   <button
                     class="button xs-px1 md-px3 xs-py1"
-                    @click="cartAdd(extra.item, extra.quantity, extra.price)"
+                    @click="cartAdd(extra.item, extra.quantity, extra.price, side1, side2, sauce)"
                   >${{ extra.price }}</button>
                 </div>
                 <p class="xs-my1">{{ extra.description }}</p>
+                <select
+                  class="xs-p1 select"
+                  v-show="extra.sauce"
+                  v-model="sauce"
+                  name="sauce"
+                  required
+                >
+                  <option value disabled selected hidden>Pick a Sauce</option>
+                  <option value="Dark">Dark — Tangy and Rich</option>
+                  <option value="White">White — Perfect on Poultry</option>
+                  <option value="Vinegar">Vinegar — Tangy and thin</option>
+                  <option value="Bank Street">Bank Street Sauce — Muy Caliente!</option>
+                </select>
               </div>
             </article>
           </section>
@@ -186,8 +220,11 @@
               <div class="xs-flex xs-flex-column md-flex-row">
                 <div class="xs-flex xs-flex-row xs-flex-grow-1">
                   <h3 class="secondary-title">
+                    <span v-if="cartitem.sauce">{{ cartitem.sauce }}</span>
                     {{ cartitem.item }}
-                    <small v-if="cartitem.side1">+ {{ cartitem.side1 }}</small>
+                    <small
+                      v-if="cartitem.side1"
+                    >+ {{ cartitem.side1 }}</small>
                     <small v-if="cartitem.side2">+ {{ cartitem.side2 }}</small>
                   </h3>
                 </div>
@@ -354,6 +391,7 @@ export default {
       loading: false,
       side1: "",
       side2: "",
+      sauce: "",
       tempcart: [],
     };
   },
@@ -408,7 +446,7 @@ export default {
     ...mapGetters(["orders"]),
   },
   methods: {
-    cartAdd(item, quantity, price, side1, side2) {
+    cartAdd(item, quantity, price, side1, side2, sauce) {
       let plate = this.plate;
       plate = {
         item: item,
@@ -416,9 +454,11 @@ export default {
         price: price,
         side1: side1,
         side2: side2,
+        sauce: sauce,
       };
       this.tempcart.push(plate);
       this.$store.commit("addToCart", plate);
+      this.sauce = "";
       this.side1 = "";
       this.side2 = "";
     },
@@ -531,9 +571,11 @@ section {
   background: #fff;
 }
 .form-row input,
-textarea {
+textarea,
+.select {
   width: -webkit-fill-available;
   max-width: 50ch;
+  cursor: pointer;
   border: #5cacd7 1px solid;
   padding: 0.5em;
 }

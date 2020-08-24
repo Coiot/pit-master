@@ -61,10 +61,24 @@
         "active": true
     },
     {
-        "item": "Pork Spare Ribs",
+        "item": "Quarter Pork Spare Ribs",
+        "price": "10",
+        "quantity": "1",
+        "description": "Bite through, not fight through. Quarter Rack.",
+        "active": true
+    },
+    {
+        "item": "Half Pork Spare Ribs",
         "price": "20",
         "quantity": "1",
         "description": "Bite through, not fight through. Half Rack.",
+        "active": true
+    },
+    {
+        "item": "Full Pork Spare Ribs",
+        "price": "35",
+        "quantity": "1",
+        "description": "Bite through, not fight through. Full Rack.",
         "active": true
     },
     {
@@ -134,8 +148,9 @@
         "item": "Sauce",
         "price": "5",
         "quantity": "1",
-        "description": "Dark and tangy.",
-        "active": true
+        "description": "One pint of your below.",
+        "active": true,
+        "sauce": true
     },
     {
         "item": "Beef Fat",

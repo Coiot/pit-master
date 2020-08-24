@@ -309,7 +309,7 @@ const createStore = () =>
       addToCart: (state, payload) => {
         let itemfound = state.cart.find(el => el.item === payload.item);
         itemfound
-        // ? (itemfound.quantity = payload.quantity, itemfound.side1 = payload.side1, itemfound.side2 = payload.side2)
+        // ? (itemfound.quantity = payload.quantity, itemfound.side1 = payload.side1, itemfound.side2 = payload.side2, itemfound.sauce = payload.sauce)
         : state.cart.push(payload);
       },
       setClientSecret: (state, payload) => {
