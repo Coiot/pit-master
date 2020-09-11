@@ -7,6 +7,7 @@
       <h3 class="xs-py3 main-title">{{ shirt.title }}</h3>
       <p>{{ shirt.body }}</p>
       <!-- <button class="button xs-my3">{{ shirt.button }}</button> -->
+      <img href />
     </div>
   </section>
 </template>

@@ -77,22 +77,23 @@ collections:
       file: "content/page/about.json"
       widget: 'list'
       fields:
-        - {label: 'Mission Statement', name: mission_statement, widget: string}
-        - {label: 'History', name: history, widget: string}
-        - label: Team Members
-          name: 'members'
-          widget: 'list'
-          fields:
-            - {label: Name, name: name, widget: string}
-            - {label: Bio, name: bio, widget: string}
-            - {label: Image, name: image, widget: image}
-        - {label: 'Process', name: process, widget: string}
-        - label: Gallery
-          name: 'images'
-          widget: 'list'
-          fields:
-            - {label: Image, name: src, widget: image}
-            - {label: Description, name: alt, widget: string}
+        # - {label: 'Mission Statement', name: mission_statement, widget: string}
+        - {label: 'About Text', name: history, widget: string}
+        - {label: 'About Image', name: image, widget: image}
+        # - label: Team Members
+        #   name: 'members'
+        #   widget: 'list'
+        #   fields:
+        #     - {label: Name, name: name, widget: string}
+        #     - {label: Bio, name: bio, widget: string}
+        #     - {label: Image, name: image, widget: image}
+        # - {label: 'Process', name: process, widget: string}
+        # - label: Gallery
+        #   name: 'images'
+        #   widget: 'list'
+        #   fields:
+        #     - {label: Image, name: src, widget: image}
+        #     - {label: Description, name: alt, widget: string}
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
     folder: "content/blog/posts" # The path to the folder where the documents are stored
