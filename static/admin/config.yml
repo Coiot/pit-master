@@ -72,7 +72,7 @@ collections:
       preview: false 
     files:
     - name: "about" 
-      label: "About Sections" 
+      label: "About Page" 
       format: 'json'
       file: "content/page/about.json"
       widget: 'list'

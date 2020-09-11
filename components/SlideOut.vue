@@ -39,10 +39,13 @@
       </li>
       <li class="xs-mt2 md-mt4 zap-slideout-menu-item menu-header">Contact Info</li>
       <li class="zap-slideout-menu-item--small">
-        <a>(503) 967-9755</a>
+        <a href="tel:503-967-9755">(503) 967-9755</a>
       </li>
       <li class="zap-slideout-menu-item--small">
-        <a>joshmotesbbq@gmail.com</a>
+        <a href="https://goo.gl/maps/GHJYXdxoinF7DoRTA">3307 NE 142nd ave</a>
+      </li>
+      <li class="zap-slideout-menu-item--small">
+        <a href="mailto:joshmotesbbq@gmail.com">joshmotesbbq@gmail.com</a>
       </li>
       <li v-if="menuLinks" class="xs-mt2 md-mt4 zap-slideout-menu-item menu-header">Social Media</li>
       <li
@@ -61,7 +64,7 @@
 export default {
   data() {
     return {
-      isOpen: false
+      isOpen: false,
     };
   },
   computed: {
@@ -74,7 +77,7 @@ export default {
 
     menuSiteName() {
       return this.$store.state.siteInfo.sitename;
-    }
+    },
   },
   methods: {
     open() {
@@ -97,14 +100,12 @@ export default {
       } else {
         this.open();
       }
-    }
-  }
+    },
+  },
 };
 </script>
   <style lang="scss" scoped>
 a {
-  font-size: 1.2rem;
-  font-weight: 800;
 }
 
 .menu-header {
@@ -238,20 +239,20 @@ a {
   cursor: pointer;
   text-transform: uppercase;
   font-size: 1.2em;
-  font-weight: 600;
+  font-weight: 800;
 
   &:hover {
     text-decoration: underline;
   }
 
   & + & {
-    margin-top: 20px;
+    margin-top: 18px;
   }
 }
 
 .zap-slideout-menu-item {
   & + .zap-slideout-menu-item--small {
-    margin-top: 20px;
+    margin-top: 16px;
   }
 }
 
@@ -271,7 +272,7 @@ a {
     font-weight: 600;
 
     & + & {
-      margin-top: 10px;
+      margin-top: 9px;
     }
   }
 
