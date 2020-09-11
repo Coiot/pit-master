@@ -78,7 +78,7 @@ collections:
       widget: 'list'
       fields:
         # - {label: 'Mission Statement', name: mission_statement, widget: string}
-        - {label: 'About Text', name: history, widget: string}
+        - {label: 'About Text', name: history, widget: text}
         - {label: 'About Image', name: image, widget: image}
         # - label: Team Members
         #   name: 'members'
