@@ -1,7 +1,7 @@
 {
   "plates": [
     {
-      "active": true,
+      "active": false,
       "price": "20",
       "quantity": "1",
       "includes": "Quarter Rack Pork Spare Ribs + 2 Sides",
@@ -12,7 +12,7 @@
       "description": "Our homage to the Tyler Rose and Luv Ya Blue. Earl Campbell epitomized Texas football at the UT and with the Houston Oilers. He was arguably the most powerful running back to ever play the game. He hurt guys. Earl once said, “It’s kinda girlish for one guy to tackle me...I wanted to have a bunch of ‘em. And they knew if it wadn’t like six of ‘em or four or five maybe,...I knew what was gonna happen and they knew what was gonna happen.” In his honor, The Campbell is a huge plate that will run you over the same way he ran over defenders!"
     },
     {
-      "active": true,
+      "active": false,
       "price": "25",
       "quantity": "1",
       "includes": "Brisket, Spare Ribs, & Sausage + 2 Sides",
@@ -23,7 +23,7 @@
       "description": "Our homage to the Dallas Cowboys dynasty of the 90s. Troy Aikman, Michael Irvin, and Emmitt Smith formed a dangerous trio that took the NFL by storm. Smith ran through defenses behind a powerful offensive line while Aikman made coverages pay by getting the rock to Irvin, “The Playmaker.” The dynasty could’ve been more if it weren’t for the big egos of team owner Jerry Johnson and head coach Jimmy Johnson. Nonetheless, in the early 90s, this team was as dominant as it gets. In Texas, a plate of Brisket, Ribs, and Sausage is the OG dominant triplets!"
     },
     {
-      "active": true,
+      "active": false,
       "price": "15",
       "quantity": "1",
       "includes": "Quarter Chicken + 2 Sides",
@@ -34,7 +34,7 @@
       "description": "Our homage to George Strait who is as Texas as it gets. Among the greatest country singers, George didn’t just sing this stuff, he actually lived it by competing in rodeos and ranching. Strait is the Troubadour whose career has spanned nearly 4 decades. His plate is an organic breast quarter chicken seasoned with a spicy mix of Texas spices, cuz hey, Dusty said he wadn’t gon be no dancin’ chicken."
     },
     {
-      "active": true,
+      "active": false,
       "price": "15",
       "quantity": "1",
       "includes": "Brisket & Tortillas + 1 Side",
@@ -44,7 +44,7 @@
       "description": "Our homage to Mexican-Texans. Tejano history in Texas dates back to Spanish descendants who colonized Texas and Northern Mexico. Texas has a rich Latino influence and has produced some of the best food on Earth – Tex-Mex. This plate borrows from that rich history by stacking brisket, pickled onions and jalapenos, on top of a hand rolled and pressed tortilla! ¡Ordénalo con nuestro pico de gallo picante y un topo chico!"
     },
     {
-      "active": true,
+      "active": false,
       "price": "17",
       "quantity": "1",
       "includes": "Half Pound Brisket + 2 Sides",
@@ -68,7 +68,7 @@
       "price": "10",
       "quantity": "1",
       "description": "Bite through, not fight through. Quarter Rack.",
-      "active": true
+      "active": false
     },
     {
       "item": "Half Pork Spare Ribs",
@@ -82,7 +82,7 @@
       "price": "35",
       "quantity": "1",
       "description": "Bite through, not fight through. Full Rack.",
-      "active": true
+      "active": false
     },
     {
       "item": "Sausage",
@@ -103,7 +103,7 @@
       "price": "20",
       "quantity": "1",
       "description": "Basically, brisket on a giant rib. Its big and its rich.",
-      "active": true
+      "active": false
     }
   ],
   "sides": [
@@ -112,7 +112,7 @@
       "price": "8",
       "quantity": "1",
       "description": "Custard style, baked mac n’ cheese. It’s an old school southern recipe. One Pint",
-      "active": true
+      "active": false
     },
     {
       "item": "Smoked Jalapeno n’ Brisket Beans",
@@ -140,14 +140,14 @@
       "price": "25",
       "quantity": "1",
       "description": "An indulgent take on the classic. One Loaf Pan",
-      "active": true
+      "active": false
     },
     {
       "item": "Tortillas",
       "price": "5",
       "quantity": "1",
       "description": "Made from beef fat and are the bomb.",
-      "active": true
+      "active": false
     }
   ],
   "extras": [
@@ -156,7 +156,7 @@
       "price": "5",
       "quantity": "1",
       "description": "One pint of your below.",
-      "active": true,
+      "active": false,
       "sauce": true
     },
     {
@@ -164,7 +164,7 @@
       "price": "10",
       "quantity": "1",
       "description": "Called “Liquid Gold.” Rendered beef fat from our briskets. Great for cooking and frying!",
-      "active": true
+      "active": false
     }
   ],
   "delivery": [
