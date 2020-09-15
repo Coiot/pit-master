@@ -8,6 +8,8 @@ public_folder: "/images/uploads" # The src attribute for uploaded media will beg
 collections:
   - name: "home" 
     label: "Order Page" 
+    editor: 
+        preview: false 
     files:
     - name: "cta" 
       label: "Call-to-Action" 
@@ -29,8 +31,6 @@ collections:
       label: "Menu" 
       format: 'json'
       file: "content/page/menu.json"
-      editor: 
-        preview: false 
       fields: 
       - label: "Plates"
         name: "plates"
@@ -111,6 +111,8 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
   - label: "FAQs"
     name: "faq"
+    editor: 
+        preview: false 
     files:
     - label: "FAQs"
       name: "faq"
@@ -127,6 +129,8 @@ collections:
             - {label: Answer, name: answer, widget: string}
   - label: "Setup"
     name: "setup"
+    editor: 
+        preview: false 
     files:
     - label: "Site Info"
       name: "info"
@@ -158,6 +162,8 @@ collections:
             - {label: URL, name: url, widget: string}
   - label: 'Categories'
     name: 'blogcategories'
+    editor: 
+        preview: false 
     folder: "content/categories/posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
