@@ -66,6 +66,14 @@ collections:
           - {label: Name, name: item, widget: string}
           - {label: Price, name: price, widget: string}
           - {label: Description, name: description, widget: string}
+      - label: 'Delivery'
+        name: 'delivery'
+        widget: 'list'
+        fields:
+          - {label: 'Active', name: active, widget: boolean, default: true}
+          - {label: Name, name: item, widget: string}
+          - {label: Price, name: price, widget: string}
+          - {label: Description, name: description, widget: string}          
   - name: "about" 
     label: "About Page" 
     editor: 
