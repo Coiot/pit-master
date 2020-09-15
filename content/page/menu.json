@@ -173,21 +173,21 @@
       "price": "5",
       "quantity": "1",
       "description": "Flat delivery fee. Order will go out as soon as it's ready on grilling day.",
-      "active": true
+      "active": false
     },
     {
       "item": "Quaility Tip",
       "price": "5",
       "quantity": "1",
       "description": "The least you can provide our employeed driver.",
-      "active": true
+      "active": false
     },
     {
       "item": "Generous Tip",
       "price": "10",
       "quantity": "1",
       "description": "Get our deserving young lad a nice treat.",
-      "active": true
+      "active": false
     }
   ]
 }
