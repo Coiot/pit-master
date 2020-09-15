@@ -32,41 +32,46 @@
               :key="plate.item"
               class="plate xs-flex xs-flex-column-reverse md-flex-row xs-my6 md-my4 xs-py1 md-py2"
             >
-              <div v-if="plate.active === true" class="col xs-col-12 md-col-6 xs-px0 md-px2 xs-mt2">
-                <h3 class="plate-title main-title xs-mt4">{{ plate.item }}</h3>
-                <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
-                <p class="xs-mb2">{{ plate.description }}</p>
-                <select
-                  class="xs-p1 select"
-                  v-if="plate.side1"
-                  v-model="side1"
-                  name="sides"
-                  required
-                >
-                  <option value disabled selected hidden>Pick a Side</option>
-                  <option value="Southern Mac n’ Cheese">Southern Mac n’ Cheese</option>
-                  <option value="Smoked Jalapeno n’ Brisket Beans">Smoked Jalapeno n’ Brisket Beans</option>
-                  <option value="Mexican Street Corn Salad">Mexican Street Corn Salad</option>
-                  <option value="Coleslaw">Coleslaw</option>
-                  <option value="Banana Pudding">Banana Pudding</option>
-                  <option value="Tortillas">Tortillas</option>
-                </select>
-                <select
-                  class="xs-p1 select"
-                  v-show="plate.side2"
-                  v-model="side2"
-                  name="sides"
-                  required
-                >
-                  <option value disabled selected hidden>Pick another Side</option>
-                  <option value="Southern Mac n’ Cheese">Southern Mac n’ Cheese</option>
-                  <option value="Smoked Jalapeno n’ Brisket Beans">Smoked Jalapeno n’ Brisket Beans</option>
-                  <option value="Mexican Street Corn Salad">Mexican Street Corn Salad</option>
-                  <option value="Coleslaw">Coleslaw</option>
-                  <option value="Banana Pudding">Banana Pudding</option>
-                  <option value="Tortillas">Tortillas</option>
-                </select>
-                <!-- <input
+              <div v-if="plate.active === true">
+                <div class="col xs-col-12 md-col-6 xs-px0 md-px2 xs-mt2">
+                  <h3 class="plate-title main-title xs-mt4">{{ plate.item }}</h3>
+                  <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
+                  <p class="xs-mb2">{{ plate.description }}</p>
+                  <select
+                    class="xs-p1 select"
+                    v-if="plate.side1"
+                    v-model="side1"
+                    name="sides"
+                    required
+                  >
+                    <option value disabled selected hidden>Pick a Side</option>
+                    <option value="Southern Mac n’ Cheese">Southern Mac n’ Cheese</option>
+                    <option
+                      value="Smoked Jalapeno n’ Brisket Beans"
+                    >Smoked Jalapeno n’ Brisket Beans</option>
+                    <option value="Mexican Street Corn Salad">Mexican Street Corn Salad</option>
+                    <option value="Coleslaw">Coleslaw</option>
+                    <option value="Banana Pudding">Banana Pudding</option>
+                    <option value="Tortillas">Tortillas</option>
+                  </select>
+                  <select
+                    class="xs-p1 select"
+                    v-show="plate.side2"
+                    v-model="side2"
+                    name="sides"
+                    required
+                  >
+                    <option value disabled selected hidden>Pick another Side</option>
+                    <option value="Southern Mac n’ Cheese">Southern Mac n’ Cheese</option>
+                    <option
+                      value="Smoked Jalapeno n’ Brisket Beans"
+                    >Smoked Jalapeno n’ Brisket Beans</option>
+                    <option value="Mexican Street Corn Salad">Mexican Street Corn Salad</option>
+                    <option value="Coleslaw">Coleslaw</option>
+                    <option value="Banana Pudding">Banana Pudding</option>
+                    <option value="Tortillas">Tortillas</option>
+                  </select>
+                  <!-- <input
                   v-show="plate.side2"
                   v-model="side2"
                   name="sides"
@@ -82,27 +87,28 @@
                   <option value="Coleslaw"></option>
                   <option value="Banana Pudding"></option>
                   <option value="Tortillas"></option>
-                </datalist>-->
-                <label class="label" for="plate.quantity">Quanitity:</label>
-                <input
-                  type="number"
-                  v-model="plate.quantity"
-                  id="plate.quantity"
-                  class="xs-p1"
-                  min="0"
-                  max="20"
-                  pattern="[0-9]*"
-                  oninput="(!validity.rangeOverflow||(value=10)) && (!validity.rangeUnderflow||(value=1)) &&(!validity.stepMismatch||(value=parseInt(this.value)));"
-                />
-                <button
-                  class="button xs-px3 xs-py2 xs-my1"
-                  @click="cartAdd(plate.item, plate.quantity, plate.price, side1, side2, sauce)"
-                >+ ${{ plate.price }}</button>
-              </div>
-              <div class="col xs-col-12 md-col-6">
-                <transition appear name="fade">
-                  <img :src="plate.image" :alt="plate.item" />
-                </transition>
+                  </datalist>-->
+                  <label class="label" for="plate.quantity">Quanitity:</label>
+                  <input
+                    type="number"
+                    v-model="plate.quantity"
+                    id="plate.quantity"
+                    class="xs-p1"
+                    min="0"
+                    max="20"
+                    pattern="[0-9]*"
+                    oninput="(!validity.rangeOverflow||(value=10)) && (!validity.rangeUnderflow||(value=1)) &&(!validity.stepMismatch||(value=parseInt(this.value)));"
+                  />
+                  <button
+                    class="button xs-px3 xs-py2 xs-my1"
+                    @click="cartAdd(plate.item, plate.quantity, plate.price, side1, side2, sauce)"
+                  >+ ${{ plate.price }}</button>
+                </div>
+                <div class="col xs-col-12 md-col-6">
+                  <transition appear name="fade">
+                    <img :src="plate.image" :alt="plate.item" />
+                  </transition>
+                </div>
               </div>
             </article>
           </section>
