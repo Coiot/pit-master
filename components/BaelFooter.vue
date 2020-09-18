@@ -8,9 +8,6 @@
             <span class="red">|</span>
             &nbsp;
             <nuxt-link to="/about">Our Story</nuxt-link>&nbsp;
-            <!-- <span class="red">|</span>
-            &nbsp;
-            <nuxt-link to="/community">Community</nuxt-link>&nbsp;-->
             <span class="red">|</span>
             &nbsp;
             <nuxt-link to="/contact">Contact</nuxt-link>
