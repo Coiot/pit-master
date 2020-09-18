@@ -17,7 +17,7 @@
     <ul class="zap-slideout-menu list-unstyled black-font">
       <li class="zap-slideout-menu-item menu-header">
         <img
-          style="width:180px;"
+          style="width:220px;"
           class="xs-block xs-mb2"
           v-if="this.$store.state.siteInfo.siteicon  && this.$store.state.siteInfo.showmenu"
           :src="this.$store.state.siteInfo.siteicon"
@@ -41,9 +41,9 @@
       <li class="zap-slideout-menu-item--small">
         <a href="tel:503-967-9755">(503) 967-9755</a>
       </li>
-      <li class="zap-slideout-menu-item--small">
+      <!-- <li class="zap-slideout-menu-item--small">
         <a href="https://goo.gl/maps/GHJYXdxoinF7DoRTA">3307 NE 142nd ave</a>
-      </li>
+      </li>-->
       <li class="zap-slideout-menu-item--small">
         <a href="mailto:joshmotesbbq@gmail.com">joshmotesbbq@gmail.com</a>
       </li>

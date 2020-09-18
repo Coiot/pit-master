@@ -8,9 +8,9 @@
             <span class="red">|</span>
             &nbsp;
             <nuxt-link to="/about">Our Story</nuxt-link>&nbsp;
-            <span class="red">|</span>
+            <!-- <span class="red">|</span>
             &nbsp;
-            <nuxt-link to="/community">Community</nuxt-link>&nbsp;
+            <nuxt-link to="/community">Community</nuxt-link>&nbsp;-->
             <span class="red">|</span>
             &nbsp;
             <nuxt-link to="/contact">Contact</nuxt-link>
@@ -26,8 +26,17 @@
           <p v-show="siteDescription">{{siteDescription}}</p>
         </div>
       </div>-->
-      <div class="c-6 xs-p3 xs-border-top">
-        <div class="item">
+      <div class="xs-flex c-12 xs-p3 xs-border-top">
+        <!-- <div class="item xs-px3">
+          <img
+            style="width:150px;"
+            class="xs-block xs-mb2"
+            v-if="this.$store.state.siteInfo.siteicon  && this.$store.state.siteInfo.showmenu"
+            :src="this.$store.state.siteInfo.siteicon"
+            :alt="menuSiteName"
+          />
+        </div>-->
+        <div class="item xs-pl1">
           <div
             v-show="connectData"
             class="footer__heading xs-mb2"
@@ -39,6 +48,7 @@
           </ul>
         </div>
       </div>
+
       <div class="c-12 xs-text-left xs-p2 xs-border-top">
         <div class="item xs-text-6 md-text-5">
           <p>

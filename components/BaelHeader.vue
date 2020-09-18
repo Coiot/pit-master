@@ -3,9 +3,19 @@
     <div class="r">
       <div class="c-9 xs-text-left xs-p2">
         <div class="item">
-          <nuxt-link class="sitename" to="/" exact>{{headerSiteName}}</nuxt-link>
+          <nuxt-link class="sitename" to="/" exact>{{headerSiteName}}</nuxt-link>&nbsp;&nbsp;
+          <span class="red">|</span>
+          &nbsp;
+          <nuxt-link to="/about">Our Story</nuxt-link>&nbsp;
+          <!-- <span class="red">|</span>
+            &nbsp;
+          <nuxt-link to="/community">Community</nuxt-link>&nbsp;-->
+          <span class="red">|</span>
+          &nbsp;
+          <nuxt-link to="/contact">Contact</nuxt-link>
         </div>
       </div>
+
       <div
         class="c-3 xs-border-top xs-border-bottom sm-border-top-none sm-border-bottom-none sm-border-left sm-border-right xs-p2 xs-collapse"
       >
