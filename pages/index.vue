@@ -4,7 +4,7 @@
       <div class="xs-mt2 xs-p2 bcg-item">
         <div class="item xs-block xs-full-height">
           <section class="col xs-col-12 xs-my4">
-            <div v-if="orders >= 1" class="cta white col xs-col-12 xs-p6">
+            <div v-if="orders >= 1" class="cta white col xs-col-12 xs-px5 xs-py6">
               <h1 class="white xs-pt4 xs-pb3 main-title">{{ cta.title }}</h1>
               <p class="secondary-title">{{ cta.body }}</p>
               <p class="secondary-title xs-pt1">
@@ -504,7 +504,7 @@ export default {
 
 <style>
 .cta {
-  background: url(https://pit-master.netlify.app/images/uploads/banner_home1.jpg)
+  background: url(https://pit-master.netlify.app/images/uploads/banner_home2.jpg)
     no-repeat center center fixed;
   background-size: cover;
   font-size: 120%;
@@ -513,7 +513,7 @@ export default {
 
 .white {
   color: white;
-  text-shadow: 1px 2px slategrey;
+  text-shadow: 3px 3px 1px #424854, -1px -1px 1px #bbd7f0;
 }
 
 .big {
