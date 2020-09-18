@@ -4,13 +4,15 @@
       <div class="c-12 xs-text-left xs-p2">
         <div class="item">
           <nuxt-link class="sitename" to="/" exact>{{headerSiteName}}</nuxt-link>
-          <span>&nbsp;&nbsp;</span>
-          <span class="red">|</span>
-          &nbsp;
-          <nuxt-link to="/about">Our Story</nuxt-link>&nbsp;
-          <span class="red">|</span>
-          &nbsp;
-          <nuxt-link to="/contact">Contact</nuxt-link>
+          <span class="header-menu">
+            &nbsp;&nbsp;
+            <span class="red">|</span>
+            &nbsp;
+            <nuxt-link to="/about">Our Story</nuxt-link>&nbsp;
+            <span class="red">|</span>
+            &nbsp;
+            <nuxt-link to="/contact">Contact</nuxt-link>
+          </span>
         </div>
       </div>
 
@@ -134,6 +136,9 @@ nav {
 @media only screen and (max-width: 40rem) {
   .results {
     width: 94vw;
+  }
+  .header-menu {
+    display: none;
   }
 }
 </style>

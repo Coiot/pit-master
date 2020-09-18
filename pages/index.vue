@@ -513,7 +513,7 @@ export default {
 
 .white {
   color: white;
-  text-shadow: 3px 3px 1px #30333e, -1px -1px 1px #abc4dc;
+  text-shadow: 3px 3px 1px #30333e, -1px -1px 1px #abc4dc, 0 0 3px #1a1a1a;
 }
 
 .big {
@@ -635,6 +635,9 @@ input:active {
   border-color: #80d3ff !important;
 }
 @media only screen and (max-width: 45rem) {
+  .cta {
+    font-size: 100%;
+  }
   .section-title {
     padding: 0 0.5em 0.1em;
     margin: 0 0 0.3em;
