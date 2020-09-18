@@ -513,7 +513,7 @@ export default {
 
 .white {
   color: white;
-  text-shadow: 3px 3px 1px #424854, -1px -1px 1px #bbd7f0;
+  text-shadow: 3px 3px 1px #30333e, -1px -1px 1px #abc4dc;
 }
 
 .big {
