@@ -1,7 +1,7 @@
 <template>
   <nav ref="navBar" id="navbar" class="sm-border-bottom wrapper">
     <div class="r">
-      <div class="c-9 xs-text-left xs-p2">
+      <div class="c-12 xs-text-left xs-p2">
         <div class="item">
           <nuxt-link class="sitename" to="/" exact>{{headerSiteName}}</nuxt-link>&nbsp;&nbsp;
           <span class="red">|</span>
@@ -16,7 +16,7 @@
         </div>
       </div>
 
-      <div
+      <!-- <div
         class="c-3 xs-border-top xs-border-bottom sm-border-top-none sm-border-bottom-none sm-border-left sm-border-right xs-p2 xs-collapse"
       >
         <div class="item xs-flex">
@@ -28,12 +28,12 @@
             event-name="searchChanged"
           />
         </div>
-      </div>
+      </div>-->
     </div>
   </nav>
 </template>
 <script>
-import VueFuse from "~/components/VueFuse";
+// import VueFuse from "~/components/VueFuse";
 export default {
   props: ["posts"],
   data() {
@@ -53,9 +53,9 @@ export default {
       compResults: [],
     };
   },
-  components: {
-    VueFuse,
-  },
+  // components: {
+  //   VueFuse,
+  // },
   computed: {
     allPosts() {
       let posts = this.$store.state.blogPosts;
