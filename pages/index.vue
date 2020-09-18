@@ -3,7 +3,7 @@
     <div class="full-height single">
       <div class="xs-mt2 xs-p2 bcg-item">
         <div class="item xs-block xs-full-height">
-          <section class="col xs-col-12 xs-mt4">
+          <section class="col xs-col-12 xs-my4">
             <div v-if="orders >= 1" class="cta white col xs-col-12 xs-p6">
               <h1 class="white xs-pt4 xs-pb3 main-title">{{ cta.title }}</h1>
               <p class="secondary-title">{{ cta.body }}</p>
@@ -21,10 +21,10 @@
             </div>
           </section>
           <Modal v-if="orders === 1" />
-          <section class="col xs-col-12 xs-p2 xs-px2 xs-my3 md-px3 card">
+          <!-- <section class="col xs-col-12 xs-p2 xs-px2 xs-my3 md-px3 card">
             <h2 class="secondary-title">{{ notice.title }}</h2>
             <p>{{ notice.body }}</p>
-          </section>
+          </section>-->
           <section v-if="!menu.plates.length" class="col xs-col-12 xs-py2 xs-px1 xs-my4 md-px4">
             <h2 class="section-title main-title xs-py1">Barbecue Plates</h2>
             <article
@@ -290,7 +290,7 @@
                 />
                 <span class="input-focus" aria-hidden="true"></span>
               </p>
-              <p class="form-row xs-mt2">
+              <!-- <p class="form-row xs-mt2">
                 <label class="form-label" for="address">Address</label>
                 <input
                   type="address"
@@ -301,7 +301,7 @@
                   placeholder="Enter Address if Delivery"
                 />
                 <span class="input-focus" aria-hidden="true"></span>
-              </p>
+              </p>-->
               <h3 class="secondary-title xs-mt3">Please enter your payment details:</h3>
               <p class="form-row xs-mt2">
                 <label class="form-label" for="email">Email</label>
@@ -504,7 +504,7 @@ export default {
 
 <style>
 .cta {
-  background: url(https://pit-master.netlify.app/images/uploads/cta2.jpg)
+  background: url(https://pit-master.netlify.app/images/uploads/banner_home1.jpg)
     no-repeat center center fixed;
   background-size: cover;
   font-size: 120%;
@@ -513,6 +513,7 @@ export default {
 
 .white {
   color: white;
+  text-shadow: 1px 2px slategrey;
 }
 
 .big {
@@ -579,7 +580,7 @@ section {
   position: sticky;
   bottom: 0;
   z-index: 10;
-  background: #fff;
+  background: whitesmoke;
 }
 
 .label {

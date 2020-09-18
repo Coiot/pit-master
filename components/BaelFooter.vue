@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="c-6 xs-p3 xs-border-top">
+      <!-- <div class="c-6 xs-p3 xs-border-top">
         <div class="item">
           <div
             v-show="siteDescription"
@@ -25,7 +25,7 @@
           >What is Josh Motes BBQ all about?</div>
           <p v-show="siteDescription">{{siteDescription}}</p>
         </div>
-      </div>
+      </div>-->
       <div class="c-6 xs-p3 xs-border-top">
         <div class="item">
           <div
@@ -66,8 +66,8 @@ export default {
     },
     siteDescription() {
       return this.$store.state.siteInfo.sitedescription;
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -22,6 +22,20 @@
             </div>
           </section>
 
+          <div class="embedsocial-instagram" data-ref="cbdf62376481a562b94a207bf4257e0ace5ff8a1"></div>
+          <script>
+  (function(d, s, id) {
+    var js;
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://embedsocial.com/embedscript/in.js";
+    d.getElementsByTagName("head")[0].appendChild(js);
+  })(document, "script", "EmbedSocialInstagramScript");
+          </script>
+
           <!-- <section v-if="about.members" class="col xs-col-12 xs-py2 xs-text-center">
             <h2 class="xs-py3 main-title">The Squad</h2>
             <figure

@@ -31,9 +31,9 @@
       <li class="zap-slideout-menu-item--small">
         <nuxt-link to="/about" exact>Our Story</nuxt-link>
       </li>
-      <li class="zap-slideout-menu-item--small">
+      <!-- <li class="zap-slideout-menu-item--small">
         <nuxt-link to="/community" exact>Community</nuxt-link>
-      </li>
+      </li>-->
       <li class="zap-slideout-menu-item--small">
         <nuxt-link to="/contact" exact>Contact Form</nuxt-link>
       </li>

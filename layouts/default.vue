@@ -23,7 +23,7 @@ export default {
 
         this.$store.commit("SET_NAVHEIGHT", height - 1);
       }
-    }
+    },
   },
   updated() {
     if (process.browser) {
@@ -52,13 +52,13 @@ export default {
     },
     blogtitle() {
       return this.$store.state.blogTitle;
-    }
+    },
   },
   components: {
     SlideOut,
     BaelHeader,
-    BaelFooter
-  }
+    BaelFooter,
+  },
 };
 </script>
 
@@ -71,6 +71,7 @@ body {
   font-family: "Bitter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
+  background-color: whitesmoke;
 }
 p {
   line-height: 1.6;
