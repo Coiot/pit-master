@@ -3,21 +3,32 @@
     <div class="full-height single">
       <div class="xs-mt2 xs-p2 bcg-item">
         <div class="item xs-block xs-full-height">
-          <section class="col xs-col-12 xs-my4">
-            <div v-if="orders >= 1" class="cta white col xs-col-12 xs-px5 xs-py6">
-              <h1 class="white xs-pt4 xs-pb3 main-title">{{ cta.title }}</h1>
-              <p class="secondary-title">{{ cta.body }}</p>
-              <!-- <p class="secondary-title xs-pt1">
+          <section class="cta col xs-col-12 xs-my4">
+            <div class="xs-flex xs-flex-justify-center xs-flex-align-center">
+              <div class="xs-col-4 xs-px3 md-py2 xs-hide sm-hide md-flex xs-flex-justify-center">
+                <img
+                  style="width:280px; background-color: #fff; border-radius: 50%;"
+                  class="xs-block"
+                  v-if="this.$store.state.siteInfo.siteicon  && this.$store.state.siteInfo.showmenu"
+                  :src="this.$store.state.siteInfo.siteicon"
+                  :alt="menuSiteName"
+                />
+              </div>
+              <div v-if="orders >= 1" class="white xs-col-8 xs-px2 md-py5 md-px5 md-py5">
+                <h1 class="white xs-pt4 xs-pb3 main-title">{{ cta.title }}</h1>
+                <p class="secondary-title">{{ cta.body }}</p>
+                <!-- <p class="secondary-title xs-pt1">
                 Only
                 <span v-if="orders <= 5" class="bigger">{{ orders }}</span>
                 <span v-else class="big">{{ orders }}</span> Slots Left!!
-              </p>-->
-            </div>
-            <div v-else class="cta col xs-col-12 xs-p6">
-              <h1 class="white xs-pt4 xs-py3 main-title">Sold Out!</h1>
-              <p
-                class="white secondary-title xs-my2"
-              >All available slots for this week are filled. Follow us on social media to know when we'll be grilling again.</p>
+                </p>-->
+              </div>
+              <div v-else class="cta col xs-col-12 xs-p6">
+                <h1 class="white xs-pt4 xs-py3 main-title">Sold Out!</h1>
+                <p
+                  class="white secondary-title xs-my2"
+                >All available slots for this week are filled. Follow us on social media to know when we'll be grilling again.</p>
+              </div>
             </div>
           </section>
           <Modal v-if="orders === 1" />
@@ -634,9 +645,14 @@ input:active {
 .card {
   border-color: #80d3ff !important;
 }
+@media only screen and (max-width: 80rem) {
+  .cta {
+    font-size: 90% !important;
+  }
+}
 @media only screen and (max-width: 45rem) {
   .cta {
-    font-size: 90%;
+    font-size: 85% !important;
   }
   .section-title {
     padding: 0 0.5em 0.1em;
