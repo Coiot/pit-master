@@ -7,7 +7,7 @@
             <div class="xs-flex xs-flex-justify-center xs-flex-align-center">
               <div class="xs-col-4 xs-px3 md-py2 xs-hide sm-hide md-flex xs-flex-justify-center">
                 <img
-                  style="width:280px; background-color: #fff; border-radius: 50%;"
+                  style="width:280px; background-color: #fff; border-radius: 50%; box-shadow: 3px 3px 2px #30333e"
                   class="xs-block"
                   v-if="this.$store.state.siteInfo.siteicon  && this.$store.state.siteInfo.showmenu"
                   :src="this.$store.state.siteInfo.siteicon"
