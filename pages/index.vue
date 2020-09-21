@@ -7,11 +7,11 @@
             <div v-if="orders >= 1" class="cta white col xs-col-12 xs-px5 xs-py6">
               <h1 class="white xs-pt4 xs-pb3 main-title">{{ cta.title }}</h1>
               <p class="secondary-title">{{ cta.body }}</p>
-              <p class="secondary-title xs-pt1">
+              <!-- <p class="secondary-title xs-pt1">
                 Only
                 <span v-if="orders <= 5" class="bigger">{{ orders }}</span>
                 <span v-else class="big">{{ orders }}</span> Slots Left!!
-              </p>
+              </p>-->
             </div>
             <div v-else class="cta col xs-col-12 xs-p6">
               <h1 class="white xs-pt4 xs-py3 main-title">Sold Out!</h1>
@@ -636,7 +636,7 @@ input:active {
 }
 @media only screen and (max-width: 45rem) {
   .cta {
-    font-size: 100%;
+    font-size: 90%;
   }
   .section-title {
     padding: 0 0.5em 0.1em;
