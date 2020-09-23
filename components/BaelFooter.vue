@@ -23,17 +23,8 @@
           <p v-show="siteDescription">{{siteDescription}}</p>
         </div>
       </div>-->
-      <div class="xs-flex c-12 xs-p3 xs-border-top">
-        <!-- <div class="item xs-px3">
-          <img
-            style="width:150px;"
-            class="xs-block xs-mb2"
-            v-if="this.$store.state.siteInfo.siteicon  && this.$store.state.siteInfo.showmenu"
-            :src="this.$store.state.siteInfo.siteicon"
-            :alt="menuSiteName"
-          />
-        </div>-->
-        <div class="item xs-pl1">
+      <div class="c-6 xs-p3 xs-border-top">
+        <div class="item">
           <div
             v-show="connectData"
             class="footer__heading xs-mb2"
@@ -41,6 +32,19 @@
           <ul class="list-unstyled">
             <li v-show="connectData" v-for="(c,i) in connectData" :key="i" class="xs-mb1">
               <a :href="c.url">{{c.name}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="xs-flex c-6 xs-p3 xs-border-top">
+        <div class="item xs-pl1">
+          <div class="footer__heading xs-mb2">Contact Info</div>
+          <ul class="list-unstyled">
+            <li class="xs-mb1">
+              <a href="tel:503-967-9755">(503) 967-9755</a>
+            </li>
+            <li class="xs-mb1">
+              <a href="mailto:joshmotesbbq@gmail.com">joshmotesbbq@gmail.com</a>
             </li>
           </ul>
         </div>
