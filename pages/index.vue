@@ -130,7 +130,7 @@
             <h2 class="section-title main-title">Just Meats</h2>
             <article v-for="meat in menu.meats" :key="meat.item" class="xs-my2">
               <div v-if="meat.active === true">
-                <div class="xs-flex">
+                <div class="xs-flex xs-flex-column sm-flex-row">
                   <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr2">{{ meat.item }}</h3>
                   <label class="label" for="meat.quantity">Quanitity:</label>
                   <input
@@ -156,8 +156,10 @@
             <h2 class="section-title main-title">Our Sides</h2>
             <article v-for="side in menu.sides" :key="side.item" class="xs-my2">
               <div v-if="side.active === true">
-                <div class="xs-flex">
-                  <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr2">{{ side.item }}</h3>
+                <div class="xs-flex xs-flex-column sm-flex-row">
+                  <h3
+                    class="secondary-title leaders xs-flex xs-flex xs-flex-grow-1 xs-mr2"
+                  >{{ side.item }}</h3>
                   <label class="label" for="side.quantity">Quanitity:</label>
                   <input
                     type="number"
@@ -182,7 +184,7 @@
             <h2 class="section-title main-title">Extras</h2>
             <article v-for="extra in menu.extras" :key="extra.item" class="xs-my2">
               <div v-if="extra.active === true">
-                <div class="xs-flex">
+                <div class="xs-flex xs-flex-column sm-flex-row">
                   <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr2">{{ extra.item }}</h3>
                   <label class="label" for="extra.quantity">Quanitity:</label>
                   <input
@@ -221,7 +223,7 @@
             <h2 class="section-title main-title">Delivery</h2>
             <article v-for="delivery in menu.delivery" :key="delivery.item" class="xs-my2">
               <div v-if="delivery.active === true">
-                <div class="xs-flex">
+                <div class="xs-flex xs-flex-column sm-flex-row">
                   <h3
                     class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr2"
                   >{{ delivery.item }}</h3>
@@ -669,8 +671,12 @@ input:active {
     background-size: cover;
     font-size: 90% !important;
   }
+
+  .button {
+    margin-left: 0.3em;
+  }
 }
-@media only screen and (max-width: 45rem) {
+@media only screen and (max-width: 40rem) {
   .cta {
     font-size: 85% !important;
   }
@@ -689,6 +695,27 @@ input:active {
   .plate:nth-of-type(even) div {
     text-align: left;
     align-items: flex-start;
+  }
+
+  label {
+    margin-top: 0.5rem;
+  }
+
+  .label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    align-self: flex-start;
+  }
+
+  input {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .button {
+    max-width: 40%;
+    margin-top: 0.5rem;
+    margin-left: 0;
   }
   .xs-collapse {
     visibility: hidden;

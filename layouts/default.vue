@@ -95,7 +95,7 @@ p {
     font-size: 1.9rem;
   }
   .secondary-title {
-    font-size: 1.2em;
+    font-size: 1.6em;
   }
 }
 .feat-wrapper {
