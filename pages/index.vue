@@ -7,14 +7,17 @@
             <div class="xs-flex xs-flex-justify-center xs-flex-align-center">
               <div class="xs-col-4 xs-px3 md-py2 xs-hide sm-hide md-flex xs-flex-justify-center">
                 <img
-                  style="width:280px; background-color: #fff; border-radius: 50%; box-shadow: 3px 3px 2px #30333e"
+                  style="width:280px; background-color: #fff; border-radius: 100%; box-shadow: 3px 3px 2px #30333e"
                   class="xs-block"
                   v-if="this.$store.state.siteInfo.siteicon  && this.$store.state.siteInfo.showmenu"
                   :src="this.$store.state.siteInfo.siteicon"
                   :alt="menuSiteName"
                 />
               </div>
-              <div v-if="orders >= 1" class="white xs-col-8 xs-px2 md-py5 md-px5 md-py5">
+              <div
+                v-if="orders >= 1"
+                class="white xs-col-8 xs-px2 xs-mb3 md-py5 md-px5 md-py5 xs-mb0"
+              >
                 <h1 class="white xs-pt4 xs-pb3 main-title">{{ cta.title }}</h1>
                 <p class="secondary-title">{{ cta.body }}</p>
                 <!-- <p class="secondary-title xs-pt1">
@@ -23,7 +26,7 @@
                 <span v-else class="big">{{ orders }}</span> Slots Left!!
                 </p>-->
               </div>
-              <div v-else class="cta col xs-col-12 xs-p6">
+              <div v-else class="cta col xs-col-12 xs-p6 xs-mb4">
                 <h1 class="white xs-pt4 xs-py3 main-title">Sold Out!</h1>
                 <p
                   class="white secondary-title xs-my2"
@@ -524,7 +527,8 @@ export default {
 
 .white {
   color: white;
-  text-shadow: 3px 3px 1px #30333e, -1px -1px 1px #abc4dc, 0 0 3px #1a1a1a;
+  text-shadow: 3px 3px 1px #30333e, -1px -1px 1px #abc4dc, 0 0 3px #1a1a1a,
+    0 0 8px #1a1a1a, 0 0 10px #1a1a1a, 0 0 12px #1a1a1a;
 }
 
 .big {
@@ -647,6 +651,9 @@ input:active {
 }
 @media only screen and (max-width: 80rem) {
   .cta {
+    background: url(https://pit-master.netlify.app/images/uploads/banner_home2.jpg)
+      no-repeat center center;
+    background-size: cover;
     font-size: 90% !important;
   }
 }
