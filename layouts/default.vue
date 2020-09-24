@@ -89,12 +89,13 @@ p {
   font-weight: 800;
   align-items: flex-end;
 }
+
 @media only screen and (max-width: 40rem) {
   .main-title {
     font-size: 1.9rem;
   }
   .secondary-title {
-    font-size: 1.4em;
+    font-size: 1.2em;
   }
 }
 .feat-wrapper {

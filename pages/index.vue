@@ -131,7 +131,7 @@
             <article v-for="meat in menu.meats" :key="meat.item" class="xs-my2">
               <div v-if="meat.active === true">
                 <div class="xs-flex">
-                  <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ meat.item }}</h3>
+                  <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr2">{{ meat.item }}</h3>
                   <label class="label" for="meat.quantity">Quanitity:</label>
                   <input
                     type="number"
@@ -157,7 +157,7 @@
             <article v-for="side in menu.sides" :key="side.item" class="xs-my2">
               <div v-if="side.active === true">
                 <div class="xs-flex">
-                  <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ side.item }}</h3>
+                  <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr2">{{ side.item }}</h3>
                   <label class="label" for="side.quantity">Quanitity:</label>
                   <input
                     type="number"
@@ -183,7 +183,7 @@
             <article v-for="extra in menu.extras" :key="extra.item" class="xs-my2">
               <div v-if="extra.active === true">
                 <div class="xs-flex">
-                  <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4">{{ extra.item }}</h3>
+                  <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr2">{{ extra.item }}</h3>
                   <label class="label" for="extra.quantity">Quanitity:</label>
                   <input
                     type="number"
@@ -223,7 +223,7 @@
               <div v-if="delivery.active === true">
                 <div class="xs-flex">
                   <h3
-                    class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr4"
+                    class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr2"
                   >{{ delivery.item }}</h3>
                   <button
                     class="button xs-px1 md-px3 xs-py1"
@@ -342,7 +342,7 @@
                 <small class="card-error">{{error}}</small>
               </div>
               <button
-                class="pay-with-stripe button xs-mt2"
+                class="pay-with-stripe button xs-mt2 xs-ml0"
                 @click="pay"
                 :disabled="!complete || !stripeEmail || loading"
               >Pay with credit card</button>
@@ -621,6 +621,19 @@ textarea,
   border-radius: 3px !important;
   padding: 0.5em;
   transition: all 0.02s ease-in-out;
+}
+
+.stripe-card {
+  color: #ee4231 !important;
+  line-height: 25px !important;
+  font-family: "Bitter", serif !important;
+  font-size: 16px !important;
+  max-width: 50ch !important;
+  background-color: #fff !important;
+  border: #5cacd7 1px solid !important;
+  border-radius: 3px !important;
+  padding: 0.5em !important;
+  margin: 0 0 0.5em;
 }
 
 .select:hover,
