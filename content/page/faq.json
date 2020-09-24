@@ -2,21 +2,9 @@
   "questions": [
     {
       "question": "Refunds?",
-      "answer": "Sure thing."
-    },
-    {
-      "question": "Peanuts?",
-      "answer": "None whatsover."
-    },
-    {
-      "question": "Dine-in?",
-      "answer": "Not at this time."
-    },
-    {
-      "question": "Calories?",
-      "answer": "A day's worth."
+      "answer": "Because our meat is sourced fresh, cancelations and subsequent refunds will not be honored within 3-days of your pickup/delivery."
     }
   ],
   "title": "Frequently Asked Questions",
-  "body": "Before you send us a message, read our most commonly addressed questions. Save time with a response already here."
+  "body": "See if we can help you right here!"
 }
