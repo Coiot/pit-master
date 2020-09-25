@@ -345,7 +345,7 @@
               </div>
               <button
                 class="pay-with-stripe button xs-mt2 xs-ml0"
-                style="max-width: 80%;"
+                style="max-width: 100%;"
                 @click="pay"
                 :disabled="!complete || !stripeEmail || loading"
               >Pay with credit card</button>
