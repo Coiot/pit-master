@@ -26,8 +26,8 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: siteInfo.sitedescription },
       { property: 'og:type', content: 'website' },
-      { property: 'og:image', content: 'images/uploads/icon.png' },
-      { property: 'twitter:image', content: 'images/uploads/icon.png' }
+      { property: 'og:image', content: 'https://joshmotesbbq.com/images/uploads/icon.png' },
+      { property: 'twitter:image', content: 'https://joshmotesbbq.com/images/uploads/icon.png' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
