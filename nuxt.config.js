@@ -24,8 +24,10 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: siteInfo.sitedescription }
-
+      { hid: 'description', name: 'description', content: siteInfo.sitedescription },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:image', content: 'images/uploads/icon.png' },
+      { property: 'twitter:image', content: 'images/uploads/icon.png' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
