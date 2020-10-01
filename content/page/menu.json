@@ -61,7 +61,7 @@
       "price": "12",
       "quantity": "1",
       "description": "Salt, Pepper, a lil spice, and hours in the smoker. Pull apart with ur fingers. Half LB.",
-      "active": false
+      "active": true
     },
     {
       "item": "Quarter Pork Spare Ribs",
@@ -112,7 +112,7 @@
       "price": "8",
       "quantity": "1",
       "description": "Custard style, baked mac n’ cheese. It’s an old school southern recipe. One Pint",
-      "active": false
+      "active": true
     },
     {
       "item": "Smoked Jalapeno n’ Brisket Beans",
@@ -126,7 +126,7 @@
       "price": "8",
       "quantity": "1",
       "description": "Creamy and smokey with some heat. One Pint.",
-      "active": true
+      "active": false
     },
     {
       "item": "Coleslaw",
