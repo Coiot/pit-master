@@ -39,7 +39,7 @@
             <h2 class="secondary-title">{{ notice.title }}</h2>
             <p>{{ notice.body }}</p>
           </section>-->
-          <section v-if="!menu.plates.length" class="col xs-col-12 xs-py2 xs-px1 xs-my4 md-px4">
+          <section v-if="menu.plates.length" class="col xs-col-12 xs-py2 xs-px1 xs-my4 md-px4">
             <h2 class="section-title main-title xs-py1">Barbecue Plates</h2>
             <article
               v-for="plate in menu.plates"
@@ -180,7 +180,7 @@
               </div>
             </article>
           </section>
-          <section v-if="!menu.meats.length" class="xs-py2 xs-px1 md-px4">
+          <section v-if="menu.meats.length" class="xs-py2 xs-px1 md-px4">
             <h2 class="section-title main-title">Extras</h2>
             <article v-for="extra in menu.extras" :key="extra.item" class="xs-my2">
               <div v-if="extra.active === true">
@@ -219,7 +219,7 @@
               </div>
             </article>
           </section>
-          <section v-if="!menu.meats.length" class="xs-py2 xs-px1 md-px4">
+          <section v-if="menu.meats.length" class="xs-py2 xs-px1 md-px4">
             <h2 class="section-title main-title">Delivery</h2>
             <article v-for="delivery in menu.delivery" :key="delivery.item" class="xs-my2">
               <div v-if="delivery.active === true">
