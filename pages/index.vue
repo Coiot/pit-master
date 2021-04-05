@@ -585,11 +585,11 @@ section {
   margin: 0px 0 0.4em;
   text-align: center;
 }
-.plate:nth-of-type(even) * {
+.plate:nth-of-type(even) {
   text-align: right;
   flex-flow: row-reverse !important;
 }
-.plate:nth-of-type(even) * {
+.plate:nth-of-type(even) div {
   text-align: right;
   align-items: flex-end;
   flex-flow: column !important;
