@@ -46,7 +46,7 @@
               :key="plate.item"
               class="plate xs-flex xs-flex-column-reverse md-flex-row xs-my6 md-my4 xs-py1 md-py2"
             >
-              <div v-if="plate.active === true">
+              
                 <div class="col xs-col-12 md-col-6 xs-px0 md-px2 xs-mt2">
                   <h3 class="plate-title main-title xs-mt4">{{ plate.item }}</h3>
                   <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
@@ -123,7 +123,7 @@
                     <img :src="plate.image" :alt="plate.item" />
                   </transition>
                 </div>
-              </div>
+              
             </article>
           </section>
           <section class="xs-py2 xs-px1 md-px4">
