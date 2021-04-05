@@ -585,11 +585,11 @@ section {
   margin: 0px 0 0.4em;
   text-align: center;
 }
-.plate:nth-of-type(even) {
+.plate:nth-of-type(even) * {
   text-align: right;
   flex-flow: row-reverse !important;
 }
-.plate:nth-of-type(even) div {
+.plate:nth-of-type(even) * {
   text-align: right;
   align-items: flex-end;
   flex-flow: column !important;
@@ -598,7 +598,7 @@ section {
   position: sticky;
   bottom: 0;
   z-index: 10;
-  background: whitesmoke;
+  background: #fbfbfb;
 }
 
 .label {
