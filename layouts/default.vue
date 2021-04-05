@@ -71,7 +71,7 @@ body {
   font-family: "Bitter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
-  background-color: whitesmoke;
+  background-color: #fbfbfb;
 }
 p {
   line-height: 1.6;
