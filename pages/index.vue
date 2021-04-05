@@ -306,7 +306,7 @@
                 />
                 <span class="input-focus" aria-hidden="true"></span>
               </p>
-              <!-- <p class="form-row xs-mt2">
+              <p class="form-row xs-mt2">
                 <label class="form-label" for="address">Address</label>
                 <input
                   type="address"
@@ -317,7 +317,7 @@
                   placeholder="Enter Address if Delivery"
                 />
                 <span class="input-focus" aria-hidden="true"></span>
-              </p>-->
+              </p>
               <h3 class="secondary-title xs-mt3">Please enter your payment details:</h3>
               <p class="form-row xs-mt2">
                 <label class="form-label" for="email">Email</label>
