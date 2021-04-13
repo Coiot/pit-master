@@ -180,14 +180,14 @@
       "price": "5",
       "quantity": "1",
       "description": "Much Appreciated!",
-      "active": true
+      "active": false
     },
     {
       "item": "Generous Tip",
       "price": "10",
       "quantity": "1",
       "description": "Now we're talkin'!",
-      "active": true
+      "active": false
     }
   ]
 }
