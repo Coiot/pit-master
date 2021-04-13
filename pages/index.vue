@@ -521,7 +521,7 @@ export default {
 
 <style>
 .cta {
-  background: url(https://pit-master.netlify.app/images/uploads/banner_home2.jpg)
+  background: url(https://pit-master.netlify.app/images/uploads/cta.jpg)
     no-repeat center center fixed;
   background-size: cover;
   font-size: 120%;
