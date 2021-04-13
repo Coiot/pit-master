@@ -1,7 +1,7 @@
 {
   "plates": [
     {
-      "active": true,
+      "active": false,
       "price": "20",
       "quantity": "1",
       "includes": "Quarter Rack Pork Spare Ribs + 2 Sides",
