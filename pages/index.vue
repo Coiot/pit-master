@@ -5,11 +5,21 @@
         <div class="item xs-block xs-full-height">
           <section class="cta col xs-col-12 xs-my4">
             <div class="xs-flex xs-flex-justify-center xs-flex-align-center">
-              <div class="xs-col-4 xs-px3 md-py2 xs-hide sm-hide md-flex xs-flex-justify-center">
+              <div
+                class="xs-col-4 xs-px3 md-py2 xs-hide sm-hide md-flex xs-flex-justify-center"
+              >
                 <img
-                  style="width:280px; background-color: #fff; border-radius: 100%; box-shadow: 3px 3px 2px #30333e"
+                  style="
+                    width: 280px;
+                    background-color: #fff;
+                    border-radius: 100%;
+                    box-shadow: 3px 3px 2px #30333e;
+                  "
                   class="xs-block"
-                  v-if="this.$store.state.siteInfo.siteicon  && this.$store.state.siteInfo.showmenu"
+                  v-if="
+                    this.$store.state.siteInfo.siteicon &&
+                    this.$store.state.siteInfo.showmenu
+                  "
                   :src="this.$store.state.siteInfo.siteicon"
                   :alt="menuSiteName"
                 />
@@ -28,9 +38,10 @@
               </div>
               <div v-else class="cta col xs-col-12 xs-p6 xs-mb4">
                 <h1 class="white xs-pt4 xs-py3 main-title">Sold Out!</h1>
-                <p
-                  class="white secondary-title xs-my2"
-                >All available slots for this week are filled. Follow us on social media to know when we'll be grilling again.</p>
+                <p class="white secondary-title xs-my2">
+                  All available slots for this week are filled. Follow us on
+                  social media to know when we'll be grilling again.
+                </p>
               </div>
             </div>
           </section>
@@ -39,16 +50,21 @@
             <h2 class="secondary-title">{{ notice.title }}</h2>
             <p>{{ notice.body }}</p>
           </section>-->
-          <section v-if="!menu.plates.length" class="col xs-col-12 xs-py2 xs-px1 xs-my4 md-px4">
+          <section
+            v-if="!menu.plates.length"
+            class="col xs-col-12 xs-py2 xs-px1 xs-my4 md-px4"
+          >
             <h2 class="section-title main-title xs-py1">Barbecue Plates</h2>
             <article
               v-for="plate in menu.plates"
               :key="plate.item"
               class="plate xs-flex xs-flex-column-reverse md-flex-row xs-my6 md-my4 xs-py1 md-py2"
             >
-              
+              <div v-if="plate.active === true">
                 <div class="col xs-col-12 md-col-6 xs-px0 md-px2 xs-mt2">
-                  <h3 class="plate-title main-title xs-mt4">{{ plate.item }}</h3>
+                  <h3 class="plate-title main-title xs-mt4">
+                    {{ plate.item }}
+                  </h3>
                   <p class="xs-pb1 secondary-title">{{ plate.includes }}</p>
                   <p class="xs-mb2">{{ plate.description }}</p>
                   <select
@@ -59,11 +75,15 @@
                     required
                   >
                     <option value disabled selected hidden>Pick a Side</option>
-                    <option value="Southern Mac n’ Cheese">Southern Mac n’ Cheese</option>
-                    <option
-                      value="Smoked Jalapeno n’ Brisket Beans"
-                    >Smoked Jalapeno n’ Brisket Beans</option>
-                    <option value="Mexican Street Corn Salad">Mexican Street Corn Salad</option>
+                    <option value="Southern Mac n’ Cheese">
+                      Southern Mac n’ Cheese
+                    </option>
+                    <option value="Smoked Jalapeno n’ Brisket Beans">
+                      Smoked Jalapeno n’ Brisket Beans
+                    </option>
+                    <option value="Mexican Street Corn Salad">
+                      Mexican Street Corn Salad
+                    </option>
                     <option value="Coleslaw">Coleslaw</option>
                     <option value="Banana Pudding">Banana Pudding</option>
                     <option value="Tortillas">Tortillas</option>
@@ -75,12 +95,18 @@
                     name="sides"
                     required
                   >
-                    <option value disabled selected hidden>Pick another Side</option>
-                    <option value="Southern Mac n’ Cheese">Southern Mac n’ Cheese</option>
-                    <option
-                      value="Smoked Jalapeno n’ Brisket Beans"
-                    >Smoked Jalapeno n’ Brisket Beans</option>
-                    <option value="Mexican Street Corn Salad">Mexican Street Corn Salad</option>
+                    <option value disabled selected hidden>
+                      Pick another Side
+                    </option>
+                    <option value="Southern Mac n’ Cheese">
+                      Southern Mac n’ Cheese
+                    </option>
+                    <option value="Smoked Jalapeno n’ Brisket Beans">
+                      Smoked Jalapeno n’ Brisket Beans
+                    </option>
+                    <option value="Mexican Street Corn Salad">
+                      Mexican Street Corn Salad
+                    </option>
                     <option value="Coleslaw">Coleslaw</option>
                     <option value="Banana Pudding">Banana Pudding</option>
                     <option value="Tortillas">Tortillas</option>
@@ -115,15 +141,26 @@
                   />
                   <button
                     class="button xs-px3 xs-py2 xs-my1"
-                    @click="cartAdd(plate.item, plate.quantity, plate.price, side1, side2, sauce)"
-                  >+ ${{ plate.price }}</button>
+                    @click="
+                      cartAdd(
+                        plate.item,
+                        plate.quantity,
+                        plate.price,
+                        side1,
+                        side2,
+                        sauce
+                      )
+                    "
+                  >
+                    + ${{ plate.price }}
+                  </button>
                 </div>
                 <div class="col xs-col-12 md-col-6">
                   <transition appear name="fade">
                     <img :src="plate.image" :alt="plate.item" />
                   </transition>
                 </div>
-              
+              </div>
             </article>
           </section>
           <section class="xs-py2 xs-px1 md-px4">
@@ -131,7 +168,11 @@
             <article v-for="meat in menu.meats" :key="meat.item" class="xs-my2">
               <div v-if="meat.active === true">
                 <div class="xs-flex xs-flex-column sm-flex-row">
-                  <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr2">{{ meat.item }}</h3>
+                  <h3
+                    class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr2"
+                  >
+                    {{ meat.item }}
+                  </h3>
                   <label class="label" for="meat.quantity">Quanitity:</label>
                   <input
                     type="number"
@@ -146,7 +187,9 @@
                   <button
                     class="button xs-px1 md-px3 xs-py1"
                     @click="cartAdd(meat.item, meat.quantity, meat.price)"
-                  >${{ meat.price }}</button>
+                  >
+                    ${{ meat.price }}
+                  </button>
                 </div>
                 <p class="xs-my1">{{ meat.description }}</p>
               </div>
@@ -159,7 +202,9 @@
                 <div class="xs-flex xs-flex-column sm-flex-row">
                   <h3
                     class="secondary-title leaders xs-flex xs-flex xs-flex-grow-1 xs-mr2"
-                  >{{ side.item }}</h3>
+                  >
+                    {{ side.item }}
+                  </h3>
                   <label class="label" for="side.quantity">Quanitity:</label>
                   <input
                     type="number"
@@ -174,7 +219,9 @@
                   <button
                     class="button xs-px1 md-px3 xs-py1"
                     @click="cartAdd(side.item, side.quantity, side.price)"
-                  >${{ side.price }}</button>
+                  >
+                    ${{ side.price }}
+                  </button>
                 </div>
                 <p class="xs-my1">{{ side.description }}</p>
               </div>
@@ -182,10 +229,18 @@
           </section>
           <section v-if="!menu.meats.length" class="xs-py2 xs-px1 md-px4">
             <h2 class="section-title main-title">Extras</h2>
-            <article v-for="extra in menu.extras" :key="extra.item" class="xs-my2">
+            <article
+              v-for="extra in menu.extras"
+              :key="extra.item"
+              class="xs-my2"
+            >
               <div v-if="extra.active === true">
                 <div class="xs-flex xs-flex-column sm-flex-row">
-                  <h3 class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr2">{{ extra.item }}</h3>
+                  <h3
+                    class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr2"
+                  >
+                    {{ extra.item }}
+                  </h3>
                   <label class="label" for="extra.quantity">Quanitity:</label>
                   <input
                     type="number"
@@ -199,8 +254,19 @@
                   />
                   <button
                     class="button xs-px1 md-px3 xs-py1"
-                    @click="cartAdd(extra.item, extra.quantity, extra.price, side1, side2, sauce)"
-                  >${{ extra.price }}</button>
+                    @click="
+                      cartAdd(
+                        extra.item,
+                        extra.quantity,
+                        extra.price,
+                        side1,
+                        side2,
+                        sauce
+                      )
+                    "
+                  >
+                    ${{ extra.price }}
+                  </button>
                 </div>
                 <p class="xs-my1">{{ extra.description }}</p>
                 <select
@@ -214,23 +280,35 @@
                   <option value="Dark">Dark — Tangy and Rich</option>
                   <option value="White">White — Perfect on Poultry</option>
                   <option value="Vinegar">Vinegar — Tangy and thin</option>
-                  <option value="Bank Street">Bank Street Sauce — Muy Caliente!</option>
+                  <option value="Bank Street">
+                    Bank Street Sauce — Muy Caliente!
+                  </option>
                 </select>
               </div>
             </article>
           </section>
           <section v-if="!menu.meats.length" class="xs-py2 xs-px1 md-px4">
             <h2 class="section-title main-title">Delivery</h2>
-            <article v-for="delivery in menu.delivery" :key="delivery.item" class="xs-my2">
+            <article
+              v-for="delivery in menu.delivery"
+              :key="delivery.item"
+              class="xs-my2"
+            >
               <div v-if="delivery.active === true">
                 <div class="xs-flex xs-flex-column sm-flex-row">
                   <h3
                     class="secondary-title leaders xs-flex xs-flex-grow-1 xs-mr2"
-                  >{{ delivery.item }}</h3>
+                  >
+                    {{ delivery.item }}
+                  </h3>
                   <button
                     class="button xs-px1 md-px3 xs-py1"
-                    @click="cartAdd(delivery.item, delivery.quantity, delivery.price)"
-                  >${{ delivery.price }}</button>
+                    @click="
+                      cartAdd(delivery.item, delivery.quantity, delivery.price)
+                    "
+                  >
+                    ${{ delivery.price }}
+                  </button>
                 </div>
                 <p class="xs-my1">{{ delivery.description }}</p>
               </div>
@@ -248,17 +326,26 @@
                   <h3 class="secondary-title">
                     <span v-if="cartitem.sauce">{{ cartitem.sauce }}</span>
                     {{ cartitem.item }}
-                    <small
-                      v-if="cartitem.side1"
-                    >+ {{ cartitem.side1 }}</small>
+                    <small v-if="cartitem.side1">+ {{ cartitem.side1 }}</small>
                     <small v-if="cartitem.side2">+ {{ cartitem.side2 }}</small>
                   </h3>
                 </div>
                 <div class="xs-flex xs-flex-row">
-                  <button @click="removeOneFromCart(cartitem)" class="button xs-mr2">-</button>
-                  <p class="secondary-title xs-my1 xs-mr2">{{ cartitem.quantity }}</p>
-                  <button @click="addOneToCart(cartitem)" class="button xs-mr2">+</button>
-                  <button @click="removeAllFromCart(cartitem)" class="button">x</button>
+                  <button
+                    @click="removeOneFromCart(cartitem)"
+                    class="button xs-mr2"
+                  >
+                    -
+                  </button>
+                  <p class="secondary-title xs-my1 xs-mr2">
+                    {{ cartitem.quantity }}
+                  </p>
+                  <button @click="addOneToCart(cartitem)" class="button xs-mr2">
+                    +
+                  </button>
+                  <button @click="removeAllFromCart(cartitem)" class="button">
+                    x
+                  </button>
                 </div>
               </div>
             </article>
@@ -269,14 +356,18 @@
           </div>
           <section v-if="orders < 1" class="xs-py2 xs-px1 md-px4">
             <h4 class="main-title">Oh no!</h4>
-            <h5 class="secondary-title">All available order slots have been taken this week.</h5>
+            <h5 class="secondary-title">
+              All available order slots have been taken this week.
+            </h5>
             <p class="xs-my1">We are not accepting new orders at this time.</p>
-            <p
-              class="xs-my1"
-            >However, if you simply must have some BBQ soon, contact us to see if we can squeeze another order in, or if someone has canceled.</p>
-            <p
-              class="xs-my1"
-            >Check tabs on this site and our social media for when we open up orders again.</p>
+            <p class="xs-my1">
+              However, if you simply must have some BBQ soon, contact us to see
+              if we can squeeze another order in, or if someone has canceled.
+            </p>
+            <p class="xs-my1">
+              Check tabs on this site and our social media for when we open up
+              orders again.
+            </p>
           </section>
           <section v-else class="xs-py2 xs-px1 md-px4">
             <div v-if="cartUIStatus === 'idle'" class="payment">
@@ -318,7 +409,9 @@
                 />
                 <span class="input-focus" aria-hidden="true"></span>
               </p>
-              <h3 class="secondary-title xs-mt3">Please enter your payment details:</h3>
+              <h3 class="secondary-title xs-mt3">
+                Please enter your payment details:
+              </h3>
               <p class="form-row xs-mt2">
                 <label class="form-label" for="email">Email</label>
 
@@ -341,21 +434,25 @@
                   :options="stripeOptions"
                   @change="complete = $event.complete"
                 />
-                <small class="card-error">{{error}}</small>
+                <small class="card-error">{{ error }}</small>
               </div>
               <button
                 class="pay-with-stripe button xs-mt2 xs-ml0"
-                style="max-width: 100%;"
+                style="max-width: 100%"
                 @click="pay"
                 :disabled="!complete || !stripeEmail || loading"
-              >Pay with credit card</button>
+              >
+                Pay with credit card
+              </button>
             </div>
 
             <div v-else class="statussubmit">
               <div v-if="cartUIStatus === 'failure'">
                 <h4 class="secondary-title">Oh No!</h4>
                 <p class="xs-my1">Something went wrong!</p>
-                <button class="button" @click="clearCart">Please try again</button>
+                <button class="button" @click="clearCart">
+                  Please try again
+                </button>
               </div>
 
               <div v-else-if="cartUIStatus === 'loading'" class="loadcontain">
@@ -365,13 +462,17 @@
 
               <div v-else-if="cartUIStatus === 'success'" class="loadcontain">
                 <h4 class="secondary-title">Success! Your order is in.</h4>
-                <p class="xs-my1">An email receipt will appear in your inbox shortly.</p>
-                <p
-                  class="xs-my1"
-                >We'll contact you the day of the grilling when your order is ready for pickup or delivery.</p>
-                <p
-                  class="xs-my1"
-                >If you need to cancel your order, we offer refunds before 48 hours of the grilling day.</p>
+                <p class="xs-my1">
+                  An email receipt will appear in your inbox shortly.
+                </p>
+                <p class="xs-my1">
+                  We'll contact you the day of the grilling when your order is
+                  ready for pickup or delivery.
+                </p>
+                <p class="xs-my1">
+                  If you need to cancel your order, we offer refunds before 48
+                  hours of the grilling day.
+                </p>
               </div>
             </div>
           </section>
