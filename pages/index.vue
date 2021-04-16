@@ -768,7 +768,7 @@ input:active {
 }
 @media only screen and (max-width: 80rem) {
   .cta {
-    background: url(https://pit-master.netlify.app/images/uploads/banner_home2.jpg)
+    background: url(https://pit-master.netlify.app/images/uploads/cta.jpg)
       no-repeat center center;
     background-size: cover;
     font-size: 90% !important;
